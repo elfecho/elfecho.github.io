@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "_sidebar.md",
+            "file": "_navbar.md",
             "mode": "source",
             "source": false
           }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_sidebar.md",
+                "file": "_navbar.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -89,12 +89,12 @@
   },
   "active": "bc8510c2a1ef90f0",
   "lastOpenFiles": [
-    "_sidebar.md",
-    "002.md",
     "_navbar.md",
-    "guide.md",
+    "_sidebar.md",
     "_coverpage.md",
+    "guide.md",
     "README.md",
+    "002.md",
     "index.md",
     "404.md",
     "docs/_sidebar.md",
