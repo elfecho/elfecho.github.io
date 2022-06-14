@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "_sidebar.md",
+            "file": "vue/vite.md",
             "mode": "source",
             "source": false
           }
@@ -81,7 +81,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_sidebar.md",
+                "file": "vue/vite.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -101,8 +101,8 @@
   },
   "active": "bc8510c2a1ef90f0",
   "lastOpenFiles": [
-    "_sidebar.md",
     "vue/vite.md",
+    "_sidebar.md",
     "_navbar.md",
     "viteNote/index.md",
     "viteNote.md",
