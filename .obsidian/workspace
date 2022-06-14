@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "vue/vite.md",
+            "file": "_navbar.md",
             "mode": "source",
             "source": false
           }
@@ -61,7 +61,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -81,7 +82,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "vue/vite.md",
+                "file": "_navbar.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -101,12 +102,12 @@
   },
   "active": "bc8510c2a1ef90f0",
   "lastOpenFiles": [
-    "vue/vite.md",
-    "_sidebar.md",
     "_navbar.md",
+    "vue/vite.md",
+    "_coverpage.md",
+    "_sidebar.md",
     "viteNote/index.md",
     "viteNote.md",
-    "_coverpage.md",
     "guide.md",
     "README.md",
     "002.md",
