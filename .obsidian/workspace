@@ -1,0 +1,98 @@
+{
+  "main": {
+    "id": "087978f6fa86e60c",
+    "type": "split",
+    "children": [
+      {
+        "id": "bc8510c2a1ef90f0",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "docs/guide.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "af604b4646aabf2b",
+    "type": "split",
+    "children": [
+      {
+        "id": "a6f80a276ead3fbb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "482bca470d164482",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "8d6530cd2363c12e",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "6ae7162501e6a076",
+    "type": "split",
+    "children": [
+      {
+        "id": "d9044140e5e0290d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4d35d4223dd627c6",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "docs/guide.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "bc8510c2a1ef90f0",
+  "lastOpenFiles": [
+    "docs/guide.md",
+    "docs/README.md",
+    "docs/_sidebar.md",
+    "docs/_navbar.md",
+    "docs/_coverpage.md"
+  ]
+}
