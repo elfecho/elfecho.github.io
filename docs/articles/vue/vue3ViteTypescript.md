@@ -21,6 +21,8 @@
 
 #### 安装
 
+npm7+版本
+
 ```bash
 yarn create @vitejs/app my-vue-app --template vue-ts
 ```
