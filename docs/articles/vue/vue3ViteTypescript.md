@@ -21,6 +21,12 @@
 
 #### 安装
 
+npm 6.x版本
+
+```bash
+npm init vite@latest my-vue-app --template vue-ts
+```
+
 npm7+版本
 
 ```bash
