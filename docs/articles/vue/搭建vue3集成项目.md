@@ -170,6 +170,8 @@ createApp(App)
 yarn add -D sass
 ```
 
+引入全局样式配置，可以在vite.config.ts引入以下代码
+
 ```javascript
 css: {
     preprocessorOptions: {
