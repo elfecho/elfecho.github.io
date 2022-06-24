@@ -170,6 +170,17 @@ createApp(App)
 yarn add -D sass
 ```
 
+```javascript
+css: {
+    preprocessorOptions: {
+      scss: {
+        // 引入 var.scss 这样就可以在全局中使用 var.scss中预定义的变量了
+        additionalData: '@import "./src/styles/variables.scss";'
+      }
+    }
+}
+```
+
 ### 配置cssnext处理浏览器兼容差异问题
 
 #### 安装cssnext
