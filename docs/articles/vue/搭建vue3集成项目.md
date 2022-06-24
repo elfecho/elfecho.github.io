@@ -111,6 +111,59 @@ createApp(App)
 .mount('#app')
 ```
 
+### 封装axios网络请求
+
+```javascript
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
+
+const defaultConfig = {
+  timeout: 10000,
+  baseUrl: ''
+}
+
+class Http {
+  constructor() {
+    this.httpInterceptorsRequest()
+    this.httpInterceptorsResponse()
+  }
+
+  private static axiosInstance = axios.create(defaultConfig)
+  
+  private httpInterceptorsRequest() {
+    // 请求拦截
+    Http.axiosInstance.interceptors.request.use((config: AxiosRequestConfig) => {
+      return config
+    }, error => {
+      return Promise.reject(error)
+    })
+  }
+
+  private httpInterceptorsResponse() {
+    // 响应拦截
+    Http.axiosInstance.interceptors.response.use((response: AxiosResponse) => {
+      return response
+    }, error => {
+      return Promise.reject(error)
+    })
+  }
+
+  // 封装请求
+  // get
+  public httpRequestGet<T>(url: string, params: AxiosRequestConfig): Promise<T> {
+    return Http.axiosInstance.get(url, params).then(res => res.data).catch()
+  }
+
+  
+
+  // post
+  public httpRequestPost<T>(url: string, params: AxiosRequestConfig): Promise<T> {
+    return Http.axiosInstance.post(url, params).then(res => res.data).catch()
+  }
+}
+
+export default new Http()
+```
+
 ### 配置数据中心vuex（4.x）
 
 #### 安装
