@@ -51,3 +51,9 @@ git reset --hard HEAD~3 # 回退到前3次提交之前，以此类推，回退�
 git reset --hard commit_id # 退到/进到 指定commit的sha码
 ```
 
+然后强推到远程：
+
+```bash
+git push origin HEAD --force
+```
+
