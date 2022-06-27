@@ -6,5 +6,7 @@
 	- [vue3小技巧](/articles/vue/vue3小技巧)
 * web3笔记 <!-- 对应 articles/web3 -->
 	- [常用网络配置](articles/web3/常用网络配置)
+- 数据存储
+	- [使用indexedDB](articles/storage/使用indexedDB)
 - git笔记 <!-- 对应 articles/git -->
 	- [git常用命令总结](articles/git/git常用命令总结)
