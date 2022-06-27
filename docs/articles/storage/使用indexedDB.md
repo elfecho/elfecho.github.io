@@ -41,69 +41,54 @@ IndexedDB 数据库的使用目前可以直接在 HTTP 协议下使用，这个�
 
 ```javascript
 // 打开数据库
-
-  openStore(storeName: string, keyPath: string, indexs?: Array<string>) {
-
-    const request = window.indexedDB.open(this.dbName, 2)
-
-    return new Promise((resolve: any, reject: any) => {
-
-      request.onsuccess = (event: any) => {
-
-        console.log('数据库打开成功')
-
-        console.log('onsuccess', event)
-
-        this.db = event.target.result
-
-        resolve()
-
-      }
-
-      request.onerror = (event: any) => {
-
-        console.log('数据库打开失败')
-
-        console.log('onerror', event)
-
-        reject(event)
-
-      }
-
-      request.onupgradeneeded = (event) => {
-
-        console.log('数据库更新成功')
-
-        const { result }: any = event.target
-
-        const store = result.createObjectStore(storeName, { autoIncrement: true, keyPath })
-
-        if (indexs && indexs.length > 0) {
-
-          indexs?.map((v: string, index) => {
-
-            store.createIndex(v, v, { unique: false }) // 三个对象分别对应 索引名称、 索引属性、 配置对象
-
-          })
-
-        }
-
-        store.transaction.oncomplete = (event: any) => {
-
-          console.log('创建对象仓库成功')
-
-        }
-
-        console.log('onupgradeneeded', event)
-
-      }
-
-    })
-
+class DB {
+  private dbName: string // 数据库名称
+  private db: any // 数据库对象
+  constructor(dbName: string) {
+    this.dbName = dbName
   }
+  openStore(storeName: string, keyPath: string, indexs?: Array<string>) {
+    const request = window.indexedDB.open(this.dbName, 2)
+    return new Promise((resolve: any, reject: any) => {
+      request.onsuccess = (event: any) => {
+        console.log('数据库打开成功')
+        console.log('onsuccess', event)
+        this.db = event.target.result
+        resolve()
+      }
+      request.onerror = (event: any) => {
+        console.log('数据库打开失败')
+        console.log('onerror', event)
+        reject(event)
+      }
+      request.onupgradeneeded = (event) => {
+        console.log('数据库更新成功')
+        const { result }: any = event.target
+        const store = result.createObjectStore(storeName, { autoIncrement: true, keyPath })
+        if (indexs && indexs.length > 0) {
+          indexs?.map((v: string, index) => {
+            store.createIndex(v, v, { unique: false }) // 三个对象分别对应 索引名称、 索引属性、 配置对象
+          })
+        }
+        store.transaction.oncomplete = (event: any) => {
+          console.log('创建对象仓库成功')
+        }
+        console.log('onupgradeneeded', event)
+      }
+    })
+  }
+}
 
 ```
 
 ![upgit_20220627_1656325926.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/06/upgit_20220627_1656325926.png)
 
-### 
+**创建数据库表**
+
+```javascript
+const airbnbDB = new IndexedDB('aribnb')
+
+airbnbDB.openStore('elephant', 'id', ['nose', 'ear'])
+```
+
+![upgit_20220627_1656327886.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/06/upgit_20220627_1656327886.png)
