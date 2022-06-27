@@ -86,9 +86,104 @@ class DB {
 **创建数据库表**
 
 ```javascript
+import IndexedDB from '@/utils/indexedDB'
+
 const airbnbDB = new IndexedDB('aribnb')
 
 airbnbDB.openStore('elephant', 'id', ['nose', 'ear'])
 ```
 
 ![upgit_20220627_1656327886.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/06/upgit_20220627_1656327886.png)
+
+### 对数据库进行增删改查
+
+- 新增 add()
+- 删除 delete()
+- 修改 put()
+- 查所有 getAll()
+- 查单个 get()
+
+```javascript
+// 新增/修改数据库数据
+class DB {
+  updateItem(storeName: string, data: any) {
+    const store = this.db.transaction([storeName], 'readwrite').objectStore(storeName) // 创建事务
+    const request = store.put({ // 这里为了适配新增与删除，故使用put
+      ...data,
+      updateTime: new Date().getTime()
+    })
+
+    request.onsuccess = (event: any) => {
+      console.log('数据写入成功')
+      console.log('onsuccess', event)
+    }
+
+    request.onerror = (event: any) => {
+      console.log('数据写入失败')
+      console.log('onerror', event)
+    }
+  }
+
+  
+
+  // 删除数据库数据
+
+  deleteItem(storeName: string, key: number | string) {
+    const store = this.db.transaction([storeName], 'readwrite').objectStore(storeName)
+    const request = store.delete(key)
+    request.onsuccess = (event: any) => {
+      console.log('数据删除成功')
+      console.log('onsuccess', event)
+    }
+
+    request.onerror = (event: any) => {
+      console.log('数据删除失败')
+      console.log('onerror', event)
+    }
+
+  }
+
+  
+
+  // 查询所有数据
+
+  getList(storeName: string) {
+    const store = this.db.transaction(storeName).objectStore(storeName)
+    const request = store.getAll()
+    return new Promise((resolve, reject) => {
+      request.onsuccess = (event: any) => {
+        console.log('查询所有数据成功')
+        console.log('onsuccess', event.target.result)
+        resolve(event.target.result)
+      }
+
+      request.onerror = (event: any) => {
+        console.log('查询所有数据失败')
+        console.log('onerror', event)
+        reject(event)
+      }
+
+    })
+
+  }
+
+  
+
+  // 查询某一条数据
+
+  getItem(storeName: string, key: number | string) {
+    const store = this.db.transaction(storeName).objectStore(storeName)
+    const request = store.get(key)
+    request.onsuccess = (event: any) => {
+      console.log('查询某一条数据成功')
+      console.log('onsuccess', event.target.result)
+    }
+
+    request.onerror = (event: any) => {
+      console.log('查询某一条数据失败')
+      console.log('onerror', event)
+    }
+
+  }
+}
+```
