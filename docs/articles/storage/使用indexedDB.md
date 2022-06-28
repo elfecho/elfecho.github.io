@@ -123,12 +123,9 @@ class DB {
       console.log('数据写入失败')
       console.log('onerror', event)
     }
-  }
-
-  
+  }  
 
   // 删除数据库数据
-
   deleteItem(storeName: string, key: number | string) {
     const store = this.db.transaction([storeName], 'readwrite').objectStore(storeName)
     const request = store.delete(key)
@@ -140,12 +137,9 @@ class DB {
       console.log('数据删除失败')
       console.log('onerror', event)
     }
-  }
-
-  
+  }  
 
   // 查询所有数据
-
   getList(storeName: string) {
     const store = this.db.transaction(storeName).objectStore(storeName)
     const request = store.getAll()
@@ -160,15 +154,10 @@ class DB {
         console.log('onerror', event)
         reject(event)
       }
-
     })
-
-  }
-
-  
+  }  
 
   // 查询某一条数据
-
   getItem(storeName: string, key: number | string) {
     const store = this.db.transaction(storeName).objectStore(storeName)
     const request = store.get(key)
@@ -178,7 +167,6 @@ class DB {
         console.log('onsuccess', event.target.result)
         resolve(event.target.result)
       }
-
       request.onerror = (event: any) => {
         console.log('查询某一条数据失败')
         console.log('onerror', event)
@@ -192,6 +180,7 @@ class DB {
 
 ```javascript
 import IndexedDB from '@/utils/indexedDB'
+
 const airbnbDB = new IndexedDB('aribnb')
 airbnbDB.openStore('elephant', 'id', ['nose', 'ear'])  
 
