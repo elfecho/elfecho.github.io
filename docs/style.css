@@ -365,10 +365,14 @@ body.sticky .sidebar, body.sticky .sidebar-toggle {
     
 }
 
-@media and (max-width: 678px) {
+@media(max-width:650px) {
     .markdown-section {
-        max-width: 90%;
+        max-width: 100%;
     }
+}
+
+ul li {
+    word-break:break-all;
 }
 
 .markdown-section > * {
