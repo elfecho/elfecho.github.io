@@ -39,6 +39,8 @@ git merge develop
 git push -u origin master
 ```
 
+合并过程中Git的报错
+
 ### 3. 如何进行代码回滚
 
 首先通过命令: `git log` 查看所有的提交记录
@@ -57,5 +59,4 @@ git reset --hard commit_id # 退到/进到 指定commit的sha码
 git push origin HEAD --force
 ```
 
-### 4. 解决Git中fatal: refusing to merge unrelated histories
 
