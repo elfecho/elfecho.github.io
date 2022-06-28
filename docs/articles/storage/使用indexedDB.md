@@ -106,6 +106,7 @@ airbnbDB.openStore('elephant', 'id', ['nose', 'ear'])
 ```javascript
 // 新增/修改数据库数据
 class DB {
+  // 新增/修改数据库数据
   updateItem(storeName: string, data: any) {
     const store = this.db.transaction([storeName], 'readwrite').objectStore(storeName) // 创建事务
     const request = store.put({ // 这里为了适配新增与删除，故使用put
@@ -174,16 +175,74 @@ class DB {
   getItem(storeName: string, key: number | string) {
     const store = this.db.transaction(storeName).objectStore(storeName)
     const request = store.get(key)
-    request.onsuccess = (event: any) => {
-      console.log('查询某一条数据成功')
-      console.log('onsuccess', event.target.result)
-    }
+    return new Promise((resolve, reject) => {
+      request.onsuccess = (event: any) => {
+        console.log('查询某一条数据成功')
+        console.log('onsuccess', event.target.result)
+        resolve(event.target.result)
+      }
 
-    request.onerror = (event: any) => {
-      console.log('查询某一条数据失败')
-      console.log('onerror', event)
-    }
-
+      request.onerror = (event: any) => {
+        console.log('查询某一条数据失败')
+        console.log('onerror', event)
+      }
+    })
   }
 }
+```
+
+**操作数据库表的操作**
+
+```javascript
+import IndexedDB from '@/utils/indexedDB'
+
+const airbnbDB = new IndexedDB('aribnb')
+
+airbnbDB.openStore('elephant', 'id', ['nose', 'ear'])
+
+  
+
+// 增
+function addDB(storeName: string) {
+  airbnbDB.updateItem(storeName, {
+    nose: '33m',
+    ear: '比较大'
+  })
+}
+
+// 改
+function updateDB(storeName: string) {
+  airbnbDB.updateItem(storeName, { // 有传入id说明是修改操作
+	id: 1,
+    nose: '33m',
+    ear: '比较大'
+  })
+}
+  
+
+// 删除
+function deleteDB(storeName: string, key: number | string) {
+  airbnbDB.deleteItem(storeName, key)
+}
+
+  
+
+// 查询所有数据
+
+function getObjectStore(storeName: string) {
+
+  airbnbDB.getList(storeName)
+
+}
+
+  
+
+// 查询所有数据
+
+function getObjectStoreItem(storeName: string, key: number | string) {
+
+  airbnbDB.getItem(storeName, key)
+
+}
+
 ```
