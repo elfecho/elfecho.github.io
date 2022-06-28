@@ -39,7 +39,11 @@ git merge develop
 git push -u origin master
 ```
 
-合并过程中Git的报错
+**合并过程中Git的报错**
+
+#### 解决Git中fatal: refusing to merge unrelated histories
+
+
 
 ### 3. 如何进行代码回滚
 
