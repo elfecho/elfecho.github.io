@@ -57,3 +57,5 @@ git reset --hard commit_id # 退到/进到 指定commit的sha码
 git push origin HEAD --force
 ```
 
+### 4. 解决Git中fatal: refusing to merge unrelated histories
+
