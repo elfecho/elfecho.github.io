@@ -43,7 +43,31 @@ git push -u origin master
 
 #### 解决Git中fatal: refusing to merge unrelated histories
 
+```bash
+$ git checkout master
+switched to brach 'master'
 
+$ git merge develop
+fatal: refusing to merge unrelated histories
+```
+
+可能会在git pull或者git push中都有可能会遇到，这是因为两个分支没有取得关系。那么怎么解决呢？
+
+`解决方案：`
+
+在操作命令后面加--allow-unrelated-histories
+例如：
+
+```bash
+git merge master --allow-unrelated-histories
+```
+
+如果是git pull或者git push报fatal: refusing to merge unrelated histories
+
+同理：
+```bash
+git pull origin master --allow-unrelated-histories
+```
 
 ### 3. 如何进行代码回滚
 
