@@ -139,7 +139,7 @@ b
 类似 C 中的数组，列表中元素写在 [ ] 中，且用逗号分隔开。列表和字符串一样可以正序或者逆序索引，以及进行截取操作。需要注意的是，python中List中的元素类型不一定相同。且 + 和 * 也可以用于列表的连接和重复。
 
 ```python
->>> list = ['abc', 123, 2.3, True]
+>>> list = ['abc', 123, 2.3, True, [1, 3]]
 >>> type(list)
 <type 'list'>
 >>> tinylist = [456, 'hello']
@@ -159,7 +159,11 @@ b
 >>> letters = ['h', 'e', 'l', 'l', 'o']
 >>> letters[1:4:2]
 ['e', 'l']
+>>> letters[4:2:-1]
+['o', 'l']
 ```
+
+### 元组
 ![upgit_20220704_1656920664.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220704_1656920664.png)
 
 
