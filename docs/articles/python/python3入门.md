@@ -28,19 +28,34 @@ python3支持int(整型)，float(浮点)，bool(布尔)，complex(复数)等几�
 <type 'int'>
 >>> type(1//2)
 <type 'int'>
->>> type(True)
-<type 'bool'>
->>> init(True)
-1
->>> bool(2)
-True
->>> bool(0)
-False
 ```
 
 在python3中，bool是int的子类，True就是1，False就是0，True和False可以直接参加int类型数字的运算
 
+```python
+>>> issubclass(bool, int)
+True
+>>> True == 1
+True
+>>> False == 0
+True
+>>> True + 1
+2
+>>> False + 1
+1
+>>> 1 is True
+False
+>>> o is True
+False
+<type 'int'>
+```
 
+1. Python可以同时为多个变量赋值，如a,b=1,2。
+2. 一个变量可以通过赋值指向不同类型的对象。
+3. 数值的除法包含两个运算符：/返回一个浮点数，/返回一个整数。
+4. 在混合计算时，Python会把整型转换成为浮点数。
+
+另外需要注意的一点是python中的赋值语句相当于是创建一个原变量的引用，而非拷贝。
 
 #### 2进制、8进制、10进制、16进制
 
