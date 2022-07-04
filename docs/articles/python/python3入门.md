@@ -99,15 +99,12 @@ Ob\nsidian
 此外 \ 还可以作为续行符使用，表明下一行语句与本行是连接着的，但是要注意本行中 \ 后边不能有任何字符。也可以用 '''   ''' 三引号作为跨行的换行符。
 
 ```python
->>> print('a\
-b')
+>>> print('''a
+b''')
 a
 b
 ```
 
- ![](https://img-blog.csdnimg.cn/20210730215328282.png) 
-
-输出结果是字符串 “ab”
 
 此外需要注意python中的字符串是不能改变的，即不能向字符串的某个索引位置赋新值，但是两个字符串可以相加（用 +）生成第三个字符串，字符串也可以与数字相乘（用 *），生成一个把该字符串重复n遍的字符串，n是整数乘数。+ 是字符串连接元素运算符，* 是重复字符串运算符。
 
@@ -117,5 +114,5 @@ b
 ![upgit_20220704_1656920664.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220704_1656920664.png)
 
 
-![upgit_20220704_1656920664.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220704_1656920664.png)
+
 
