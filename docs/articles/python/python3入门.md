@@ -29,5 +29,18 @@ python3支持int，float，bool，complex等几种数字类型
 >>> type(1//2)
 <type 'int'>
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
 ![upgit_20220704_1656920664.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220704_1656920664.png)
 
