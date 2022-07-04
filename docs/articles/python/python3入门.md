@@ -163,7 +163,30 @@ b
 ['o', 'l']
 ```
 
-### 元组
+### Tuple元组
+
+与列表相似，但是元组中元素不允许修改。元组中的元素数据类型也可以各不相同，元组中元素甚至可以是列表。元组也可以顺序逆序索引，以及切片。
+
+```python
+>>> tuple = ('abc', 123, 2.33)
+>>> type(tuple)
+<type 'tuple'>
+>>> tinytuple = [456, 'hello']
+>>> print(list) # 输出完整元组
+>>> print(list[0]) # 输出元组第一个元素(返回元素)
+>>> print(list[1,3]) # 从第二个开始输出到第三个元素(返回元组)
+>>> print(list[2:]) # 输出从第三个元素开始的所有元素(返回元组)
+>>> print(tinytuple * 2) # 输出两次元组
+>>> print(list + tinytuple) # 连接元组
+```
+
+注意：`构建0个或单个元素的元组是特殊的。`
+```python
+>>> tup1 = () # 空元祖
+>>> tup2 = (10, ) # 一个元素时需要在元素后面加逗号，否则会转换为括号里面对应的类型
+```
+
+
 ![upgit_20220704_1656920664.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220704_1656920664.png)
 
 
