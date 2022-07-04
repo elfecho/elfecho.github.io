@@ -1,13 +1,13 @@
 ## 基本数据类型
 
-一共有六种：Number（数字），String（字符串，List（列表），Tuple（元组），Set（集合），Dictionary（字典），接下来依次说明这六种类型。
+一共有六种：Number（数字），String（字符串)，List（列表），Tuple（元组），Set（集合），Dictionary（字典），接下来依次说明这六种类型。
 
 - 不可变数据（3个）： Number(数字)、String(字符串)、Tuple(元组)
 - 可变数据（3个）：List(列表)、Dictionary(字典)、Set(集合)
 
-### number 数字类型
+### Number 数字类型
 
-python3支持int，float，bool，complex等几种数字类型
+python3支持int(整型)，float(浮点)，bool(布尔)，complex(复数)等几种数字类型
 
 内置函数type和isinstance都可以用来判断某个变量是否是给定的某个类型。
 
@@ -28,6 +28,12 @@ python3支持int，float，bool，complex等几种数字类型
 <type 'int'>
 >>> type(1//2)
 <type 'int'>
+>>> type(True)
+<type 'bool'>
+>>> init(True)
+1
+>>> b(True)
+1
 ```
 
 #### 2进制、8进制、10进制、16进制
@@ -45,8 +51,8 @@ python3支持int，float，bool，complex等几种数字类型
 
 其他进制转2进制使用 `bin('变量')`
 其他进制转10进制使用 `int('变量')`
-其他进制转8进制使用 `oct('变量')`
 其他进制转16进制使用 `hex('变量')`
+其他进制转8进制使用 `oct('变量')`
 
 
 
