@@ -32,9 +32,15 @@ python3支持int(整型)，float(浮点)，bool(布尔)，complex(复数)等几�
 <type 'bool'>
 >>> init(True)
 1
->>> b(True)
-1
+>>> bool(2)
+True
+>>> bool(0)
+False
 ```
+
+在python3中，bool是int的子类，True就是1，False就是0，True和False可以直接参加int类型数字的运算
+
+
 
 #### 2进制、8进制、10进制、16进制
 
