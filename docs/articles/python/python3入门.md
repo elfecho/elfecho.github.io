@@ -75,13 +75,14 @@ False
 其他进制转16进制使用 `hex('变量')`
 其他进制转8进制使用 `oct('变量')`
 
+### String 字符串
 
 
 
 
 
 
-
+![upgit_20220704_1656920664.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220704_1656920664.png)
 
 
 ![upgit_20220704_1656920664.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220704_1656920664.png)
