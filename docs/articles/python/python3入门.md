@@ -30,6 +30,14 @@ python3支持int，float，bool，complex等几种数字类型
 <type 'int'>
 ```
 
+2进制、8进制、10进制、16进制
+```python
+>>> 0b10 # 二进制
+2
+>>> 0o10 # 八进制
+8
+```
+
 
 
 
