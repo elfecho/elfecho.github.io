@@ -95,6 +95,8 @@ b
 un
 >>> str[0:-1]
 Runoo
+>>> str[-2:]
+ob
 ```
 
         \ 可以用来使字符转义，使用r可以让反斜杠失效，即不发生转义。
@@ -144,10 +146,20 @@ b
 >>> print(list) # 输出完整列表
 >>> print(list[0]) # 输出列表第一个元素
 >>> print(list[1,3]) # 从第二个开始输出到第三个元素
->>> print(list)
+>>> print(list[2:]) # 输出从第三个元素开始的所有元素
+>>> print(tinylist * 2) # 输出两次列表
+>>> print(list + tinylist) # 连接列表
 ```
 
+与python字符串的不同之处是，List中的元素是可以改变的。
 
+在python列表切片的时候，也可以使用三个参数，第三个参数表示步长。如果第三个参数是负的，表示逆序切片。
+
+```python
+>>> letters = ['h', 'e', 'l', 'l', 'o']
+>>> letters[1:4:2]
+['e', 'l']
+```
 ![upgit_20220704_1656920664.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220704_1656920664.png)
 
 
