@@ -12,4 +12,4 @@
 - git笔记 <!-- 对应 articles/git -->
 	- [git常用命令总结](articles/git/git常用命令总结)
 - python<!-- 对应 articles/python -->
-	- [python入门](articles/python/python入门)
+	- [python3入门](articles/python3入门.md)
