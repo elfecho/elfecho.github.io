@@ -11,3 +11,5 @@
 	- [使用indexedDB](articles/storage/使用indexedDB)
 - git笔记 <!-- 对应 articles/git -->
 	- [git常用命令总结](articles/git/git常用命令总结)
+- python<!-- 对应 articles/python -->
+	- [python入门](articles/python/python入门)
