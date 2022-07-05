@@ -12,4 +12,4 @@
 - git笔记 <!-- 对应 articles/git -->
 	- [git常用命令总结](articles/git/git常用命令总结)
 - python<!-- 对应 articles/python -->
-	- [python3入门](articles/python/python3入门.md)
+	- [python 基本数据类型](python%20基本数据类型.md)
