@@ -286,8 +286,16 @@ False
 
 ```python
 >>> dict = {}
->>> dict['name'] = 'python'
+>>> dict['name'] = 'elf'
 >>> dict['age'] = 18
+>>> print(dict)
+{'name': 'elf', 'age': 18}
+>>> dict['name']
+'elf'
+>>> dict.keys() # 输出dict所有的key
+dict_keys(['name', 'age']) 
+>>> dict.values() # 输出dict所有的value
+dict_values(['elf', 18]) 
 ```
 ![upgit_20220704_1656920664.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220704_1656920664.png)
 
