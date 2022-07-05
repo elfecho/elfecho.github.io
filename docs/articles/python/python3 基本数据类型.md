@@ -280,7 +280,7 @@ False
 
 - 列表是`有序的`对象集合，字典是`无序的`对象集合。
 - 字典是一种映射类型，字典用`{ }`标识，它是一个无序的`键(key) : 值(value)`的集合。
-- 在同一个字典中，`键(key)`必须是唯一的。
+- 在同一个字典中，`键(key)`必须是唯一的，键为不可变类型（int、str、tuple）
 - 注：Dictionary字典可以类比成php中的`关联数组(key-value形式的数组)`。
 - 创建空字典用`{ }`。
 
@@ -297,7 +297,7 @@ dict_keys(['name', 'age'])
 >>> dict.values() # 输出dict所有的value
 dict_values(['elf', 18]) 
 ```
-![upgit_20220704_1656920664.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220704_1656920664.png)
+
 
 
 
