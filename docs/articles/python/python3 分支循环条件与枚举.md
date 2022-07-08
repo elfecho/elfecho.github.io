@@ -160,3 +160,23 @@ for x in a:
     print(x)
 ```
 
+误区：
+
+```python
+a = [['apple', 'orange', 'banner', 'grape'], (1, 2, 3)]
+
+for x in a:
+    for y in x:
+        if y == 'orange':
+            break  # 这里只是跳出内部的循环，外部的循环还在循环
+        print(y, end=' ')
+else:
+    print('fruit is gone')
+
+'''
+打印结果如下:
+apple 1 2 3 fruit is gone
+'''
+
+```
+
