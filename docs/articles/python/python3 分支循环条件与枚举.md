@@ -214,20 +214,34 @@ for i in range(5, 9):
 for x in range(0, 10, 2):
     print(x, end=" | ")
 '''
-0
-2
-4
-6
-8
+0 | 2 | 4 | 6 | 8
 '''
 for x in range(10, 0, -2):
     print(x, end=" | ")
 '''
-10
-8
-6
-4
-2
+10 | 8 | 6 | 4 | 2
 '''
+```
+
+结合range()和len()函数以遍历一个序列的索引,如下所示:
+
+```python
+a = ['Google', 'Baidu', 'Runoob', 'Taobao', 'QQ']
+for i in range(len(a)):
+    print(i, a[i])
+'''
+0 Google
+1 Baidu
+2 Runoob
+3 Taobao
+4 QQ
+'''
+```
+
+也可以使用range()函数创建一个列表
+
+```python
+list(range(5))
+# [0, 1, 2, 3, 4]
 ```
 
