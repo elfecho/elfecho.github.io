@@ -182,3 +182,52 @@ apple 1 2 3 fruit is gone
 ### range函数
 
 如果需要实现传统语音的遍历数字序列的方式，可以使用内置range()函数。它会生成数列，例如:
+
+```python
+for i in range(5):
+	print(i)
+'''
+0
+1
+2
+3
+4
+'''
+```
+
+使用range指定区间的值：
+
+```python
+for i in range(5, 9):
+	print(i)
+'''
+5
+6
+7
+8
+'''
+```
+
+使range以指定数字开始并指定不同的增量(甚至可以是负数，有时这也叫做'步长'):
+
+```python
+for x in range(0, 10, 2):
+    print(x, end=" | ")
+'''
+0
+2
+4
+6
+8
+'''
+for x in range(10, 0, -2):
+    print(x, end=" | ")
+'''
+10
+8
+6
+4
+2
+'''
+```
+
