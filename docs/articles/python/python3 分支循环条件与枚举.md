@@ -94,7 +94,7 @@ print("1 到 %d 之和为: %d" % (n,sum))
 
 语法格式如下：
 
-```
+```python
 while <expr>:
     <statement(s)>
 else:
@@ -105,18 +105,46 @@ expr 条件语句为 true 则执行 statement(s) 语句块，如果为 false，�
 
 循环输出数字，并判断大小：
 
-## 实例
-
-\#!/usr/bin/python3  count = 0 while count < 5:   print (count, " 小于 5")   count = count + 1 else:   print (count, " 大于或等于 5")
+```python
+count = 0
+while count < 5:
+   print (count, " 小于 5")
+   count = count + 1
+else:
+   print (count, " 大于或等于 5")
+```
 
 执行以上脚本，输出结果如下：
 
-```
+```python
 0  小于 5
 1  小于 5
 2  小于 5
 3  小于 5
 4  小于 5
 5  大于或等于 5
+```
+
+## for 语句
+
+Python for 循环可以遍历任何可迭代对象，如一个列表或者一个字符串。
+
+for循环的一般格式如下：
+
+```python
+for <variable> in <sequence>:
+    <statements>
+else:
+    <statements>
+```
+
+以下 for 实例中使用了 break 语句，break 语句用于跳出当前循环体：
+
+```python
+a = [1, 2, 3]
+for x in a:
+    if x == 2:
+        break  # 跳出整个for循环
+    print(x)
 ```
 
