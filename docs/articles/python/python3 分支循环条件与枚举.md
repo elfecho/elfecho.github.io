@@ -16,6 +16,30 @@ Python 中用 **elif** 代替了 **else if**，所以if语句的关键字为�
 3. 在Python中没有switch – case语句
 
 
+
+以下为if中常用的操作运算符:
+
+| 操作符 | 描述                     |
+| :----- | :----------------------- |
+| `<`    | 小于                     |
+| `<=`   | 小于或等于               |
+| `>`    | 大于                     |
+| `>=`   | 大于或等于               |
+| `==`   | 等于，比较两个值是否相等 |
+| `!=`   | 不等于                   |
+
 示例：
 
-···
+```python
+account = 'elfecho'
+password = '123456'
+
+user_account = input('Please input account:')
+user_password = input('Please input password:')
+
+if account == user_account and password == user_password:
+    print('success')
+else:
+    print('error')
+
+```
