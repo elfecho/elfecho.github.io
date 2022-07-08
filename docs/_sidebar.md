@@ -15,4 +15,4 @@
 	- [python3 基本数据类型](articles/python/python3%20基本数据类型.md)
 	- [python3 变量与运算符](articles/python/python3%20变量与运算符.md)
 	- [python3 分支循环条件与枚举](articles/python/python3%20分支循环条件与枚举.md)
-	- [python3 分支循环条件与枚举](articles/python/python3%20分支循环条件与枚举.md)
+	- [python3 模块函数作用域](articles/python/python3%20模块函数作用域.md)
