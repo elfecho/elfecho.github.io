@@ -144,7 +144,19 @@ else:
 a = [1, 2, 3]
 for x in a:
     if x == 2:
-        break  # 跳出整个for循环
+        break  # 跳出整个for循环,后续else也不会被执行
+    print(x)
+else：
+	print('EOF')
+```
+
+以下 for 实例中使用了 break 语句，continue 语句用于单次条件循环后继续循环体：
+
+```python
+a = [1, 2, 3]
+for x in a:
+    if x == 2:
+        continue  # 跳出单个条件，继续循环
     print(x)
 ```
 
