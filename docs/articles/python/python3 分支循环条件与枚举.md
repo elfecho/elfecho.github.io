@@ -43,3 +43,17 @@ else:
     print('error')
 
 ```
+
+
+## 循环
+
+Python 中的循环语句有 for 和 while。
+Python 循环语句的控制结构图如下所示：
+
+
+
+![upgit_20220708_1657260229.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220708_1657260229.png)
+
+
+
+
