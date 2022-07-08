@@ -250,7 +250,11 @@ list(range(5))
 ```python
 a = [1, 2, 3, 4, 5, 6, 7, 8] # 如何实现打印出 1, 3, 5, 7
 
-
+# 方法一：使用for跟range进行实现
 for i in range(0, len(a), 2):
     print(a[i], end=' | ')
+
+# 方法二：可以使用列表切片进行分割
+b = a[0, len(a), 2]
+
 ```
