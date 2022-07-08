@@ -56,4 +56,67 @@ Python 循环语句的控制结构图如下所示：
 
 
 
+## while 循环
+
+Python 中 while 语句的一般形式：
+
+```python
+while 判断条件(condition)：
+    执行语句(statements)……
+```
+
+同样需要注意冒号和缩进。另外，在 Python 中没有 do..while 循环。
+
+以下实例使用了 while 来计算 1 到 100 的总和：
+
+```python
+#!/usr/bin/env python3
+ 
+n = 100
+ 
+sum = 0
+counter = 1
+while counter <= n:
+    sum = sum + counter
+    counter += 1
+ 
+print("1 到 %d 之和为: %d" % (n,sum))
+'''
+执行结果如下：
+
+1 到 100 之和为: 5050
+'''
+```
+
+### while 循环使用 else 语句
+
+如果 while 后面的条件语句为 false 时，则执行 else 的语句块。
+
+语法格式如下：
+
+```
+while <expr>:
+    <statement(s)>
+else:
+    <additional_statement(s)>
+```
+
+expr 条件语句为 true 则执行 statement(s) 语句块，如果为 false，则执行 additional_statement(s)。
+
+循环输出数字，并判断大小：
+
+## 实例
+
+\#!/usr/bin/python3  count = 0 while count < 5:   print (count, " 小于 5")   count = count + 1 else:   print (count, " 大于或等于 5")
+
+执行以上脚本，输出结果如下：
+
+```
+0  小于 5
+1  小于 5
+2  小于 5
+3  小于 5
+4  小于 5
+5  大于或等于 5
+```
 
