@@ -45,7 +45,7 @@ else:
 ```
 
 
-## 循环
+## 循环语句
 
 Python 中的循环语句有 for 和 while。
 Python 循环语句的控制结构图如下所示：
@@ -56,7 +56,7 @@ Python 循环语句的控制结构图如下所示：
 
 
 
-## while 循环
+### while 循环
 
 Python 中 while 语句的一般形式：
 
@@ -88,7 +88,7 @@ print("1 到 %d 之和为: %d" % (n,sum))
 '''
 ```
 
-### while 循环使用 else 语句
+#### while 循环使用 else 语句
 
 如果 while 后面的条件语句为 false 时，则执行 else 的语句块。
 
@@ -125,7 +125,7 @@ else:
 5  大于或等于 5
 ```
 
-## for 语句
+### for 语句
 
 Python for 循环可以遍历任何可迭代对象，如一个列表或者一个字符串。
 
@@ -177,6 +177,8 @@ else:
 打印结果如下:
 apple 1 2 3 fruit is gone
 '''
-
 ```
 
+### range函数
+
+如果需要实现传统语音的
