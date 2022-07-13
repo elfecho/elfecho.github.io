@@ -11,6 +11,8 @@
 	- [使用indexedDB](articles/storage/使用indexedDB)
 - git笔记 <!-- 对应 articles/git -->
 	- [git常用命令总结](articles/git/git常用命令总结)
+- 关于浏览器笔记<!-- 对应 articles/browser -->
+	- [关于location](articles/browser/关于location)
 - python<!-- 对应 articles/python -->
 	- [python3 基本数据类型](articles/python/python3%20基本数据类型.md)
 	- [python3 变量与运算符](articles/python/python3%20变量与运算符.md)
