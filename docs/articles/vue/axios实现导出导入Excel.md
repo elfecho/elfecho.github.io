@@ -1,4 +1,4 @@
-## 下载Excel
+## 导出Excel
 
 ### 通过url下载
 
@@ -58,18 +58,37 @@ axios(
 
 ### 通过 js-file-download 插件
 
-安装
+**安装**
 
-### 使用fetch下载
+```bash
+yarn add js-file-download
+```
+
+使用
+```javascript
+import fileDownload from 'js-file-download'
+ 
+axios.get(`/operation/ruleImport/template`, {
+		paramsSerializer: (params) => {
+		    return qs.stringify(params, { arrayFormat: 'brackets' })
+	    },
+        responseType: 'blob' //返回的数据类型
+    })
+    .then(res => {
+        fileDownload(res.data, this.fileName)
+    })
 
 ```
 
+### 使用fetch下载
+
+```javascript
 fetch(
 	'http://127.0.0.1:8765/course/exportCourse/33', 
 	{
 		  method: 'GET',
-		  headers: new Headers({
-		  'Authorization': Cookie.get('Authorization') 
+		  
+		  
 	}),
 })
 .then(res => res.blob())
@@ -80,6 +99,7 @@ fetch(
 	a.href = blobUrl;
 	a.click();
 });
-
-
 ```
+
+## 导入Excel
+
