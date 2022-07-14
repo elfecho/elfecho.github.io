@@ -46,11 +46,40 @@ axios(
             a.href = href // 指定下载链接
             a.download = this.filename //指定下载文件名
             a.click() //触发下载
-            URL.revokeObjectURL(a.href) //释放URL对象
         }
         // 这里也可以不创建a链接，直接window.open(href)也能下载
     })
     .catch(err => {
         console.log(err)
     })
+```
+
+注：请求后台接口时要在请求头上加{responseType: 'blob'}；download 设置文件名时，可以直接设置扩展名，如果没有设置浏览器将自动检测正确的文件扩展名并添加到文件。
+
+### 通过 js-file-download 插件
+
+安装
+
+### 使用fetch下载
+
+```
+
+fetch(
+	'http://127.0.0.1:8765/course/exportCourse/33', 
+	{
+		  method: 'GET',
+		  headers: new Headers({
+		  'Authorization': Cookie.get('Authorization') 
+	}),
+})
+.then(res => res.blob())
+.then(data => {
+	const blobUrl = window.URL.createObjectURL(data);
+	const a = document.createElement('a');
+	a.download = this.fileName+'.xlsx';
+	a.href = blobUrl;
+	a.click();
+});
+
+
 ```
