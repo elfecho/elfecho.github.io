@@ -101,5 +101,23 @@ fetch(
 });
 ```
 
-## 导入Excel
+## 上传Excel
+
+上传excel跟平时上传文件类似，实例化一个FormData进行append数据即可
+
+```javascript
+let data = new FormData()
+data.append('file', newFile)
+data.append('name', '测试Excel')
+
+axios({
+	method: 'post',
+	url: '',
+	params: {
+		id: 1
+	},
+	data: data
+})
+
+```
 
