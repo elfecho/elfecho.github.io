@@ -21,10 +21,16 @@ a 标签的 download 属性是 HTML5 标准新增的，作用是触发浏览器�
 
 前端创建超链接，接收后端的文件流：
 
+如果有传参的话，需要下载qs包
+
 ```javascript
+import qs from 'qs'
 axios(
 	method: 'GET',
 	url: `/operation/ruleImport/template`,
+	paramsSerializer: (params) => {
+      return qs.stringify(params, { arrayFormat: 'brackets' })
+    },
 	responseType: "blob" //服务器响应的数据类型，可以是 'arraybuffer', 'blob', 'document', 'json', 'text', 'stream'，默认是'json'
     })
     .then(res => 
