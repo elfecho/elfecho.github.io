@@ -86,9 +86,10 @@ axios.get(`/operation/ruleImport/template`, {
 fetch(
 	'http://127.0.0.1:8765/course/exportCourse/33', 
 	{
-		  method: 'GET',
-		  
-		  
+		method: 'GET',
+		headers: new Headers({
+	        'Authorization': Cookie.get('Authorization') 
+	    }),		  
 	}),
 })
 .then(res => res.blob())
