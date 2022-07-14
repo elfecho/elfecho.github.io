@@ -5,7 +5,7 @@
 	- [搭建vue3集成项目](/articles/vue/搭建vue3集成项目.md)
 	- [vue3小技巧](/articles/vue/vue3小技巧)
 	- [ssr初探](/articles/vue/ssr初探)
-	- [axios实现](/articles/vue/ssr初探)
+	- [axios实现导出导入Excel](/articles/vue/axios实现导出导入Excel)
 * web3笔记 <!-- 对应 articles/web3 -->
 	- [常用网络配置](articles/web3/常用网络配置)
 - 数据存储
