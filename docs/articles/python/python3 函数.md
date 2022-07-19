@@ -10,5 +10,12 @@
 -   函数内容以冒号起始，并且缩进。
 -   **return [表达式]** 结束函数，选择性地返回一个值给调用方。不带表达式的return相当于返回 None。
 
+语法：
 
+```python
+def functionname( parameters ): 
+	"函数_文档字符串" 
+	function_suite 
+	return [expression]
+```
 
