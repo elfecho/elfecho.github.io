@@ -161,6 +161,35 @@ print(package.re, package.urllib, package.sys, package.os)
 
 **注意这里访问__init__.py文件中的引用文件，需要加上包名。**
 
+### 模块里的内置变量 
+
+1.__file__
+所在模块：os
+
+变量作用：指向当前文件
+
+当前文件的完整路径：os.path.abspath(__file__)
+
+当前文件所属目录：os.path.dirname(os.path.abspath(__file__))
+
+当前文件所属目录的上级目录：os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+```python
+import os
+print(__file__)
+print(os.path.abspath("filelocation.py"))
+print(os.path.abspath(__file__))
+print(os.path.dirname(os.path.abspath(__file__)))
+print(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+#运行：
+D:\myProject\python-demos\demo2\sub_test\filelocation.py
+D:\myProject\python-demos\demo2\sub_test\c8.py
+D:\myProject\python-demos\demo2\sub_test
+D:\myProject\python-demos\demo2
+```
+
+
 ## 什么是包
 
 其实，一个包就是一个文件目录，你可以把同一个业务线的文件放在一起
@@ -172,4 +201,5 @@ print(package.re, package.urllib, package.sys, package.os)
 - 包和模块是不会被重复导入的
 - 避免循环引入模块
 - 模块⼀旦被调⽤，即相当于执⾏了另外⼀个 py ⽂件⾥的代码
+
 
