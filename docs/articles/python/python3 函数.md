@@ -124,6 +124,19 @@ c = add(y=3, x=2)  # 代码可读性增强
 调用函数时，默认参数的值如果没有传入，则被认为是默认值。下例会打印默认的age，如果age没有被传入：
 
 ```python
-#可写函数说明 
-def printinfo( name, age = 35 ): "打印任何传入的字符串" print "Name: ", name print "Age ", age return #调用printinfo函数 printinfo( age=50, name="miki" ) printinfo( name="miki" )
+def printinfo(name, age=35):
+    print('name is ' + name)
+    print('age is ' + str(age))
+    return
+
+# 调用printinfo函数
+printinfo(age=50, name="miki")
+printinfo(name="miki")
+```
+
+```python
+name is miki
+age is 50
+name is miki
+age is 35
 ```
