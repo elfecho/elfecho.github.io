@@ -201,8 +201,8 @@ t/t1/c3.py
     This is a c3 doc
 '''
 print('name:\t' + __name__)
-print('package\t' + __package__)
-print('doc\t' + __doc__)
+print('package\t' + (__package__ or '当前模块不属于任何包'))
+print('doc\t' + (__doc__ or '当前模块暂无文档注释'))
 print('file\t' + __file__)
 ```
 
@@ -223,6 +223,8 @@ if __name__ == "__main__":
 结果
 
 ```python
+>>> python c8.py
+
 name:   t.t1.c3
 package t.t1
 doc
