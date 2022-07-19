@@ -163,7 +163,12 @@ print(package.re, package.urllib, package.sys, package.os)
 
 ### 模块里的内置变量 
 
-使用函数 `dir()` 可以返回模块里
+使用函数 `dir()` 可以返回模块里的内置函数
+
+```python
+print(dir())
+# ['__annotations__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__']
+```
 
 1. `__file__`
 
@@ -188,7 +193,13 @@ D:\myProject\python-demos\demo2\sub_test
 D:\myProject\python-demos\demo2
 ```
 
-2. `__name__`
+2. sys.path
+所在模块：sys
+
+python程序中使用import导入模块时，python解析器会在当前目录、已安装和第三方模块中搜索要导入的模块，更准确的说是从sys.path这个列表变量包含的路径中搜索的，因为sys.path是一个列表变量，所以可以使用append()和insert()函数更新列表中元素的值。
+
+
+3. `__name__`
 
 这是python内置的系统变量。
 
