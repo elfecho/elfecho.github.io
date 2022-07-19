@@ -163,11 +163,19 @@ print(package.re, package.urllib, package.sys, package.os)
 
 ### 模块里的内置变量 
 
-使用函数 `dir()` 可以返回模块里的内置函数
+使用函数 `dir()` 可以返回模块里的内置函数，也可以查看
 
 ```python
+import sys
 print(dir())
-# ['__annotations__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__']
+print(dir(sys))
+
+# 运行
+['__annotations__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__']
+
+['__displayhook__', '__doc__', '__excepthook__', '__interactivehook__', '__loader__', '__name__', '__package__', '__spec__', '__stderr__', '__stdin__', '__stdout__', '_clear_type_cache', '_current_frames', '_debugmallocstats', '_enablelegacywindowsfsencoding', '_getframe', '_git', '_home', '_xoptions', 'api_version', 'argv', 'base_exec_prefix', 'base_prefix', 'builtin_module_names', 'byteorder', 'call_tracing', 'callstats', 'copyright', 'displayhook', 'dllhandle', 'dont_write_bytecode', 'exc_info', 'excepthook', 'exec_prefix', 'executable', 'exit', 
+'flags', 'float_info', 'float_repr_style', 'get_asyncgen_hooks', 'get_coroutine_wrapper', 'getallocatedblocks', 'getcheckinterval', 'getdefaultencoding', 'getfilesystemencodeerrors', 'getfilesystemencoding', 'getprofile', 'getrecursionlimit', 'getrefcount', 'getsizeof', 'getswitchinterval', 'gettrace', 'getwindowsversion', 'hash_info', 'hexversion', 'implementation', 
+'int_info', 'intern', 'is_finalizing', 'maxsize', 'maxunicode', 'meta_path', 'modules', 'path', 'path_hooks', 'path_importer_cache', 'platform', 'prefix', 'set_asyncgen_hooks', 'set_coroutine_wrapper', 'setcheckinterval', 'setprofile', 'setrecursionlimit', 'setswitchinterval', 'settrace', 'stderr', 'stdin', 'stdout', 'thread_info', 'version', 'version_info', 'warnoptions', 'winver']
 ```
 
 1. `__file__`
@@ -194,9 +202,21 @@ D:\myProject\python-demos\demo2
 ```
 
 2. sys.path
+
 所在模块：sys
 
 python程序中使用import导入模块时，python解析器会在当前目录、已安装和第三方模块中搜索要导入的模块，更准确的说是从sys.path这个列表变量包含的路径中搜索的，因为sys.path是一个列表变量，所以可以使用append()和insert()函数更新列表中元素的值。
+
+```python
+
+import sys 
+print(isinstance(sys.path, list)) 
+print(sys.path)
+
+# 运行
+True
+['D:\\myProject\\python-demos\\demo2\\sub_test', 'D:\\install\\python\\python36.zip', 'D:\\install\\python\\DLLs', 'D:\\install\\python\\lib', 'D:\\install\\python', 'D:\\install\\python\\lib\\site-packages']
+```
 
 
 3. `__name__`
