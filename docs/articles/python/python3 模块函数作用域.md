@@ -27,8 +27,13 @@ from module.xx.xx import * #导⼊⼀个模块下的所有⽅法，不建议使�
 module_a.xxx #调⽤
 ```
 
+导出模块可以通过 `__all__` 进行设置需要导出哪些变量或者方法
 
+```python
+__all__ = ['a', 'b']
+a = 1
+b = 2
+c = 3
+```
 
-练习例子：
-
-[import 练习](https://gitee.com/elfeach/python-demo/tree/master/demo2/sub_test)
+练习例子：[import 练习](https://gitee.com/elfeach/python-demo/tree/master/demo2/sub_test)
