@@ -197,10 +197,14 @@ def printinfo(arg1, **vardict):
     print("输出: ")
     print(arg1)
     print(vardict)
+    for key, value in vardict.items():
+		
+    
 
 
 # 调用printinfo 函数
 printinfo(1, a=2, b=3)
+
 
 '''
 输出: 
