@@ -69,7 +69,9 @@ from c1 import (a, b,
 
 练习例子：[import 练习](https://gitee.com/elfeach/python-demo/tree/master/demo2/sub_test)
 
-1.1
+#### ⾃定义模块
+
+
 
 小技巧：
 vscode如何隐藏python编译时生成的`__pycache__`文件呢？
