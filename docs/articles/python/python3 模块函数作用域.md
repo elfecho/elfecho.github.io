@@ -20,7 +20,7 @@
 
 导⼊模块有以下⼏种⽅式：
 ```python
-import module_a #导⼊
+import module_a #导⼊ 如果路径过长可以使用 `import module_a as m` 设置别名
 from module import xx # 导⼊某个模块下的某个⽅法 or ⼦模块
 from module.xx.xx import xx as rename #导⼊后⼀个⽅法后重命令
 from module.xx.xx import * #导⼊⼀个模块下的所有⽅法，不建议使⽤
