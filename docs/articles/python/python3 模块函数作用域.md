@@ -71,3 +71,7 @@ from c1 import (a, b,
 vscode如何隐藏python编译时生成的`__pycache__`文件呢？
 
 可以通过设置里面进行搜索 `files.exclude` 然后添加 `**/__pycache__` 即可隐藏 `__pycache__`文件
+
+### `__init__` 的用法
+
+
