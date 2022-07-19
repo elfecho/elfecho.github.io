@@ -84,3 +84,20 @@ print(e, f, g)
 必备参数须以正确的顺序传入函数。调用时的数量必须和声明时的一样。
 
 调用 add() 函数，你必须传入一个参数，不然会出现语法错误：
+
+```python
+def add(x, y):
+    result = x + y
+    return result
+    
+a = add(1)
+```
+
+以上实例输出结果：
+
+```python
+Traceback (most recent call last):
+  File "c5.py", line 5, in <module>
+    a = add(1)
+TypeError: add() missing 1 required positional argument: 'y'
+```
