@@ -27,7 +27,7 @@ from module.xx.xx import * #导⼊⼀个模块下的所有⽅法，不建议使�
 module_a.xxx #调⽤
 ```
 
-导出模块可以通过 `__all__` 进行设置需要导出哪些变量或者方法
+导出模块可以通过 `__all__` 进行设置全局需要导出哪些变量或者方法
 
 ```python
 # c1.py
@@ -51,9 +51,17 @@ print(c)  # 报错
 
 ```python
 from c1 import a, b, c
-
+print(a)  # 1
+print(b)  # 2
+print(c)  # 3
 ```
 
+python语言虽然没限制一行代码的字符，但是建议不要超过80个字符，如果需要引入多个变量的话，可以通过 `\` 进行换行
+
+```python
+from c1 import a, b, \
+c
+```
 
 练习例子：[import 练习](https://gitee.com/elfeach/python-demo/tree/master/demo2/sub_test)
 
