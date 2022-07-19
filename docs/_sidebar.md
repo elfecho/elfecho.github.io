@@ -19,3 +19,4 @@
 	- [python3 变量与运算符](articles/python/python3%20变量与运算符.md)
 	- [python3 分支循环条件与枚举](articles/python/python3%20分支循环条件与枚举.md)
 	- [python3 模块与包](articles/python/python3%20模块与包.md)
+	- [python3 函数](articles/python/python3%20模块与包.md)
