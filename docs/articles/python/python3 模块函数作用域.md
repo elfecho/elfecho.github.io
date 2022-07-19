@@ -87,7 +87,6 @@ def sayhi(name):
     print("大家好")
 ```
 
-
 结果
 
 ```
@@ -111,13 +110,33 @@ print(sys.path)
 注意列表第⼀个元素为空，即代表当前⽬录，所以你⾃⼰定义的模块在当前⽬录会被优先导⼊。
 我们⾃⼰创建的模块若想在任何地⽅都能调⽤，那就得确保你的模块⽂件⾄少在模块路径的查找列表 中。 我们⼀般把⾃⼰写的模块放在⼀个带有“site-packages” 字样的⽬录⾥，我们从⽹上下载安装的各种第三⽅的模块⼀般都放在这个⽬录。
 
+#### 第3⽅开源模块安装
+
+可以直接通过 pip 安装
+
+```python
+pip3 install paramiko #paramiko 是模块名pip命令会⾃动下载模块包并完成安装。
+软件⼀般会被⾃动安装你 python 安装⽬录的这个⼦⽬录⾥
+```
+
+```python
+/your_python_install_path/3.6/lib/python3.6/site-packages
+```
+
+pip 命令默认会连接在国外的 python 官⽅服务器下载，速度⽐较慢，你还可以使⽤国内的⾖瓣源，数据 会定期同步国外官⽹，速度快好多 -i 后⾯跟的是⾖瓣源地址 —trusted-host 得加上，是通过⽹站 https 安全验证⽤的
+
+pip 命令默认会连接在国外的 python 官⽅服务器下载，速度⽐较慢，你还可以使⽤国内的⾖瓣源，数据 会定期同步国外官⽹，速度快好多 -i 后⾯跟的是⾖瓣源地址 —trusted-host 得加上，是通过⽹站 https 安全验证⽤的
+
+```bash
+pip install -i http://pypi.douban.com/simple/sayhi --trusted-host
+pypi.douban.com #sayhi是模块名
+```
+
+使⽤
+下载后，直接导⼊使⽤就可以，跟⾃带的模块调⽤⽅法⽆差
 
 
-
-
-
-
-小技巧：
+**小技巧：**
 vscode如何隐藏python编译时生成的`__pycache__`文件呢？
 
 可以通过设置里面进行搜索 `files.exclude` 然后添加 `**/__pycache__` 即可隐藏 `__pycache__`文件
