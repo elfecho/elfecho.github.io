@@ -102,3 +102,19 @@ Traceback (most recent call last):
     a = add(1)
 TypeError: add() missing 1 required positional argument: 'y'
 ```
+
+### 关键字参数
+
+关键字参数和函数调用关系紧密，函数调用使用关键字参数来确定传入的参数值。
+
+使用关键字参数允许函数调用时参数的顺序与声明时不一致，因为 Python 解释器能够用参数名匹配参数值。
+
+以下实例在函数 add() 调用时使用参数名：
+
+```python
+def add(x, y):
+    result = x + y
+    return result
+    
+c = add(y=3, x=2)  # 代码可读性增强
+```
