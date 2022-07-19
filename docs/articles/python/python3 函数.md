@@ -55,7 +55,7 @@ skill1_damage, skill2_damage = damage(2, 3)
 print(skill1_damage, skill2_damage) # 6 16
 ```
 
-### 序列解包
+### 序列解包与链式赋值
 
 序列解包的个数一定要相等
 
@@ -63,7 +63,9 @@ print(skill1_damage, skill2_damage) # 6 16
 d = 1, 2, 3
 a, b, c = d
 print(a, b, c)
-
+e = f = g = 1
+print(e, f, g)
 # 运行
 1 2 3
+1 1 1
 ```
