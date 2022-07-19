@@ -89,3 +89,6 @@ import os
 import package 
 print(package.re, package.urllib, package.sys, package.os)
 ```
+
+**注意这里访问__init__.py文件中的引用文件，需要加上包名。**
+
