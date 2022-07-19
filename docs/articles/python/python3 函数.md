@@ -19,3 +19,36 @@ def functionname( parameters ):
 	return [expression]
 ```
 
+## 函数调用
+
+定义一个函数只给了函数一个名称，指定了函数里包含的参数，和代码块结构。
+这个函数的基本结构完成以后，你可以通过另一个函数调用执行，也可以直接从Python提示符执行。
+
+如下实例调用了 add() 函数：
+```python
+def add(x, y):
+    result = x + y
+    return result
+
+result = add(2, 3)
+print(result)
+
+# 运行
+5
+```
+
+当函数需要使用返回多个值
+
+```python
+def damage(skill1, skill2):
+    damage1 = skill1 * 3
+    damage2 = skill2 * 2 + 10
+    return damage1, damage2
+  
+
+
+
+skill1_damage, skill2_damage = damage(2, 3)
+
+print(skill1_damage, skill2_damage)
+```
