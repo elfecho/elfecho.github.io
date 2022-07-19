@@ -163,7 +163,7 @@ print(package.re, package.urllib, package.sys, package.os)
 
 ### 模块里的内置变量 
 
-使用函数 `dir()` 可以返回模块里的内置函数，也可以查看
+使用函数 `dir()` 可以返回模块里的内置函数，也可以查看某个模块下的变量时可以传入其模块名
 
 ```python
 import sys
