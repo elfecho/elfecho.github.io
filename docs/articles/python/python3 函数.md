@@ -50,7 +50,11 @@ print(damages） # （6, 16）
 print(damages[0], damages[1])  # 6 16 这种方式获取，不利于维护以及查看
 print(type(damages))  # <class 'tuple'>
 
-# 这种方式接收返回的值，可读性强，便于维护
+# 使用序列解包的方式接收返回的值，可读性强，便于维护
 skill1_damage, skill2_damage = damage(2, 3)
 print(skill1_damage, skill2_damage) # 6 16
 ```
+
+### 序列解包
+
+
