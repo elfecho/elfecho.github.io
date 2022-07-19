@@ -198,17 +198,20 @@ def printinfo(arg1, **vardict):
     print(arg1)
     print(vardict)
     for key, value in vardict.items():
-		
+		print(key, ':', value)
     
 
 
 # 调用printinfo 函数
 printinfo(1, a=2, b=3)
-
+dic = {'a': 2, 'b': 3}
+printinfo(1, **dic)   # 结果是一样的
 
 '''
 输出: 
 1
 {'a': 2, 'b': 3}
+a : 2
+b : 3
 '''
 ```
