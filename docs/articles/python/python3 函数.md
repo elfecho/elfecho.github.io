@@ -150,3 +150,21 @@ def functionname([formal_args,] *var_args_tuple ):
 	function_suite 
 	return [expression]
 ```
+
+```python
+def printinfo(arg1, *vartuple):
+    "打印任何传入的参数"
+    print("输出: ")
+    print(arg1)
+    print(vartuple)
+
+
+# printinfo 函数
+printinfo(70, 60, 50)
+
+'''
+输出: 
+70
+(60, 50)
+'''
+```
