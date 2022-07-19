@@ -87,10 +87,11 @@ print(e, f, g)
 
 ```python
 def add(x, y):
+	# x, y 形式参数 形参
     result = x + y
     return result
     
-a = add(1)
+a = add(1) # 实际参数 实参
 ```
 
 以上实例输出结果：
