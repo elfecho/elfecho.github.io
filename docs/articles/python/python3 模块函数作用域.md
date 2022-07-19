@@ -27,6 +27,8 @@ from module.xx.xx import * #导⼊⼀个模块下的所有⽅法，不建议使�
 module_a.xxx #调⽤
 ```
 
+**注意：模块⼀旦被调⽤，即相当于执⾏了另外⼀个 py ⽂件⾥的代码**
+
 导出模块可以通过 `__all__` 进行设置全局需要导出哪些变量或者方法
 
 ```python
@@ -92,3 +94,6 @@ print(package.re, package.urllib, package.sys, package.os)
 
 **注意这里访问__init__.py文件中的引用文件，需要加上包名。**
 
+## 什么是包
+
+其实，一个包就是一个文件目录，你可以把同一个业务线的文件放在一起
