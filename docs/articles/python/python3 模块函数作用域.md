@@ -97,3 +97,6 @@ print(package.re, package.urllib, package.sys, package.os)
 ## 什么是包
 
 其实，一个包就是一个文件目录，你可以把同一个业务线的文件放在一起
+
+![upgit_20220719_1658209070.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220719_1658209070.png)
+
