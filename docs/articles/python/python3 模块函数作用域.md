@@ -69,7 +69,7 @@ from c1 import (a, b,
 
 练习例子：[import 练习](https://gitee.com/elfeach/python-demo/tree/master/demo2/sub_test)
 
-#### **⾃定义模块**
+#### ⾃定义模块
 
 test.py
 
@@ -94,7 +94,7 @@ my first module
 大家好
 ```
 
-#### **模块的查找路径**
+#### 模块的查找路径
 
 有没有发现，⾃⼰写的模块只能在当前路径下的程序⾥才能导⼊，换⼀个⽬录再导⼊⾃⼰的模块就报错 说找不到了， 这是为什么？ 这与导⼊模块的查找路径有关模板的查找路径。
 
@@ -136,7 +136,7 @@ pypi.douban.com #sayhi是模块名
 下载后，直接导⼊使⽤就可以，跟⾃带的模块调⽤⽅法⽆差
 
 
-**小技巧：**
+**vscode 小技巧：**
 vscode如何隐藏python编译时生成的`__pycache__`文件呢？
 
 可以通过设置里面进行搜索 `files.exclude` 然后添加 `**/__pycache__` 即可隐藏 `__pycache__`文件
@@ -166,4 +166,9 @@ print(package.re, package.urllib, package.sys, package.os)
 其实，一个包就是一个文件目录，你可以把同一个业务线的文件放在一起
 
 ![upgit_20220719_1658209070.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220719_1658209070.png)
+
+## 包和模块常见的几个错误
+
+- 包和模块是不会被重复导入的
+- 避免循环引入模块
 
