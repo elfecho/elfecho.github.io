@@ -56,11 +56,13 @@ print(b)  # 2
 print(c)  # 3
 ```
 
-python语言虽然没限制一行代码的字符，但是建议不要超过80个字符，如果需要引入多个变量的话，可以通过 `\` 进行换行
+python语言虽然没限制一行代码的字符，但是建议不要超过80个字符，如果需要引入多个变量的话，可以通过 `\` 进行换行,  或者通过 () 进行包裹
 
 ```python
-from c1 import a, b, \
-c
+from c1 import a, b,\
+ c
+from c1 import (a, b,
+ c)
 ```
 
 练习例子：[import 练习](https://gitee.com/elfeach/python-demo/tree/master/demo2/sub_test)
