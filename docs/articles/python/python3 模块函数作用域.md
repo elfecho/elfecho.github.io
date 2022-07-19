@@ -69,7 +69,51 @@ from c1 import (a, b,
 
 练习例子：[import 练习](https://gitee.com/elfeach/python-demo/tree/master/demo2/sub_test)
 
-#### ⾃定义模块
+#### **⾃定义模块**
+
+test.py
+
+```python
+import my_module
+my_module.sayhi("qinyun")
+my_module.py
+```
+
+my_module.py
+
+```python
+print("my first module")
+def sayhi(name):
+    print("大家好")
+```
+
+
+结果
+
+```
+my first module
+大家好
+```
+
+#### **模块的查找路径**
+
+有没有发现，⾃⼰写的模块只能在当前路径下的程序⾥才能导⼊，换⼀个⽬录再导⼊⾃⼰的模块就报错 说找不到了， 这是为什么？ 这与导⼊模块的查找路径有关模板的查找路径。
+
+```python
+import sys
+print(sys.path)
+
+['D:\\myProject\\python-demos\\demo2\\sub_test', 'D:\\install\\python\\python36.zip', 'D:\\install\\python\\DLLs', 'D:\\install\\python\\lib', 'D:\\install\\python', 'D:\\install\\python\\lib\\site-packages']
+```
+
+输出（注意不同的电脑可能输出的不太⼀样）
+你导⼊⼀个模块时， Python 解释器会按照上⾯列表顺序去依次到每个⽬录下去匹配你要导⼊的模块名， 只要在⼀个⽬录下匹配到了该模块名，就⽴刻导⼊，不再继续往后找。
+注意列表第⼀个元素为空，即代表当前⽬录，所以你⾃⼰定义的模块在当前⽬录会被优先导⼊。
+我们⾃⼰创建的模块若想在任何地⽅都能调⽤，那就得确保你的模块⽂件⾄少在模块路径的查找列表 中。 我们⼀般把⾃⼰写的模块放在⼀个带有“site-packages” 字样的⽬录⾥，我们从⽹上下载安装的各种第三⽅的模块⼀般都放在这个⽬录。
+
+
+
+
 
 
 
