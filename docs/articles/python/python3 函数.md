@@ -57,4 +57,13 @@ print(skill1_damage, skill2_damage) # 6 16
 
 ### 序列解包
 
+序列解包的个数一定要相等
 
+```python
+d = 1, 2, 3
+a, b, c = d
+print(a, b, c)
+
+# 运行
+1 2 3
+```
