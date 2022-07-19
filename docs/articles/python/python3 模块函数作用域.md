@@ -40,11 +40,19 @@ c = 3
 c2.py 引入 c1.py
 
 ```python
-from c1 import *
-
-
+# c2.py
+from c1 import *  # 不建议使用 *  的方式进行引入
+print(a)  # 1
+print(b)  # 2
+print(c)  # 报错
 ```
 
+如果需要引入多个变量时，可以通过逗号分割
+
+```python
+from c1 import a, b, c
+
+```
 
 
 练习例子：[import 练习](https://gitee.com/elfeach/python-demo/tree/master/demo2/sub_test)
