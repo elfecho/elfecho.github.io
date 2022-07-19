@@ -278,7 +278,29 @@ file    c8.py
 - `__doc__`是文档注释描述，无文档注释的话为空
 - `__file__`是引入模块的绝对路径，入口文件的相对路径
 
-python导入方式
+**python导入方式**
+
+```python
+# sub_test/c9.py
+print('~~~~~~~~~~~~~~~~~~~~C9~~~~~~~~~~~~~~~~~~~~~~~~')
+print('name:\t' + __name__)
+print('package\t' + (__package__ or '当前模块不属于任何包'))
+print('doc\t' + (__doc__ or '当前模块暂无文档注释'))
+print('file\t' + __file__)
+
+# 运行
+# 普通文件执行
+python sub_test\c9.py
+'''
+~~~~~~~~~~~~~~~~~~~~C9~~~~~~~~~~~~~~~~~~~~~~~~
+name:   __main__
+package 当前模块不属于任何包
+doc     当前模块暂无文档注释
+file    sub_test\c9.py
+'''
+# 模块导入方式
+python sub_test.c9
+```
 
 ## 什么是包
 
