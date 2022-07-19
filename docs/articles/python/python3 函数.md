@@ -239,8 +239,25 @@ lambda [arg1 [,arg2,.....argn]]:expression
 
 ## 实例
 
+```python
 x = lambda a : a + 10 print(x(5))
+# 结果： 15
+```
+
+以下实例匿名函数设置两个参数：
+
+```python
+sum = lambda arg1, arg2: arg1 + arg2
+
+# 调用sum函数
+print ("相加后的值为 : ", sum( 10, 20 ))
+print ("相加后的值为 : ", sum( 20, 20 ))
+```
 
 以上实例输出结果：
 
-```pyython15```
+```python
+相加后的值为 :  30
+相加后的值为 :  40
+```
+
