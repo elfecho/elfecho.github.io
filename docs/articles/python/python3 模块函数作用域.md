@@ -192,7 +192,11 @@ D:\myProject\python-demos\demo2
 
 当python程序被执行时，入口文件即python解释器紧跟的那个py文件，在这个文件中__name__的值为__main__，在其它py文件中的__name__的值都等于所在文件的文件名(不包含.py后缀)。通常，我们使用`if __name__ == "__main__"`来判断当前文件是否是入口文件，以便判断是否要执行这个if语句中的代码块。
 
-t/t1/c1.py
+
+示例：
+
+t/t1/c3.py
+
 ```python
 '''
     This is a c3 doc
@@ -206,8 +210,24 @@ print('file\t' + __file__)
 c8.py
 
 ```python
-
+import t.t1.c3
+if __name__ == "__main__":
+    print('this is main code')
 ```
+
+结果
+
+```python
+name:   t.t1.c3
+package t.t1
+doc
+    This is a c3 doc
+
+file    D:\myProject\python-demos\demo2\sub_test\t\t1\c3.py
+this is main code
+```
+
+从返回结果可以分析，`__name__` 是引入模块的包名与模块名结合
 
 ## 什么是包
 
