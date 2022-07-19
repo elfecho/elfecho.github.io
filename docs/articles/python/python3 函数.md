@@ -152,15 +152,13 @@ def functionname([formal_args,] *var_args_tuple ):
 ```
 
 ```python
-def printinfo(arg1, *vartuple):
-    "打印任何传入的参数"
-    print("输出: ")
-    print(arg1)
-    print(vartuple)
+def demo(*params):
+    print(params)
+    print(type(params))
 
+a = (1, 2, 3, 4, 5)
 
-# printinfo 函数
-printinfo(70, 60, 50)
+demo(*a)
 
 '''
 输出: 
