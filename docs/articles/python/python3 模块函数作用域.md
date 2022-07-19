@@ -4,5 +4,23 @@
 
 为此 Python 提供了一个办法，把这些定义存放在文件中，为一些脚本或者交互式的解释器实例使用，这个文件被称为模块。
 
-模块是一个包含所有你定义的函数和变量的文件，其后缀名是.py。模块可以被别的程序引入，以使用该模块中的函数等功能。这也是使用 python 标准库的方法。
+### 什么是模块
 
+在 Python 中，⼀个 .py ⽂件就可以称之为 ⼀个模块（Module ）
+
+模块分类
+模块分为三种：
+内置标准模块
+（⼜称标准库）执⾏ help(‘modules’) 查看所有 python ⾃带模块列表
+第三⽅开源模块
+可通过 pip install 模块名 联⽹安装
+⾃定义模块
+模块导⼊ & 调⽤
+导⼊模块有以下⼏种⽅式：
+```python
+import module_a #导⼊
+from module import xx # 导⼊某个模块下的某个⽅法 or ⼦模块
+from module.xx.xx import xx as rename #导⼊后⼀个⽅法后重命令
+from module.xx.xx import * #导⼊⼀个模块下的所有⽅法，不建议使⽤
+module_a.xxx #调⽤
+```
