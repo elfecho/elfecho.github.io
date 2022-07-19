@@ -163,31 +163,34 @@ print(package.re, package.urllib, package.sys, package.os)
 
 ### 模块里的内置变量 
 
-1.__file__
+1. `__file__`
+
 所在模块：os
-
 变量作用：指向当前文件
-
 当前文件的完整路径：os.path.abspath(__file__)
-
 当前文件所属目录：os.path.dirname(os.path.abspath(__file__))
-
 当前文件所属目录的上级目录：os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 ```python
 import os
 print(__file__)
-print(os.path.abspath("filelocation.py"))
+print(os.path.abspath("c8.py"))
 print(os.path.abspath(__file__))
 print(os.path.dirname(os.path.abspath(__file__)))
 print(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 #运行：
-D:\myProject\python-demos\demo2\sub_test\filelocation.py
+D:\myProject\python-demos\demo2\sub_test\c8.py
 D:\myProject\python-demos\demo2\sub_test\c8.py
 D:\myProject\python-demos\demo2\sub_test
 D:\myProject\python-demos\demo2
 ```
+
+2. `__name__`
+
+这是python内置的系统变量。
+
+当python程序被执行时，入口文件即python解释器紧跟的那个py文件，在这个文件中__name__的值为__main__，在其它py文件中的__name__的值都等于所在文件的文件名(不包含.py后缀)。通常，我们使用`if __name__ == "__main__"`来判断当前文件是否是入口文件，以便判断是否要执行这个if语句中的代码块。
 
 
 ## 什么是包
