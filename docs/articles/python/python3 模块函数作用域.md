@@ -30,11 +30,22 @@ module_a.xxx #调⽤
 导出模块可以通过 `__all__` 进行设置需要导出哪些变量或者方法
 
 ```python
+# c1.py
 __all__ = ['a', 'b']
 a = 1
 b = 2
 c = 3
 ```
+
+c2.py 引入 c1.py
+
+```python
+from c1 import *
+
+
+```
+
+
 
 练习例子：[import 练习](https://gitee.com/elfeach/python-demo/tree/master/demo2/sub_test)
 
