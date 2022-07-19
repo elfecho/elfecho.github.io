@@ -171,4 +171,5 @@ print(package.re, package.urllib, package.sys, package.os)
 
 - 包和模块是不会被重复导入的
 - 避免循环引入模块
+- 模块⼀旦被调⽤，即相当于执⾏了另外⼀个 py ⽂件⾥的代码
 
