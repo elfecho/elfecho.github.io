@@ -151,6 +151,28 @@ def functionname([formal_args,] *var_args_tuple ):
 	return [expression]
 ```
 
+示例一：
+
+```python
+def printinfo(arg1, *vartuple):
+    "打印任何传入的参数"
+    print("输出: ")
+    print(arg1)
+    print(vartuple)
+
+
+# printinfo 函数
+printinfo(70, 60, 50)
+
+'''
+输出: 
+70
+(60, 50)
+'''
+```
+
+示例二：
+
 ```python
 def demo(*params):
     print(params)
@@ -165,5 +187,24 @@ demo(*a)
 '''
 (1, 2, 3, 4, 5)
 <class 'tuple'>
+'''
+```
+
+加了两个星号 ** 的参数会以字典的形式导入
+
+```python
+def printinfo(arg1, **vardict):
+    print("输出: ")
+    print(arg1)
+    print(vardict)
+
+
+# 调用printinfo 函数
+printinfo(1, a=2, b=3)
+
+'''
+输出: 
+1
+{'a': 2, 'b': 3}
 '''
 ```
