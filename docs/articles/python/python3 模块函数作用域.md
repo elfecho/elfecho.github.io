@@ -210,6 +210,12 @@ c8.py
 
 ```python
 import t.t1.c3
+
+print('~~~~~~~~~~~~~~~~~~~~C8~~~~~~~~~~~~~~~~~~~~~~~~')
+print('name:\t' + __name__)
+print('package\t' + (__package__ or '当前模块不属于任何包'))
+print('doc\t' + (__doc__ or '当前模块暂无文档注释'))
+print('file\t' + __file__)
 if __name__ == "__main__":
     print('this is main code')
 ```
@@ -223,14 +229,19 @@ doc
     This is a c3 doc
 
 file    D:\myProject\python-demos\demo2\sub_test\t\t1\c3.py
+~~~~~~~~~~~~~~~~~~~~C8~~~~~~~~~~~~~~~~~~~~~~~~
 this is main code
+name:   __main__
+package 当前模块不属于任何包
+doc     当前模块暂无文档注释
+file    c8.py
 ```
 
 从返回结果可以分析，
 - `__name__` 是引入模块的包名与模块名结合
 - `__package__`是引入模块的包名，入口文件的`__package__`是空
 - `__doc__`是文档注释描述，无文档注释的话为空
-- `__file__`是引入模块的绝对路径
+- `__file__`是引入模块的绝对路径，或者是入口文件的相对路径
 
 ## 什么是包
 
