@@ -66,7 +66,7 @@ class Student():
         self.name = name  # 实例变量
         self.age = age
         
-
+	# 实例方法
     def do_homework(self):
         print('homework')
 
@@ -89,3 +89,6 @@ elfecho
 
 - 类变量只跟类是相关的
 - 实例变量的定义使用 self 进行定义
+
+![upgit_20220720_1658312651.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220720_1658312651.png)
+
