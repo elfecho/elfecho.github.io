@@ -59,7 +59,8 @@
 class Student():
     name = 'elfecho'  # 类变量
     age = 0
-  
+	
+	# 实例方法
     def __init__(self, name, age):
         # 构造函数
         self.name = name  # 实例变量
