@@ -51,16 +51,19 @@
 
 特点：
 1. 实例化时自动执行一次构造函数
-2. 构造函数只能返回None
-3. 构造函数让模块可以生成不同的对象
+2. 只能返回None
+3. 让模块可以生成不同的对象
+4. 形参用于初始化对象的属性
 
 ```python
 class Student():
     name = ''
     age = 0
   
-    def __init__(self):
+    def __init__(self, name, age):
         # 构造函数
+        name = name
+        age = age
         print('student')
 
     def do_homework(self):
