@@ -59,12 +59,14 @@
 class Student():
     name = 'elfecho'  # 类变量
     age = 0
+    total = 1
 	
 	# 实例方法
     def __init__(self, name, age):
         # 构造函数
         self.name = name  # 实例变量
         self.age = age
+        print(Student.total) # 访问类变量
         
 	# 实例方法
     def do_homework(self):
@@ -89,6 +91,7 @@ elfecho
 
 - 类变量只跟类是相关的
 - 实例变量的定义使用 self 进行定义
+- 实例方法里面访问类变量，使用`类名.xx`进行访问
 
 ![upgit_20220720_1658312651.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220720_1658312651.png)
 
