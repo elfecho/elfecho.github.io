@@ -57,7 +57,7 @@
 
 ```python
 class Student():
-    name = ''  # 类变量
+    name = 'elfecho'  # 类变量
     age = 0
   
     def __init__(self, name, age):
@@ -71,7 +71,17 @@ class Student():
 
 
 student1 = Student('喜小乐', 18)
+student1 = Student('石敢当', 19)
 print(student1.name)
+print(student2.name)
+print(Student.name)
+
+# 运行结果
+'''
+喜小乐
+石敢当
+elfecho
+'''
 ```
 
 - 类变量只跟类是相关的
