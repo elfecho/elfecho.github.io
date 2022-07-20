@@ -62,10 +62,14 @@ class Student():
   
     def __init__(self, name, age):
         # 构造函数
-        name = name
-        age = age
-        print('student')
+        self.name = name
+        self.age = age
+        
 
     def do_homework(self):
         print('homework')
+
+
+student1 = Student('喜小乐', 18)
+print(student1.name)
 ```
