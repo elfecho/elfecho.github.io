@@ -62,7 +62,7 @@ class Student():
   
     def __init__(self, name, age):
         # 构造函数
-        self.name = name
+        self.name = name  # 实例变量
         self.age = age
         
 
@@ -73,3 +73,5 @@ class Student():
 student1 = Student('喜小乐', 18)
 print(student1.name)
 ```
+
+类变量
