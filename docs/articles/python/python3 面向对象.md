@@ -75,12 +75,14 @@ student1 = Student('石敢当', 19)
 print(student1.name)
 print(student2.name)
 print(Student.name)
+print(student1.__dict__)  # 查询构造函数里变量的字典
 
 # 运行结果
 '''
 喜小乐
 石敢当
 elfecho
+{'name': '喜小乐', 'age': 18}
 '''
 ```
 
