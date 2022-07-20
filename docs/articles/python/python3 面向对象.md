@@ -74,4 +74,5 @@ student1 = Student('喜小乐', 18)
 print(student1.name)
 ```
 
-类变量
+- 类变量只跟类是相关的
+- 实例变量的定义使用 self 进行定义
