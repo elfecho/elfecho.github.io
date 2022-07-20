@@ -49,3 +49,20 @@
 每个类必须有一个构造函数，即使它只依赖于默认构造函数。
 
 
+特点：
+1. 实例化时自动执行一次构造函数
+2. 构造函数只能返回None
+3. 构造函数让模块可以生成不同的对象
+
+```python
+class Student():
+    name = ''
+    age = 0
+  
+    def __init__(self):
+        # 构造函数
+        print('student')
+
+    def do_homework(self):
+        print('homework')
+```
