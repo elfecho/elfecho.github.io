@@ -121,8 +121,8 @@ elfecho
 
 ### 类方法
 
-- @classmethod是声明了下面的函数是类方法
-- @classmethod 不需要 self 来表示自身了，而是用了 cls 来代替
+- `@classmethod`是声明了下面的函数是类方法
+- `@classmethod` 不需要 `self` 来表示自身了，而是用了 `cls` 来代替
 - 对象也可以调用类方法，但是不建议这么做
 
 ```python
@@ -158,4 +158,4 @@ student1.plus_sum()  # 对象调用类方法
 
 ### 静态方法
 
-
+- `@staticmethod`也是通过 类名.函数名 的方式进行调用
