@@ -21,6 +21,7 @@ Python 类
 	方法
 		实例方法
 		类方法
+		静态方法
 	构造函数
 ```
 
@@ -145,7 +146,7 @@ student1 = Student('喜小乐', 18)
 Student.plus_sum()
 student2 = Student('石敢当', 19)
 Student.plus_sum()
-student1.plus_sum()
+student1.plus_sum()  # 对象调用类方法
 
 '''
 # 运行
@@ -154,3 +155,7 @@ student1.plus_sum()
 当前班级的人数为3
 '''
 ```
+
+### 静态方法
+
+
