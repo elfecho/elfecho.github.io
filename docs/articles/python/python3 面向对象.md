@@ -23,6 +23,7 @@ Python 类
 		类方法
 		静态方法
 	构造函数
+	成员的可见性
 ```
 
 ## 类和对象
@@ -165,6 +166,13 @@ student1.plus_sum()  # 对象调用类方法
 class Student():
 	@staticmethod
 	def get_name(name):
-		print('My name is %s' % name)
+		print('My name is ', name)
 
+
+student1 = Student()
+student1.get_name('elfecho')
+'''
+# 运行
+My name is elfecho
+'''
 ```
