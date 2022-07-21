@@ -11,7 +11,8 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
   <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css">
+  <!-- <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css"> -->
+  <link rel="stylesheet" href="//unpkg.com/markmap@0.6.1/style/view.mindmap.css">
 </head>
 
 <body>
@@ -359,11 +360,11 @@
     //   admin: ['elfecho'],
     //   distractionFreeMode: false,
     // }
-    window.onhashchange = function(event){
-      if(event.newURL.split('?')[0] !== event.oldURL .split('?')[0]) {
-        location.reload()
-      }
-    }
+    // window.onhashchange = function(event){
+    //   if(event.newURL.split('?')[0] !== event.oldURL .split('?')[0]) {
+    //     location.reload()
+    //   }
+    // }
     
     window.$docsify = {
       name: 'Elfecho',
@@ -417,6 +418,13 @@
 
         return time;
       },
+      mindmap: {
+        // https://github.com/dundalek/markmap
+        markmap: {
+          preset: 'colorful', // or default
+          linkShape: 'diagonal' // or bracket
+        }
+      },
       plugins: [
         function (hook, vm) {
           // hook.doneEach(function() {
@@ -458,10 +466,11 @@
   <!-- <script src="//cdn.jsdelivr.net/npm/docsify@4"></script> -->
   <script src="js/docsify@4.js"></script>
   <!-- gitalk 评论插件 -->
-  <script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
-  <!-- <script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script> -->
+  <!-- <script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script> -->
   <!-- emoji 插件 -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+
+  <script src="//unpkg.com/markmap@0.6.1/lib/view.mindmap.js"></script>
 
   <!--代码高亮-->
   <script src="js/codeHighLine/prism-c.min.js"></script>
