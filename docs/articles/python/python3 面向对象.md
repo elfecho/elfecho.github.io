@@ -185,21 +185,30 @@ python 变成私有的方法：
 变量或者方法前加双下划线`__`
 （前后都有双下划线是公开的，可以通过外部访问，但这种一般是python默认的一些方法，不建议自己的方法用这种命名法）
 
+```python
+class Student():
+	def __init__(self, name, age):
+		self.name = name
+		self.age = age
+		self.__score = 0  # 定义私有变量
+
+	def marking(self, score):
+		if (score < 0):
+            return '不能够给同学打负分'
+
+        self.__score = score
+        print(self.name + '同学本次考试分数为' + str(self.__score))
+
+student1 = Student('喜小乐', 18)
+print(student1.__score)  # 直接打印私有变量会报错
+print(student1.__dict__)  # {'name': '喜小乐', 'age': 18, '_Student__score': 89}
+
+```
+
 深入挖掘python成员可见性：
 如果将一个变量定义为私有变量，python是在内部将这个私有变量换了一个名字，以达到无法引用有个私有变量的目的
 
-```python
-class Student():
-	def marking(self, score):
-		if (score < 0):
-
-            return '不能够给同学打负分'
-
-        self.__score = score        
-
-        print(self.name + '同学本次考试分数为' + str(self.__score))
-
-```
+如果对一个私有变量赋值，如：
 
 
 
