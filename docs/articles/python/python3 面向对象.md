@@ -242,3 +242,27 @@ class 子类类名(父类1,父类2,......):
 python支持多继承
 定义子类时，必须在其构造函数中调用父类的构造函数
 
+```python
+class Human(object):
+    def __init__(self,name,age):
+        self.name=name
+        self.age=age
+    def info(self):
+        print(self.name,self.age)
+ 
+class Student(Human):
+    def __init__(self,name,age,stu_num):
+	    Human.__init__(self, name, age) # 子类里的构造函数里，如果需要父类里的构造函数，需要调用
+        super().__init__(name,age)
+        self.stu_num=stu_num
+ 
+class Teacher(Person):
+    def __init__(self,name,age,teachofyear):
+        super().__init__(name,age)
+        self.teachofyear=teachofyear
+ 
+stu=Student('张三',20,1001)
+teach=Teacher('李四',40,20)
+stu.info()
+teach.info()
+```
