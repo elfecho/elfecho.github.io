@@ -118,10 +118,11 @@ elfecho
 - 实例方法里面访问类变量，使用`类名.xx`或者`self.__class__.xx`进行访问
 
 
-### 类变量
+### 类方法
 
 - @classmethod是声明了下面的函数是类方法
-- 使用cls进行
+- @classmethod 不需要 self 来表示自身了，而是用了 cls 来代替
+- 对象也可以调用类方法，但是不建议这么做
 
 ```python
 class Student():
@@ -144,8 +145,7 @@ student1 = Student('喜小乐', 18)
 Student.plus_sum()
 student2 = Student('石敢当', 19)
 Student.plus_sum()
-student3 = Student('小诺', 19)
-Student.plus_sum()
+student1.plus_sum()
 
 '''
 # 运行
