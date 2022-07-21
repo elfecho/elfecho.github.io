@@ -93,14 +93,14 @@ elfecho
 - 实例变量的定义使用 self 进行定义
 - 实例方法里面访问类变量，使用`类名.xx`或者`self.__class__.xx`进行访问
 
-```mindmap json-tree
-{
-  "name": "root",
-  "children": [
-    { "name": "hello" },
-    { "name": "world" }
-  ]
-}
+```mindmap
+Python 类
+	变量
+		类变量
+		实例变量
+	方法
+		实例方法
+	构造函数
 ```
 
 
