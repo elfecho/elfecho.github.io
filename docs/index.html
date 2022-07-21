@@ -350,14 +350,14 @@
   </div>
   </div>
   <script>
-    const gitalk = new Gitalk({
+    const gitalkConfig  = {
       clientID: '16155433ca5b81d55ef9',
       clientSecret: '8ce1c02f714f1ee7f9e2558709fdcd93ff66bec1',
-      repo: 'design-patterns',
+      repo: 'elfecho.github.io',
       owner: 'elfecho',
       admin: ['elfecho'],
       distractionFreeMode: false,
-    })
+    }
     window.$docsify = {
       name: 'Elfecho',
       repo: 'https://github.com/elfecho/elfecho.github.io',
@@ -383,17 +383,17 @@
       },
       //分页
       pagination: {
-        previousText: '上一章节',
-        nextText: '下一章节',
+        previousText: 'PREVIOUS',
+        nextText: 'NEXT',
         crossChapter: true,
         crossChapterText: true,
       },
       //全局搜索
       search: {
         paths: 'auto',
-        placeholder: '搜索',
-        noData: '找不到结果',
-        depth: 3, //搜索的标题深度
+        placeholder: '🔍 Type to search ',
+        noData: '😞 No Results!',
+        depth: 6, //搜索的标题深度
       },
       //字数统计，需要引入js
       count: {
@@ -412,6 +412,29 @@
       },
       plugins: [
         function (hook, vm) {
+          hook.doneEach(function() {
+            var label, domObj, main, divEle, gitalk;
+            label = vm.route.path.split("/").pop();
+            domObj = Docsify.dom;
+            main = domObj.getNode("#main");
+
+            Array.apply(
+              null,
+              document.querySelectorAll("div.gitalk-container")
+            ).forEach(function(ele) {
+              ele.remove();
+            });
+
+            divEle = domObj.create("div");
+            divEle.id = "gitalk-container-" + label;
+            divEle.className = "gitalk-container";
+            divEle.style = "width: " + main.clientWidth + "px; margin: 0 auto 20px;";
+            domObj.appendTo(domObj.find(".content"), divEle);
+            gitalk = new Gitalk(
+              Object.assign(gitalkConfig, { id: !label ? "home" : label })
+            );
+            gitalk.render("gitalk-container-" + label);
+          });
           hook.beforeEach(function (html) {
             var url = 'https://github.com/elfecho/elfecho.github.io/tree/master/docs/' + vm.route.file
             var editHtml = '[:memo: Edit Document](' + url + ')\n'
@@ -427,6 +450,8 @@
   <!-- Docsify v4 核心-->
   <!-- <script src="//cdn.jsdelivr.net/npm/docsify@4"></script> -->
   <script src="js/docsify@4.js"></script>
+  <!-- gitalk 评论插件 -->
+  <script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
   <!-- emoji 插件 -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
 
