@@ -12,6 +12,11 @@
   <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
   <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css">
+  
+  <!-- <script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+  <script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script> -->
+  <script src="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.js"></script>
 </head>
 
 <body>
@@ -350,14 +355,22 @@
   </div>
   </div>
   <script>
-    const gitalkConfig = {
+    const gitalk = new Gitalk({
       clientID: '16155433ca5b81d55ef9',
       clientSecret: '8ce1c02f714f1ee7f9e2558709fdcd93ff66bec1',
       repo: 'elfecho.github.io',
       owner: 'elfecho',
       admin: ['elfecho'],
-      distractionFreeMode: false,
+      // distractionFreeMode: false,
+      id: location.pathname, 
+    })
+    window.onhashchange = function(event){
+      if(event.newURL.split('?')[0] !== event.oldURL .split('?')[0]) {
+        location.reload()
+      }
     }
+    gitalk.render('gitalk-container');
+    
     window.$docsify = {
       name: 'Elfecho',
       repo: 'https://github.com/elfecho/elfecho.github.io',
@@ -412,29 +425,29 @@
       },
       plugins: [
         function (hook, vm) {
-          hook.doneEach(function() {
-            var label, domObj, main, divEle, gitalk;
-            label = vm.route.path.split("/").pop();
-            domObj = Docsify.dom;
-            main = domObj.getNode("#main");
+          // hook.doneEach(function() {
+          //   var label, domObj, main, divEle, gitalk;
+          //   label = vm.route.path.split("/").pop();
+          //   domObj = Docsify.dom;
+          //   main = domObj.getNode("#main");
 
-            Array.apply(
-              null,
-              document.querySelectorAll("div.gitalk-container")
-            ).forEach(function(ele) {
-              ele.remove();
-            });
+          //   Array.apply(
+          //     null,
+          //     document.querySelectorAll("div.gitalk-container")
+          //   ).forEach(function(ele) {
+          //     ele.remove();
+          //   });
 
-            divEle = domObj.create("div");
-            divEle.id = "gitalk-container-" + label;
-            divEle.className = "gitalk-container";
-            divEle.style = "width: " + main.clientWidth + "px; margin: 0 auto 20px;";
-            domObj.appendTo(domObj.find(".content"), divEle);
-            gitalk = new Gitalk(
-              Object.assign(gitalkConfig, { id: !label ? "home" : label })
-            );
-            gitalk.render("gitalk-container-" + label);
-          });
+          //   divEle = domObj.create("div");
+          //   divEle.id = "gitalk-container-" + label;
+          //   divEle.className = "gitalk-container";
+          //   divEle.style = "width: " + main.clientWidth + "px; margin: 0 auto 20px;";
+          //   domObj.appendTo(domObj.find(".content"), divEle);
+          //   gitalk = new Gitalk(
+          //     Object.assign(gitalkConfig, { id: !label ? "home" : label })
+          //   );
+          //   gitalk.render("gitalk-container-" + label);
+          // });
           hook.beforeEach(function (html) {
             var url = 'https://github.com/elfecho/elfecho.github.io/tree/master/docs/' + vm.route.file
             var editHtml = '[:memo: Edit Document](' + url + ')\n'
@@ -451,7 +464,7 @@
   <!-- <script src="//cdn.jsdelivr.net/npm/docsify@4"></script> -->
   <script src="js/docsify@4.js"></script>
   <!-- gitalk 评论插件 -->
-  <script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <!-- <script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script> -->
   <!-- <script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script> -->
   <!-- emoji 插件 -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
