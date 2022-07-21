@@ -67,6 +67,7 @@ class Student():
         self.name = name  # 实例变量
         self.age = age
         print(Student.total) # 访问类变量
+        print(self.__class__.total) # 访问类变量
         
 	# 实例方法
     def do_homework(self):
@@ -74,16 +75,15 @@ class Student():
 
 
 student1 = Student('喜小乐', 18)
-student1 = Student('石敢当', 19)
 print(student1.name)
-print(student2.name)
 print(Student.name)
 print(student1.__dict__)  # 查询构造函数里变量的字典
 
 # 运行结果
 '''
+1
+1
 喜小乐
-石敢当
 elfecho
 {'name': '喜小乐', 'age': 18}
 '''
@@ -91,7 +91,7 @@ elfecho
 
 - 类变量只跟类是相关的
 - 实例变量的定义使用 self 进行定义
-- 实例方法里面访问类变量，使用`类名.xx`进行访问
+- 实例方法里面访问类变量，使用`类名.xx`或者`self.__class__.xx`进行访问
 
 ![upgit_20220720_1658312651.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220720_1658312651.png)
 
