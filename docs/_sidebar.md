@@ -21,3 +21,4 @@
 	- [python3 模块与包](articles/python/python3%20模块与包.md)
 	- [python3 函数](articles/python/python3%20函数.md)
 	- [python3 面向对象](articles/python/python3%20面向对象.md)
+	- [python3 正则表达式](articles/python/python3%20正则表达式.md)
