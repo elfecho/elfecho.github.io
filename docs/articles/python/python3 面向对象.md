@@ -264,18 +264,20 @@ class Human(object):
         print(self.name,self.age)
  
 class Student(Human):
-    def __init__(self,name,age,stu_num):
+    def __init__(self,name,age,school):
 	    # Human.__init__(self, name, age) # 不建议用类来调用
         super().__init__(name,age)
-        self.stu_num=stu_num
+        self.school=school
  
 class Teacher(Human):
     def __init__(self,name,age,teachofyear):
         super().__init__(name,age)
         self.teachofyear=teachofyear
  
-stu=Student('张三', 20, 1001)
+stu=Student('张三', 20, '人民路中学')
 teach=Teacher('李四', 40, 20)
 stu.info()
 teach.info()
 ```
+
+#### 方法重写
