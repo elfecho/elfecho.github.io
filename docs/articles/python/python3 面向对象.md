@@ -100,11 +100,12 @@ Python 类
 		实例变量
 	方法
 		实例方法
+		类方法
 	构造函数
 ```
 
 
-[python3类](python3类.md  ':include')
+<!-- [python3类](python3类.md  ':include') -->
 
-![upgit_20220720_1658312651.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220720_1658312651.png)
+<!-- ![upgit_20220720_1658312651.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220720_1658312651.png) -->
 
