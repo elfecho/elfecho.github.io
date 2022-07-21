@@ -94,9 +94,15 @@ elfecho
 - 实例方法里面访问类变量，使用`类名.xx`或者`self.__class__.xx`进行访问
 
 ```mindmap json-tree
-root 
-{ "name": "root", "children": [ { "name": "hello" }, { "name": "world" } ] }
+{
+  "name": "root",
+  "children": [
+    { "name": "hello" },
+    { "name": "world" }
+  ]
+}
 ```
+
 
 [python3类](python3类.md  ':include')
 
