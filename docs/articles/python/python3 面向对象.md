@@ -93,12 +93,9 @@ elfecho
 - 实例变量的定义使用 self 进行定义
 - 实例方法里面访问类变量，使用`类名.xx`或者`self.__class__.xx`进行访问
 
-```mindmap
+```mindmap json-tree
 root 
-	topic1 
-		subtopic 
-topic2 
-	subtopic 
+{ "name": "root", "children": [ { "name": "hello" }, { "name": "world" } ] }
 ```
 
 [python3类](python3类.md  ':include')
