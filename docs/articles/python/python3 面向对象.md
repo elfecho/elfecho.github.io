@@ -120,3 +120,37 @@ elfecho
 
 ### 类变量
 
+- @classmethod是声明了下面的函数是类方法
+- 使用cls进行
+
+```python
+class Student():
+    # 一个班级里所有的学生总数
+    sum = 0
+
+    def __init__(self, name, age):
+        # 构造函数
+        self.name = name
+        self.age = age
+
+    # 类方法
+    @classmethod
+    def plus_sum(cls):
+        cls.sum += 1
+        print('当前班级的人数为' + str(cls.sum))
+
+
+student1 = Student('喜小乐', 18)
+Student.plus_sum()
+student2 = Student('石敢当', 19)
+Student.plus_sum()
+student3 = Student('小诺', 19)
+Student.plus_sum()
+
+'''
+# 运行
+当前班级的人数为1
+当前班级的人数为2
+当前班级的人数为3
+'''
+```
