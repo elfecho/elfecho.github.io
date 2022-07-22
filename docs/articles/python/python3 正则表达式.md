@@ -47,7 +47,16 @@ print(result3)
 '''
 ```
 
+### 字符集
 
+```python
+import re
+
+s = 'abc, acc, adc, aec, afc, ahc'
+
+r = re.findall('a[c-f]c', s)  # 借助普通字符进行定界
+print(r)
+```
 
 
 ## 正则表达式模式
