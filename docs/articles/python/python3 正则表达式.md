@@ -269,7 +269,9 @@ re.search(pattern, string, flags=0)
 | groups()     | 返回一个包含所有小组字符串的元组，从 1 到 所含的小组号。     |
 
 
+### re.match与re.search的区别
 
+re.match 只匹配字符串的开始，如果字符串开始不符合正则表达式，则匹配失败，函数返回 None，而 re.search 匹配整个字符串，直到找到一个
 
 ```python
 import re
@@ -335,9 +337,7 @@ life is short,i use python,i love python
 '''
 ```
 
-### re.match与re.search的区别
 
-re.match 只匹配字符串的开始，如果字符串开始不符合正则表达式，则匹配失败，函数返回 None，而 re.search 匹配整个字符串，直到找到一个
 
 
 ## 正则表达式修饰符 - 可选标志
