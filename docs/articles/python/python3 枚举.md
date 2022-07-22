@@ -155,11 +155,16 @@ class VIP(Enum):
     RED = 4
 
 print(VIP(1))
-print(VIP(1) == VIP.GREEN)
+if VIP(1) == VIP.GREEN:
+    print('GREEN == 1')
+
+if VIP(2) is VIP.YELLOW:
+    print('YELLOW == 2')
 '''
 运行结果
 VIP.GREEN
-True
+GREEN == 1
+YELLOW == 2
 '''
 ```
 
