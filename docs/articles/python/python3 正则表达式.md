@@ -317,12 +317,19 @@ s = 'life is short,i use python, i love python'
 
 r = re.search('life(.*)python(.*)python', s)
 print(r.groups())
+
+print(r.group(0))
 print(r.group(1))
 print(r.group(2))
+print(r.group(0, 1, 2))
 
 '''
 运行结果
 (' is short,i use ', ',i love ')
+life is short,i use python,i love python
+ is short,i use 
+,i love
+('life is short,i use python,i love python', ' is short,i use ', ',i love ')
 '''
 ```
 
