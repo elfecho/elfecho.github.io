@@ -27,6 +27,24 @@ print(VIP.RED) # YIP.RED
 本质上，枚举是一种特殊的类，但是它和普通的类有很多的不同。
 
 1. 定义枚举时，其枚举成员的名称不允许相同，而在普通类定义中，其类成员的成员是允许相同的
+
+```python
+class VIP(Enum):
+    YELLOW = 1
+    YELLOW = 2
+    BLACK = 3
+    RED = 4
+# 运行会报错
+```
 2. 默认情况下，不同的成员值允许相同。但是两个相同值的成员，其第二个成员名称是第一个成员名称的别名；因此在访问枚举成员时，只能获取第一个成员。
 
+```python
+class VIP(Enum):
+    YELLOW = 1
+    GREEN = 1
+    BLACK = 3
+    RED = 4
+print(VIP.GREEN)  # 打印出 VIP.YELLOW
+```
 
+3. 若要限制枚举中成员值都各不相同，则需要使用装饰器unique。
