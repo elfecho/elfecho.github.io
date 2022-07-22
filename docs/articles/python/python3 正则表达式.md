@@ -275,7 +275,8 @@ import re
 s = '87C22B34D93'
 
 r = re.match('\d', s)
-print(r.span())
+print(r.span())  # 在起始位置匹配
+print(r)         # 不在起始位置匹配
 
 r1 = re.search('\d', s)
 print(r1.group())
@@ -284,6 +285,7 @@ print(r1.group())
 '''
 运行结果
 (0, 1)
+<_sre.SRE_Match object; span=(0, 1), match='8'>
 8
 '''
 
