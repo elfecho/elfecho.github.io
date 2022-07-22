@@ -98,6 +98,7 @@ print(r3)
 
 ### 贪婪 与 非贪婪
 
+
 `{}`  里面可以编写数量词，表示区间的话用逗号 `,` 隔开
 
 ```python
@@ -114,6 +115,13 @@ print(r1)
 ['pyt', 'hon', 'jav', 'php']
 '''
 ```
+
+贪婪模式：在包含`[a-z]{m,n}`的正则表达式中，当abc中的字符c匹配m次后，继续匹配至n次。
+
+非贪婪模式：在包含`[a-z]{m,n}?`的正则表达式中，当abc中的字符c匹配m次后，结束匹配。因此`[a-z]{m,n}?`相当于`[a-z]{m}`
+
+
+
 
 ### 匹配0次1次或无限次
 
@@ -142,9 +150,6 @@ print('?', r3)
 '''
 ```
 
-`*` 与 `()` 结合的示例
-
-···
 
 ### 边界匹配
 
@@ -175,12 +180,14 @@ a = 'PythonPythonPythonPythonPython'
 
 r = re.findall('(Python){3}', a) # 有同时出现3次的Python
 r1 = re.findall('(Python){2}', a) # 有同时出现2次的Python
+r1 = re.findall('(Python)*', a) # 有同时出现2次的Python
 print(r)
 print(r1)
 '''
 运行结果
 ['Python']
 ['Python', 'Python']
+['Python']
 '''
 ```
 
