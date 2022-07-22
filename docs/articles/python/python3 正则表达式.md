@@ -219,6 +219,31 @@ Python!!C#!!Java!!C#!!PHP!!C#!!
 '''
 ```
 
+示例：
+
+```python
+import re
+s = 'A87C22B34D93'
+
+# 字符串里面数字大于50的数替换为9，小于50的替换为0
+def convert(value):
+    matched = value.group()
+    if int(matched) >= 50:
+        return '9'
+    else:
+        return '0'
+
+
+r = re.sub(r'\d+', convert, s)
+print(r)
+'''
+运行结果
+A9C0B0D9
+'''
+```
+
+
+
 
 
 ## 正则表达式模式
