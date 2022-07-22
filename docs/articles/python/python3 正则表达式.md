@@ -197,6 +197,28 @@ re.sub(pattern, repl, string, count=0, flags=0)
 -   count : 模式匹配后替换的最大次数，默认 0 表示替换所有的匹配。
 -   flags : 编译时用的匹配模式，数字形式。
 
+```python
+import re
+language = 'PythonC#JavaC#PHPC#'
+
+def convert(value):
+    matched = value.group()
+    return '!!' + matched + '!!'
+
+r = re.sub('C#', 'GO', language)
+r1 = re.sub('C#', convert, language)
+# language = language.replace('C#', 'GO')  # python 提供的方法
+
+print(r)
+print(r1)
+
+'''
+运行结果
+PythonGOJavaGOPHPGO
+Python!!C#!!Java!!C#!!PHP!!C#!!
+'''
+```
+
 
 
 ## 正则表达式模式
