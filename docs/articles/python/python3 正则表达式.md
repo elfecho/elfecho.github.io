@@ -8,7 +8,7 @@
 3. 把一个文本里指定的单词替换为另外一个单词
 
 
-## re.findall函数
+## re.findall 函数
 
 在字符串中找到正则表达式所匹配的所有子串，并返回一个列表，如果有多个匹配模式，则返回元组列表，如果没有找到匹配的，则返回空列表。
 
@@ -173,9 +173,29 @@ language = 'PythonC#\nJavaPHP'
 r = re.findall('c#.{1}', language, re.I | re.S)
 print(r)
 
-# re.I 不区分大小写
-# re.S 可以匹配换行符
+'''
+运行结果
+['C#\n']
+'''
 ```
+
+## re.sub 正则替换
+
+Python 的re模块提供了re.sub用于替换字符串中的匹配项。
+
+语法：
+
+```python
+re.sub(pattern, repl, string, count=0, flags=0)
+```
+
+参数：
+
+-   pattern : 正则中的模式字符串。
+-   repl : 替换的字符串，也可为一个函数。
+-   string : 要被查找替换的原始字符串。
+-   count : 模式匹配后替换的最大次数，默认 0 表示替换所有的匹配。
+-   flags : 编译时用的匹配模式，数字形式。
 
 
 
