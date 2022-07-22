@@ -1,12 +1,17 @@
 # Elfecho 个人学习笔记
 
-> 编写多年前端开发，熟悉JavaScript、Python等，熟悉使用 Vue、React、Node 等框架
+> • 热衷了解技术实现方案，并从中探索更优的实现方法
+• 熟练使用 Vue 以及周边工具 vuex、vue-router、axios 等
+• 熟练使用微信生态圈的 API，进行业务开发
+• 能够使用 webpack、vite、gulp 工具搭建前端脚手架
+• 熟练各种项目管理和自动打包部署操作
+• 掌握 nodejs 后端接口开发
+• 熟悉使用Python接口开发、爬虫等技术
 
 
 
 笔记目录
 
-* [首页](/README)    <!-- 对应 README.md -->
 * vue笔记 <!-- 对应 articles/vue -->
 	- [vue3高级用法](articles/vue/vue高级用法)
 	- [vue3 Composition API](/articles/vue/vue3CompositionAPI)
