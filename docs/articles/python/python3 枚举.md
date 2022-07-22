@@ -47,4 +47,10 @@ class VIP(Enum):
 print(VIP.GREEN)  # 打印出 VIP.YELLOW
 ```
 
-3. 若要限制枚举中成员值都各不相同，则需要使用装饰器unique。
+3. 若要限制枚举中成员值都各不相同，则需要使用装饰器unique
+
+
+### 枚举成员的访问
+
+
+
