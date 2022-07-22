@@ -115,6 +115,37 @@ print(r1)
 '''
 ```
 
+### 匹配0次1次或无限次
+
+- `* 匹配0次或无限次`
+- `+ 匹配1次或无限次`
+- `? 匹配0次或1次`
+
+```python
+import re
+
+a = 'pytho0python1pythonnnnnn2'
+
+r1 = re.findall('python*', a)
+r2 = re.findall('python{1,2}?', a)
+r3 = re.findall('python?', a)
+
+print('*', r1)
+print('+', r2)
+print('?', r3)
+
+'''
+运行结果
+* ['pytho', 'python', 'pythonnnnnn']
++ ['python', 'python']
+? ['pytho', 'python', 'python']
+'''
+```
+
+`*` 与 `()` 结合的示例
+
+···
+
 ### 边界匹配
 
 - `^` 起始位置，`$` 末尾位置
