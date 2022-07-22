@@ -1,7 +1,35 @@
-# Headline
+# Elfecho 个人学习笔记
 
-> 编写多年前端开发，熟悉JavaScript、Python等，熟悉使用
+> 编写多年前端开发，熟悉JavaScript、Python等，熟悉使用 Vue、React、Node 等框架
 
-hello world
-123
-[>>操作指南](guide)
+
+
+笔记目录
+
+* [首页](/README)    <!-- 对应 README.md -->
+* vue笔记 <!-- 对应 articles/vue -->
+	- [vue3高级用法](articles/vue/vue高级用法)
+	- [vue3 Composition API](/articles/vue/vue3CompositionAPI)
+	- [搭建vue3集成项目](/articles/vue/搭建vue3集成项目.md)
+	- [vue3小技巧](/articles/vue/vue3小技巧)
+	- [ssr初探](/articles/vue/ssr初探)
+	- [axios实现导出导入Excel](/articles/vue/axios实现导出导入Excel)
+* web3笔记 <!-- 对应 articles/web3 -->
+	- [常用网络配置](articles/web3/常用网络配置)
+- 数据存储
+	- [使用indexedDB](articles/storage/使用indexedDB)
+- git笔记 <!-- 对应 articles/git -->
+	- [git常用命令总结](articles/git/git常用命令总结)
+- 关于浏览器笔记<!-- 对应 articles/browser -->
+	- [关于location](articles/browser/关于location)
+- python<!-- 对应 articles/python -->
+	- [python3 基本数据类型](articles/python/python3%20基本数据类型.md)
+	- [python3 变量与运算符](articles/python/python3%20变量与运算符.md)
+	- [python3 分支循环条件与枚举](articles/python/python3%20分支循环条件与枚举.md)
+	- [python3 模块与包](articles/python/python3%20模块与包.md)
+	- [python3 函数](articles/python/python3%20函数.md)
+	- [python3 面向对象](articles/python/python3%20面向对象.md)
+	- [python3 正则表达式](articles/python/python3%20正则表达式.md)
+	- [python3 枚举](articles/python/python3%20枚举.md)
+	- [python3 函数式编程](articles/python/python3%20函数式编程.md)
+
