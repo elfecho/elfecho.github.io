@@ -49,6 +49,23 @@ print(VIP.GREEN)  # 打印出 VIP.YELLOW
 
 3. 若要限制枚举中成员值都各不相同，则需要使用装饰器unique
 
+继承 IntEnum 时，枚举值必须为数字类型
+```python
+from enum import IntEnum, unique
+
+@unique
+class VIP(IntEnum):
+    GREEN = 1
+    YELLOW = 1
+    BLACK = 3
+    RED = 4
+
+print(VIP(1))
+'''
+运行结果会报错
+'''
+```
+
 
 ### 枚举成员的访问
 
