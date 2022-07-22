@@ -372,9 +372,9 @@ body.sticky .sidebar, body.sticky .sidebar-toggle {
 }
 
 /* 处理移动端右侧toc样式 */
-@media(max-width:650px) {
+@media only screen and (max-width: 650px) {
     aside.toc-nav {
-
+        max-width: 20px;
     }
 }
 
