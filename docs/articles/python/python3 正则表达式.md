@@ -288,8 +288,24 @@ print(r1.group())
 <_sre.SRE_Match object; span=(0, 1), match='8'>
 8
 '''
-
 ```
+
+**group用法**
+
+```python
+import re
+
+s = 'life is short, i use python'
+r = re.search('life(.*)python', s)
+
+print(r.group(1))
+
+'''
+运行结果
+ is short, i use 
+'''
+```
+
 
 
 ## 正则表达式修饰符 - 可选标志
