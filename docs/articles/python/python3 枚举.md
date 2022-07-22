@@ -147,6 +147,20 @@ VIP.RED
 
 枚举成员之间的比较只能使用比较运算符 `==` 和身份运算符 `is`
 
+```python
+class VIP(Enum):
+    GREEN = 1
+    YELLOW = 2
+    BLACK = 3
+    RED = 4
 
+print(VIP(1))
+print(VIP(1) == VIP.GREEN)
+'''
+运行结果
+VIP.GREEN
+True
+'''
+```
 
 枚举成员只能和枚举成员之间比较，而不能和枚举成员的数值进行比较
