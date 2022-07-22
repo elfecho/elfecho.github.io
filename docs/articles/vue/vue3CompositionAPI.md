@@ -316,7 +316,7 @@ const app = Vue.createApp({
 
 ### 疑惑解答
 
-### setup函数太长了怎么办
+#### setup函数太长了怎么办
 
 可以使用函数拆分
 
@@ -349,7 +349,7 @@ export {inputValue, changeInputValue}
 
 
 
-## 总结
+### 总结
 
 那么我们最后总结一下 `setup` 函数的所有特性：
 
@@ -358,7 +358,7 @@ export {inputValue, changeInputValue}
 - 函数接收两个参数，props 和 context，context 可以解构为 attrs、slots、emit 函数
 - 函数可以返回一个对象，对象的属性可以直接在模板中进行使用，就像之前使用 data 和 methods 一样。
 
-# ref, reactive代替data中的变量
+## ref, reactive代替data中的变量
 
 composition-api引入了独立的数据响应式方法reactive，它可以将传入的对象做响应式处理：
 
@@ -435,7 +435,7 @@ setTimeout(() => {
   }
   ```
 
-## 如何选择ref or reactive
+### 如何选择ref or reactive
 
 - 如果是单值，建议ref，哪怕是个单值的对象也可以
 
@@ -463,9 +463,9 @@ setTimeout(() => {
   }
   ```
 
-## 扩展
+### 扩展
 
-### readonly 
+#### readonly 
 
 如果不想对对象进行变更，作为只读的参数，Vue提供了 readonly 方法
 
@@ -480,7 +480,7 @@ setTimeout(() => {
 }, 2000)
 ```
 
-### toRef
+#### toRef
 
 如果对一个未定义的值进行编辑时，需要使用toRef
 

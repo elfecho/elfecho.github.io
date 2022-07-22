@@ -1,4 +1,4 @@
-# Mixin 混入
+## Mixin 混入
 
 - 组件 data，methods 优先级高于 mixin data，methods 优先级
 
@@ -15,7 +15,7 @@
   }
   ```
 
-# 自定义指令
+## 自定义指令
 
 - 新建自定义指令
 
@@ -71,11 +71,11 @@
   ```
 
 
-# Teleport——任意传送门
+## Teleport——任意传送门
 
 在 `Vue2`，如果想要实现类似的功能，需要通过第三方库 [portal-vue](https://links.jianshu.com/go?to=https%3A%2F%2Fgithub.com%2FLinusBorg%2Fportal-vue) 去实现
 
-## 为什么我们需要 Teleport
+### 为什么我们需要 Teleport
 
 `Teleport` 是一种能够将我们的模板移动到 `DOM` 中 `Vue app` 之外的其他位置
 
@@ -83,7 +83,7 @@
 
 原因在于如果我们嵌套在 `Vue` 的某个组件内部，那么处理嵌套组件的定位、`z-index` 和样式就会变得很困难
 
-## Teleport 的使用
+### Teleport 的使用
 
 ```javascript
 // html:
@@ -109,15 +109,15 @@ const app = Vue.createApp({
 })
 ```
 
-# 渲染函数 render
+## 渲染函数 render
 
 > Vue 推荐在绝大多数情况下使用模板来创建你的 HTML。然而在一些场景中，你真的需要 JavaScript 的完全编程的能力。这时你可以用**渲染函数**，它比模板更接近编译器。
 
-## `createElement`参数
+### `createElement`参数
 
 `createElement`可以是接受多个参数：
 
-### 第一个参数：`{String | Object | Function}`
+#### 第一个参数：`{String | Object | Function}`
 
 第一个参数对于`createElement`而言是一个必须的参数，这个参数可以是字符串`string`、是一个对象`object`，也可以是一个函数`function`。
 
@@ -143,7 +143,7 @@ const app = Vue.createApp({
 
 上面的示例，给`createElement`传了一个`String`参数`'div'`，即传了一个HTML标签字符
 
-### 第二个参数:`{Object}`
+#### 第二个参数:`{Object}`
 
 `createElement`是一个可选参数，这个参数是一个`Object`。来看一个小示例：
 
@@ -168,7 +168,7 @@ new Vue({
 });
 ```
 
-### 第三个参数：{String | Array}
+#### 第三个参数：{String | Array}
 
 `createElement`还有第三个参数，这个参数是可选的，可以给其传一个`String`或`Array`。比如下面这个小示例：
 
@@ -187,7 +187,7 @@ new Vue({
 
 ```
 
-## 使用JavaScript代替模板功能
+### 使用JavaScript代替模板功能
 
 在使用Vue模板的时候，我们可以在模板中灵活的使用[`v-if`](https://www.w3cplus.com/vue/v-if-vs-v-show.html)、[`v-for`](https://www.w3cplus.com/vue/v-for.html)、[`v-model`](https://www.w3cplus.com/vue/v-model.html)和 [slot](https://www.w3cplus.com/vue/vue-slot.html) 但在`render`函数中是没有提供专用的API。如果在`render`使用这些，需要使用原生的JavaScript来实现
 
@@ -232,7 +232,7 @@ let app = new Vue({
 })
 ```
 
-### `v-model`
+#### `v-model`
 
 `render`函数中也没有与`v-model`相应的API，如果要实现`v-model`类似的功能，同样需要使用原生JavaScript来实现。
 
@@ -272,7 +272,7 @@ let app = new Vue({
 
 更多详细可以查看 [Vue render函数](https://www.jianshu.com/p/7508d2a114d3)
 
-# plugin 插件
+## plugin 插件
 
 plugin 插件, 也是把通用性的功能封装起来
 
@@ -318,7 +318,7 @@ app.use(myPlugin, {
 const vm = app.mount('#root')
 ```
 
-## 应用
+### 应用
 
 对数据进行校验的插件
 
