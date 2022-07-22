@@ -49,6 +49,8 @@ print(result3)
 
 ### 字符集
 
+`[]` 进行给字符定界，表示或的关系
+
 ```python
 import re
 
@@ -56,7 +58,17 @@ s = 'abc, acc, adc, aec, afc, ahc'
 
 r = re.findall('a[c-f]c', s)  # 借助普通字符进行定界
 print(r)
+
+'''
+运行结果
+['acc', 'adc', 'aec', 'afc']
+'''
 ```
+
+
+### 概括字符集
+
+
 
 
 ## 正则表达式模式
