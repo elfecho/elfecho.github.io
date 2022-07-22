@@ -106,21 +106,41 @@ True
 ```python
 class VIP(Enum):
     GREEN = 1
-    GREEN_ = 1
+    GREEN_ALIAS = 1
     YELLOW = 2
     BLACK = 3
     RED = 4
 
-print(VIP(1))
-print(VIP['GREEN'])
-print(VIP(1) == VIP['GREEN'])
+
+for i in VIP:
+    print(i)
+
+for i in VIP.__members__.items():
+    print(i)
+
+for i in VIP.__members__:
+    print(i)
+
 '''
 运行结果
 VIP.GREEN
+VIP.YELLOW
+VIP.BLACK
+VIP.RED
+('GREEN', <VIP.GREEN: 1>)
+('GREEN_ALIAS', <VIP.GREEN: 1>)
+('YELLOW', <VIP.YELLOW: 2>)
+('BLACK', <VIP.BLACK: 3>)
+('RED', <VIP.RED: 4>)
 VIP.GREEN
-True
+VIP.GREEN_ALIAS
+VIP.YELLOW
+VIP.BLACK
+VIP.RED
 '''
 ```
+
+使用`for`循环可以遍历枚举成员。当使用`Color.__members__.items()`时，可以将枚举成员中相同值的成员也打印出来
 
 
 ### 枚举的比较
