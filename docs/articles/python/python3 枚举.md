@@ -52,6 +52,7 @@ print(VIP.GREEN)  # 打印出 VIP.YELLOW
 
 ### 枚举成员的访问
 
+方法一：
 ```python
 from enum import Enum
 
@@ -77,3 +78,9 @@ RED
 '''
 ```
 
+通过Color.RED并不能访问其名称或数值，只能得到枚举成员
+
+方法二：
+```python
+
+```
