@@ -239,6 +239,20 @@ A9C0B0D9
 
 re.match 尝试从字符串的起始位置匹配一个模式，如果不是起始位置匹配成功的话，match()就返回none。
 
+**函数语法**：
+```python
+re.match(pattern, string, flags=0)
+```
+
+## re.search方法
+
+re.search 扫描整个字符串并返回第一个成功的匹配。
+
+函数语法：
+```python
+re.search(pattern, string, flags=0)
+```
+
 
 
 ## 正则表达式修饰符 - 可选标志
