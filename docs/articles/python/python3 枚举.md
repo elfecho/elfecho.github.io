@@ -52,5 +52,28 @@ print(VIP.GREEN)  # 打印出 VIP.YELLOW
 
 ### 枚举成员的访问
 
+```python
+from enum import Enum
 
+class VIP(Enum):
+    GREEN = 1
+    YELLOW = 2
+    BLACK = 3
+    RED = 4
+
+
+print(VIP.RED)
+print(VIP.RED.value)
+print(VIP.RED.name)
+print(type(VIP.RED))
+print(type(VIP.RED.name))
+'''
+运行结果
+VIP.RED
+4
+RED
+<enum 'VIP'>
+<class 'str'>
+'''
+```
 
