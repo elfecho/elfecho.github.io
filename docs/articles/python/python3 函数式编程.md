@@ -16,7 +16,7 @@ print(add(1,2))  # 报错
 一切皆对象, 即函数、类都是对象。
 
 
-闭包相当于函数+环境变量
+闭包 = 函数+环境变量
 ```python
 def curve_pre():
     a = 25
@@ -30,7 +30,7 @@ f = curve_pre()
 
 
 print(f.__closure__)
-print(f.__closure__[0].cell_contents) 
+print(f.__closure__[0].cell_contents)  # 查看闭包里面的变量
 print(f(2))
 '''
 运行结果
