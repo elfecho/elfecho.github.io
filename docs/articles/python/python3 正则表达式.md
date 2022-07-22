@@ -133,6 +133,26 @@ print(r)
 '''
 ```
 
+### 组
+
+- `[]` 或关系
+- `()` 且关系
+
+```python
+import re
+a = 'PythonPythonPythonPythonPython'
+
+r = re.findall('(Python){3}', a) # 有同时出现3次的Python
+r1 = re.findall('(Python){2}', a) # 有同时出现2次的Python
+print(r)
+print(r1)
+'''
+运行结果
+['Python']
+['Python', 'Python']
+'''
+```
+
 
 
 
