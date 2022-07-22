@@ -23,3 +23,4 @@
 	- [python3 面向对象](articles/python/python3%20面向对象.md)
 	- [python3 正则表达式](articles/python/python3%20正则表达式.md)
 	- [python3 枚举](articles/python/python3%20枚举.md)
+	- [python3 函数式编程](articles/python/python3%20函数式编程.md)
