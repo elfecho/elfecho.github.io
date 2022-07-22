@@ -18,6 +18,8 @@
   <script src="//unpkg.com/markmap@0.6.1/lib/view.mindmap.js"></script>
   <!-- 文件夹样式 -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar-folder.min.css" />
+  <!-- 箭头样式 -->
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" /> -->
   <link rel="stylesheet" href="//unpkg.com/markmap@0.6.1/style/view.mindmap.css">
   <link rel="stylesheet"
       href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
@@ -420,10 +422,22 @@
       },
       //字数统计，需要引入js
       count: {
+        // countable: true,
+        // fontsize: '0.9em',
+        // color: 'rgb(90,90,90)',
+        // language: 'chinese'
         countable: true,
-        fontsize: '0.9em',
-        color: 'rgb(90,90,90)',
-        language: 'chinese'
+        position: "top",
+        margin: "10px",
+        float: "right",
+        fontsize: "0.9em",
+        color: "rgb(90,90,90)",
+        language: "chinese",
+        localization: {
+          words: "",
+          minute: "",
+        },
+        isExpected: true,
       },
       onlyCover: true,
       formatUpdated: '{MM}/{DD} {HH}:{mm}',
