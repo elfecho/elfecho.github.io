@@ -295,17 +295,36 @@ print(r1.group())
 ```python
 import re
 
-s = 'life is short, i use python'
+s = 'life is short,i use python'
 r = re.search('life(.*)python', s)
 
+print(r.group(0))  # 为0时返回整个匹配的字符串
 print(r.group(1))
 
 '''
 运行结果
- is short, i use 
+life is short,i use python
+ is short,i use 
 '''
 ```
 
+**groups用法**
+
+```python
+import re
+
+s = 'life is short,i use python, i love python'
+
+r = re.search('life(.*)python(.*)python', s)
+print(r.groups())
+print(r.group(1))
+print(r.group(2))
+
+'''
+运行结果
+(' is short,i use ', ',i love ')
+'''
+```
 
 
 ## 正则表达式修饰符 - 可选标志
