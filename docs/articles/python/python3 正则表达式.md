@@ -22,12 +22,7 @@ re.findall(pattern, string, flags=0)
 pattern.findall(string[, pos[, endpos]])
 ```
 参数：
-- flags  可选，表示匹配模式，比如忽略大小写，多行模式等，具体参数为：
-   - re.I 忽略大小写
-  - re.L 表示特殊字符集` \w, \W, \b, \B, \s, \S `依赖于当前环境
-  - re.M 多行模式
-  - re.S 即为' . '并且包括换行符在内的任意字符（' . '不包括换行符）
-  - re.U 表示特殊字符集` \w, \W, \b, \B, \d, \D, \s, \S `依赖于 Unicode 字符属性数据库
+- flags  可选，表示匹配模式，比如忽略大小写，多行模式等，具体参数为：[正则表达式修饰符 - 可选标志](/articles/python/python3%20正则表达式#正则表达式修饰符-可选标志)
   - re.X 为了增加可读性，忽略空格和' # '后面的注释
 -   pattern 匹配模式。
 -   string 待匹配的字符串。
