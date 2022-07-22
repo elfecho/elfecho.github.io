@@ -96,6 +96,21 @@ print(r3)
 '''
 ```
 
+### 数量词
+
+```python
+import re
+a = 'python 11111java6666php'
+
+r = re.findall('[a-z]{3,6}', a) # 这种写法属于贪婪模式，匹配3个后如果后面还符合规则就继续匹配
+print(r)
+'''
+运行结果
+['python', 'java', 'php']
+'''
+```
+
+
 
 ## 正则表达式模式
 
