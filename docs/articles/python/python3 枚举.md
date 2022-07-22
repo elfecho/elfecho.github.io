@@ -80,7 +80,23 @@ RED
 
 通过Color.RED并不能访问其名称或数值，只能得到枚举成员
 
-方法二：
+方法二(不推荐)：
 ```python
+class VIP(Enum):
+    GREEN = 1
+    YELLOW = 2
+    BLACK = 3
+    RED = 4
 
+print(VIP(1))
+print(VIP['GREEN'])
+print(VIP(1) == VIP['GREEN'])
+'''
+运行结果
+VIP.GREEN
+VIP.GREEN
+True
+'''
 ```
+
+通过 VIP(1)和 VIP['GREEN'] 可以获取枚举成员。当我们通过数值来判断枚举成员时，使用VIP(1)这样的方式非常的简单，如 VIP(1) == VIP.BLUE。
