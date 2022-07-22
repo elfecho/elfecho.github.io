@@ -269,6 +269,26 @@ re.search(pattern, string, flags=0)
 | groups()     | 返回一个包含所有小组字符串的元组，从 1 到 所含的小组号。     |
 
 
+```python
+import re
+
+s = '87C22B34D93'
+
+r = re.match('\d', s)
+print(r.span())
+
+r1 = re.search('\d', s)
+print(r1.group())
+
+
+'''
+运行结果
+(0, 1)
+8
+'''
+
+```
+
 
 ## 正则表达式修饰符 - 可选标志
 
