@@ -1,4 +1,4 @@
-# composition api出现原因
+## composition api出现原因
 
 > Vue3中提出的一个新**概念**, 作用: 聚合代码 & 逻辑重用
 
@@ -14,16 +14,16 @@ composition api(组合式api)本质上就是vue抽离了一系列方法可以供
 
 在不改变vue模板语法的情况下, vue提供了一个新的函数书写在模板的`script`标签中, 该函数名叫做 **setup**
 
-# setup
+## setup
 
 入口： https://github.com/vuejs/rfcs/blob/script-setup-2/active-rfcs/0000-script-setup.md
 setup() 函数是 vue3 中，专门为组件提供的新属性。它为我们使用 vue3 的 Composition API 新特性提供了统一的入口。
 
-## 执行时机
+### 执行时机
 
 **setup** 函数会在 **beforeCreate** 之后、**created** 之前执行
 
-## 接收 props 数据
+### 接收 props 数据
 
 在 props 中定义当前组件允许外界传递过来的参数名称：
 
@@ -41,7 +41,7 @@ setup(props) {
 }
 ```
 
-## context
+### context
 
 setup 函数的第二个形参是一个**上下文对象**，这个上下文对象中包含了一些有用的属性，这些属性在 vue 2.x 中需要通过 this 才能访问到，在 vue 3.x 中，它们的访问方式如下：
 
@@ -60,7 +60,7 @@ const MyComponent = {
 
 注意：在 setup() 函数中无法访问到 this 
 
-## 生命周期函数
+### 生命周期函数
 
 可以使用导入的`onXXX`的形式注册生命周期函数，举个例子：
 
@@ -102,7 +102,7 @@ setup() {
 }
 ```
 
-## methods
+### methods
 
 使用普通的函数定义方法，这样可以最大程度的增加复用性。例如：
 
@@ -117,7 +117,7 @@ setup() {
 }
 ```
 
-## computed
+### computed
 
 当页面中有某些数据依赖其他数据进行变动的时候，可以使用计算属性。
 
@@ -155,9 +155,9 @@ setup(props, context) {
 
 这样我们就定义号了一个计算属性`countAddFive`
 
-## 侦听器
+### 侦听器
 
-### watch
+#### watch
 
 - 具有一定的惰性 lazy
 - 参数可以拿到原始和当前值
@@ -201,7 +201,7 @@ watch(nameObj, (val, oldVal) => {
 })
 ```
 
-### watchEffect
+#### watchEffect
 
 - 立即执行，没有惰性 immediate
 - 不需要传递你要侦听的内容，自动会感知代码依赖，不需要传递很多参数，只要传递一个回调函数
@@ -230,7 +230,7 @@ const stop = watchEffect(() => {
 })
 ```
 
-## provide & inject
+### provide & inject
 
 常用的父子组件通信方式都是父组件绑定要传递给子组件的数据，子组件通过`props`属性接收，一旦组件层级变多时，采用这种方式一级一级传递值非常麻烦，而且代码可读性不高，不便后期维护。
 
@@ -252,7 +252,7 @@ const name = inject('name')
 const handleClick = inject('handleClick')
 ```
 
-## 获取Vue组件实例或者dom节点
+### 获取Vue组件实例或者dom节点
 
 ```javascript
 // 父组件
@@ -293,7 +293,7 @@ template: `
 
 ![image-20210226142041400](https://upload-images.jianshu.io/upload_images/11884549-420a4ebd52462ab4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-## 返回值
+### 返回值
 
 `setup` 函数中**返回一个对象**，可以**在模板中直接访问该对象中的属性和方法**。
 
@@ -314,7 +314,7 @@ const app = Vue.createApp({
 })
 ```
 
-## 疑惑解答
+### 疑惑解答
 
 ### setup函数太长了怎么办
 
