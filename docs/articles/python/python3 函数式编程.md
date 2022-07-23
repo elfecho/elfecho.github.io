@@ -350,7 +350,7 @@ print(ret)
 '''
 ```
 
-### 高阶函数
+## 高阶函数
 
 ### map方法
 
@@ -431,7 +431,27 @@ def reduce(function, sequence, initial)
 
 **注：使用reduce函数需要模块functools**
 
+```python
+from functools import reduce
+list1 = [1, 2, 3, 4, 5, 6]
 
+# 连续计算，连续调用lambda
+r1 = reduce(lambda x, y: x+y, list1)
+print(r1)
+r2 = reduce(lambda x, y: x+y, list1, 10)
+print(r2)
+'''
+运行结果
+21
+31
+'''
+```
 
+reduce函数将序列sequence中的元素传递给函数function，每次传递2个。
+
+- 若无initial，则默认initial为0；
+- 若有initial，则在第一次传递参数时，作为第一个参数传递给函数function。当每次function执行结束后，其返回值作为下一次function运行的第一个参数。
+
+因此reduce函数的作用是累积序列
 
 
