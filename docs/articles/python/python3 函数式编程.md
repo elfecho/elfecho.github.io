@@ -31,7 +31,7 @@ f = curve_pre()
 
 
 print(f.__closure__)
-print(f.__closure__[0].cell_contents)  # 查看闭包里面的变量
+print(f.__closure__[0].cell_contents)  # 查看闭包里面的变量,因为只有一个，所以取下标为0
 print(f(2))
 '''
 运行结果
