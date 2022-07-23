@@ -421,7 +421,17 @@ map函数的返回值也可以是其他数据类型，如列表、元组、集�
 
 reduce函数又被称为归约，其语法格式：
 
-```
+```python
 def reduce(function, sequence, initial)
 ```
+
+- 参数function表示为函数（参数必须为2个）
+- 参数sequence表示序列
+- initial表示初始值
+
+**注：使用reduce函数需要模块functools**
+
+
+
+
 
