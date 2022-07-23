@@ -554,5 +554,15 @@ def function_one():
     print('this is function_one')
     
 function_one()
+
+'''
+运行结果
+Start: wrapper
+time start
+this is function_one
+Function runtime is 0.000998
+End: wrapper
+'''
 ```
 
+装饰器基本知识2：装饰器也可以传入参数，但装饰器的具体实现需要修改
