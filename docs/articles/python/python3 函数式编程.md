@@ -301,7 +301,7 @@ print(f([6, 9]))
 '''
 ```
 
-## lambda表达式和三元表达式
+## 高阶函数
 
 ### lambda表达式
 
@@ -349,8 +349,6 @@ print(ret)
 3
 '''
 ```
-
-## 高阶函数
 
 ### map方法
 
@@ -454,4 +452,27 @@ reduce函数将序列sequence中的元素传递给函数function，每次传递2
 
 因此reduce函数的作用是累积序列
 
+### filter函数
+
+filter函数语法格式：
+
+```python
+filter(function or None, iterable) --> filter object
+```
+
+- 参数function表示函数
+- 参数iterable表示序列
+
+序列中的每一个元素作为参数传递给函数进行判断，然后返回True或False，将返回True的元素存放到新列表中
+
+```python
+list1 = [1, 'a', 2, 'b', 3, 'c', 4, 'd', 5, 'e']
+
+ret = filter(lambda x: isinstance(x, str), list1)
+print(list(ret))
+'''
+运行结果
+['a', 'b', 'c', 'd', 'e']
+'''
+```
 
