@@ -565,4 +565,48 @@ End: wrapper
 '''
 ```
 
-装饰器基本知识2：装饰器也可以传入参数，但装饰器的具体实现需要修改
+装饰器基本知识2：被装饰的函数（function_one）也可以传入参数，为了表示参数的一般性，将wrapper参数设置为`*args`和`**kwargs`。其中，`*args`表示可变参数，`**kwargs`表示关键字可变参数
+
+```python
+def decorator(func):
+    def wrapper(*args, **kwargs):
+        print('Start: ' + func.__name__)
+        func(*args, **kwargs)
+        print('End: ' + func.__name__)
+    return wrapper
+
+
+@decorator
+def function_one():
+    print('this is function_one')
+
+
+@decorator
+def function_two(name):
+    print('this is function_two, name is ' + str(name))
+
+
+@decorator
+def function_three(*args, **kwargs):
+    print('this is function_three', end=', ')
+    print(args, end=', ')
+    print(kwargs)
+
+
+function_one()
+function_two('function_two')
+function_three('lisi', 'China', age=18, profession='student')
+'''
+运行结果
+Start: function_one
+this is function_one
+End: function_one
+Start: function_two
+this is function_two, name is function_two
+End: function_two
+Start: function_three
+this is function_three, ('lisi', 'China'), {'age': 18, 'profession': 'student'}
+End: function_three
+'''
+```
+
