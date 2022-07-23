@@ -356,7 +356,38 @@ print(ret)
 
 map函数又被称为映射，其语法格式：
 
-```
+```python
 map(func, *iterables) --> map object
+```
+
+- func参数表示函数，其必须有返回值(若无返回值，则map返回序列中元素全是None)；
+- *iterables是可变参数，用来表示多个序列、集合、字典；map object表示返回值是map对象。
+
+**函数作用**：对*iterables中的每一个元素，都执行一次func函数
+
+```python
+list1 = [1,2,3,4,5,6]
+list2 = [7,6,5,4,3,2,1]
+
+def square(x):
+    return x * x
+
+def add(x, y):
+    return x + y
+
+
+r1 = map(square, list1)
+print(r1)
+print(list(r1))
+
+r2 = map(add, list1, list2)
+print(r2)
+print(list(r2))
+'''
+运行结果
+[1, 4, 9, 16, 25, 36]
+<map object at 0x000001E19496B898>
+[8, 8, 8, 8, 8, 8]
+'''
 ```
 
