@@ -352,9 +352,9 @@ print(ret)
 
 ### 高阶函数
 
-### map函数
+### map方法
 
-map函数又被称为映射，其语法格式：
+map方法又被称为映射，其语法格式：
 
 ```python
 map(func, *iterables) --> map object
