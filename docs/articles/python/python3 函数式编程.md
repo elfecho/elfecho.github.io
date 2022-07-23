@@ -350,3 +350,13 @@ print(ret)
 '''
 ```
 
+### 高阶函数
+
+### map函数
+
+map函数又被称为映射，其语法格式：
+
+```
+map(func, *iterables) --> map object
+```
+
