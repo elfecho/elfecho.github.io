@@ -46,6 +46,17 @@ print(f(2))
 在Python3中，函数也是对象，那么函数也可以作为其他函数的参数或返回值
 
 ```python
+def square(x):
+    return x*x
 
+l = [1,2,3,4,5]
 
+def fun(l, f):
+    n = 0
+    for m in l:
+        l[n] = f(m)
+        n += 1
+
+fun(l, square)
+print(l)
 ```
