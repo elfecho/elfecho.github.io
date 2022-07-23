@@ -416,3 +416,12 @@ print(list(r2))
 ```
 
 map函数的返回值也可以是其他数据类型，如列表、元组、集合。
+
+### reduce函数
+
+reduce函数又被称为归约，其语法格式：
+
+```
+def reduce(function, sequence, initial)
+```
+
