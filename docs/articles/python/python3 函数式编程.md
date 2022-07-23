@@ -305,3 +305,24 @@ print(f([6, 9]))
 
 ### lambda表达式
 
+lambda表达式又称为匿名函数，其语法格式：
+
+```python
+lambda parameter_list: expression
+```
+
+参数说明：
+
+- lambda表示关键字；
+- parameter_list为参数列表，参数之间用逗号隔开；
+- expression为返回的表达式，且表达式只能有一个(注：只能是表达式，不能是语句；即不能包含赋值运算符)
+
+```python
+f = lambda x, y : x + y
+print(f(1, 2))
+'''
+运行结果
+3
+'''
+```
+
