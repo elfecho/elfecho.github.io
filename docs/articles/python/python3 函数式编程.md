@@ -114,3 +114,32 @@ print(add(1, 2, 3))
 '''
 ```
 
+由于嵌套函数被封闭函数保护起来，并不在全局作用域中，因此可以重新定义一个和嵌套函数同名的函数。
+
+嵌套函数本质上属于封闭函数的局部对象，因此并不能在外部直接访问
+
+### 闭包
+
+在讲闭包之前，先看下面的代码
+
+```python
+m = 1
+def add(a):
+    m = m + a
+    return m
+
+print(add(2))
+print(m)
+'''
+运行结果
+Traceback (most recent call last):
+  File "c2.3.py", line 6, in <module>
+    print(add(2))
+  File "c2.3.py", line 3, in add
+    m = m + a
+UnboundLocalError: local variable 'm' referenced before assignment 
+'''
+```
+
+
+
