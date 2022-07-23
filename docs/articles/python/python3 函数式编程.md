@@ -529,3 +529,30 @@ End: function_one
 ```
 
 装饰器基本知识1：一个函数用户可以有多个装饰器，装饰器的执行顺序从上到下
+
+```python
+import time
+def dec_time(func):
+    def wrapper():
+        print('time start')
+        strat_time = time.time()
+        func()
+        end_time = time.time()
+        print('Function runtime is %f'%(end_time-strat_time))
+    return wrapper
+
+def decorator(func):
+    def wrapper():
+        print('Start: '+func.__name__)
+        func()
+        print('End: '+func.__name__)
+    return wrapper
+
+@decorator
+@dec_time
+def function_one():
+    print('this is function_one')
+    
+function_one()
+```
+
