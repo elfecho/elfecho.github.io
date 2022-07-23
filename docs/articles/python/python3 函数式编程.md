@@ -528,7 +528,7 @@ End: function_one
 '''
 ```
 
-装饰器基本知识1：一个函数用户可以有多个装饰器，装饰器的执行顺序从上到下
+装饰器基本知识1：**一个函数用户可以有多个装饰器，装饰器的执行顺序从上到下**
 
 ```python
 import time
@@ -565,7 +565,7 @@ End: wrapper
 '''
 ```
 
-装饰器基本知识2：被装饰的函数（function_one）也可以传入参数，为了表示参数的一般性，将wrapper参数设置为`*args`和`**kwargs`。其中，`*args`表示可变参数，`**kwargs`表示关键字可变参数
+装饰器基本知识2：**被装饰的函数（function_one）也可以传入参数，为了表示参数的一般性，将wrapper参数设置为`*args`和`**kwargs`。其中，`*args`表示可变参数，`**kwargs`表示关键字可变参数**
 
 ```python
 def decorator(func):
@@ -610,3 +610,37 @@ End: function_three
 '''
 ```
 
+装饰器的封闭函数中传入被装饰函数的函数名，嵌套函数中传入被装饰函数的参数
+
+装饰器基本知识3：**装饰器也可以传入参数，但装饰器的具体实现需要修改**
+
+```python
+parm = 1.234
+
+def decorator_parameter(parm):
+    def decorator(func):
+        def wrapper():
+            print('Start: '+func.__name__)
+            print('parm = %f'%parm)
+            func()
+            print('End: '+func.__name__)
+        return wrapper
+    return decorator
+
+
+@decorator_parameter(parm)
+def function_one():
+    print('this is function_one')
+
+
+function_one()
+'''
+运行结果
+Start: function_one
+parm = 1.234000
+this is function_one
+End: function_one
+'''
+```
+
+对于3重封装的装饰器很难理解，实际上decorator_parameter(parm)函数执行后返回decorator，因此@decorator_parameter(parm) = @decorator
