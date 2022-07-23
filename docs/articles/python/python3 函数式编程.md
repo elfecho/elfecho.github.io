@@ -66,3 +66,25 @@ print(l)
 ```
 
 ### 函数作为返回值
+
+```python
+def fun():
+    def add(x, y):
+        return x + y
+    return add
+
+f1 = fun()
+print(f1)
+print(f1(1, 2))
+f2 = fun()
+print(f2)
+print(f2(3, 5))
+'''
+运行结果
+<function fun.<locals>.add at 0x000001BDA4F7CB70>
+3
+<function fun.<locals>.add at 0x000001BDA4F7CBF8>
+8
+'''
+```
+
