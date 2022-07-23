@@ -392,3 +392,27 @@ print(list(r2))
 '''
 ```
 
+当map函数中有多个序列时，选择元素最少的序列如list1，其长度作为map函数返回序列的长度。
+
+为了简化代码，map中的func可以使用lambda表达式
+
+```python
+list1 = [1,2,3,4,5,6]
+list2 = [7,6,5,4,3,2,1]
+
+r1 = map(lambda x: x*x, list1)
+print(r1)
+print(list(r1))
+r2 = map(lambda x, y: x+y, list1, list2)
+print(r2)
+print(list(r2))
+'''
+运行结果
+<map object at 0x000001A6212AB7B8>
+[1, 4, 9, 16, 25, 36]
+<map object at 0x000001A6212AB860>
+[8, 8, 8, 8, 8, 8]
+'''
+```
+
+map函数的返回值也可以是其他数据类型，如列表、元组、集合。
