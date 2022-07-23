@@ -158,5 +158,33 @@ def add(a):
 print(add(2))
 print(add(3))
 print(m)
+'''
+运行结果
+3
+4
+1
+'''
+```
+
+解决方法2：
+
+```
+m = 1
+def add(a):
+	global m
+    m = m + a
+    return m
+
+print('m = %d' % m)
+print(add(2))
+print('m = %d' % m)
+print(add(3))
+print('m = %d' % m)
+'''
+运行结果
+3
+4
+1
+'''
 ```
 
