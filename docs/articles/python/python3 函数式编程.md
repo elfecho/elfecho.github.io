@@ -94,3 +94,23 @@ print(f2(3, 5))
 
 嵌套函数的作用：函数封装；闭包
 
+```python
+def fun():
+    def add(x, y):
+        return x + y
+    return add
+
+
+def add(a, b, c):
+    return a + b + c
+
+f = fun()
+print(f(1, 2))
+print(add(1, 2, 3))
+'''
+运行结果
+3
+6
+'''
+```
+
