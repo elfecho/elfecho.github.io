@@ -47,7 +47,7 @@ print(f(2))
 
 ```python
 def square(x):
-    return x*x
+    return x * x
 
 l = [1,2,3,4,5]
 
@@ -59,4 +59,10 @@ def fun(l, f):
 
 fun(l, square)
 print(l)
+'''
+运行结果
+[1, 4, 9, 16, 25]
+'''
 ```
+
+### 函数作为返回值
