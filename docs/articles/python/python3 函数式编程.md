@@ -476,3 +476,56 @@ print(list(ret))
 '''
 ```
 
+### 装饰器
+
+若封闭函数中传入参数是一个函数，该怎么办？
+
+```python
+def decorator(func):
+    def wrapper():
+        print('Start: '+func.__name__)
+        func()
+        print('End: '+func.__name__)
+    return wrapper
+
+
+def function_one():
+    print('this is function_one')
+
+f1 = decorator(function_one)
+
+f1()
+'''
+运行结果
+Start: function_one
+this is function_one
+End: function_one
+'''
+```
+
+在不修改函数function_one的前提下，增加了function_one的功能，即在function_one执行前和执行结束分别打印函数名称（可用于调试）。函数decorator就可以称为一个**装饰器**。
+
+由于使用f1 = decorator(function_one)和f1()来调用function_one比较麻烦，可以使用关键字@来实现装饰效果
+
+```python
+def decorator(func):
+    def wrapper():
+        print('Start: '+func.__name__)
+        func()
+        print('End: '+func.__name__)
+    return wrapper
+
+@decorator
+def function_one():
+    print('this is function_one')
+
+function_one()
+'''
+运行结果
+Start: function_one
+this is function_one
+End: function_one
+'''
+```
+
+装饰器基本知识1：一个函数用户可以有多个装饰器，装饰器的执行顺序从上到下
