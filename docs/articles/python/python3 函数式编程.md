@@ -232,3 +232,35 @@ step = 1
 在封闭函数中传入的参数或定义的变量，我们称为环境变量（或自由变量）。在嵌套函数中使用环境变量需要使用关键字nonlocal声明。
 
 环境变量的生命周期和封闭函数相同，将封闭函数赋值给变量后，此封闭函数中的环境变量就已经定义在内存中；嵌套函数可以直接调用环境变量。
+
+### 环境变量
+
+```python
+m = 2
+
+def fun(a):
+    def add(b):
+        nonlocal a
+        a = a + b
+        return a
+    return add
+
+f = fun(m)
+print(f(2))
+print(f(3))
+print('m = %d'%m)
+f1 = fun(m)
+print(f1(4))
+print(f1(5))
+print('m = %d'%m)
+'''
+运行结果
+4
+7
+m = 2
+6
+11
+m = 2
+'''
+```
+
