@@ -276,3 +276,28 @@ m = 2
 
 ### 使用闭包解决实际问题
 
+在地图上，一位路人的坐标为(3,5)，其每次移动的相对坐标为(x,y)，求路人的绝对坐标
+
+```python
+m = [3,5]
+def fun(a):
+    def add(b):
+        nonlocal a
+        c = 0
+        while c < len(b):
+            a[c] = a[c] + b[c]
+            c += 1
+        return a
+    return add
+
+
+f = fun(m)
+print(f([1, 2]))
+print(f([6, 9]))
+'''
+运行结果
+[4, 7]
+[10, 16]
+'''
+```
+
