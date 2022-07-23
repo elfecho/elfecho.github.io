@@ -339,15 +339,14 @@ expression_T if expression else expression_F
 若表达式expression为真，则执行expression_T；若未假，则执行expression_F
 
 ```python
-a = 1
-b = 2
+a, b = 5, 2
 
 ret = b - a if a < b else a - b
 
 print(ret)
 '''
 运行结果
-1
+3
 '''
 ```
 
