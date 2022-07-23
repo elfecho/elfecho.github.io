@@ -329,3 +329,25 @@ print(f(1, 2))
 lambda表达式一般和高阶函数一起使用
 
 ### 三元表达式
+
+三元表达式的语法格式：
+
+```python
+expression_T if expression else expression_F
+```
+
+若表达式expression为真，则执行expression_T；若未假，则执行expression_F
+
+```python
+a = 1
+b = 2
+
+ret = b - a if a < b else a - b
+
+print(ret)
+'''
+运行结果
+1
+'''
+```
+
