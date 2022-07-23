@@ -385,6 +385,7 @@ print(r2)
 print(list(r2))
 '''
 运行结果
+<map object at 0x000001E19496B7F0>
 [1, 4, 9, 16, 25, 36]
 <map object at 0x000001E19496B898>
 [8, 8, 8, 8, 8, 8]
