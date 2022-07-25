@@ -4,6 +4,23 @@ Obsidian已经有一个[Image auto upload](https://github.com/renmu123/obsidian-
 
 最后会介绍使用AutoHotkey的简单合用方法，同時介绍使用Obsidian Shell Commands外挂自动上传图片并插入GitHub图片地址的操作步骤。
 
+### Github Token 设定
+
+1. 登录自己的Github->右上角头像->【Setting】->左侧拉到最底部->【Developer settings】→Personal access tokens→Generate new token
+2. 输入【Note】、【Expiration】(有效期限)，在【Select scope】勾选repo以取得存储库读写权限
+3. 在最下方点击【Generate token】
+
+![upgit_20220725_1658733834.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220725_1658733834.png)
+
+复制个人存取token：ghp_开头全部字串
+
+![upgit_20220725_1658733907.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220725_1658733907.png)
+
+
+### 建立专用的GitHub repo
+
+【New repository】建立Public存储库
+
 ### upgit 安装
 
 [upgit下载链接](https://github.com/pluveto/upgit/releases)
@@ -27,25 +44,7 @@ upgit demo1.png -f markdown-simple
 
 将demo.png图片上传到github，-f 后面是返回的格式
 
-### Github Token 设定
-
-1. 登录自己的Github->右上角头像->【Setting】->左侧拉到最底部->【Developer settings】→Personal access tokens→Generate new token
-2. 输入【Note】、【Expiration】(有效期限)，在【Select scope】勾选repo以取得存储库读写权限
-3. 在最下方点击【Generate token】
-
-![upgit_20220725_1658733834.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220725_1658733834.png)
-
-复制个人存取token：ghp_开头全部字串
-
-![upgit_20220725_1658733907.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220725_1658733907.png)
-
-
-
-
-
-### 建立专用的GitHub repo
-
-【New repository】建立Public存储库
+### upgit config.toml 设定
 
 设定档config.toml和upgit在同一個资料夹，依據自己GitHub的设定修改內容，示例如下：
 
