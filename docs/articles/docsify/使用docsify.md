@@ -205,3 +205,56 @@ window.$docsify = {
 </script>
 <script src="//unpkg.com/docsify"></script>
 ```
+
+![upgit_20220725_1658726908.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220725_1658726908.png)
+
+subMaxLevel说明：
+
+> subMaxLevel类型是number(数字)，表示显示的目录层级
+> **注意：**如果md文件中的第一个标题是一级标题，那么不会显示在侧边栏，如上图所示
+
+| 值   | 说明                                           |
+| ---- | ---------------------------------------------- |
+| 0    | 默认值，表示不显示目录                         |
+| 1    | 显示一级标题(`h1`)                             |
+| 2    | 显示一、二级标题(`h1` ~ `h2`)                  |
+| 3    | 显示一、二、三级标题(`h1` ~ `h3`)              |
+| n    | n是数字，显示一、二、....n 级标题(`h1` ~ `hn`) |
+
+在md文件中标题的写法：
+
+```markdown
+# 这是一级标题，对应HTML中<h1>标签
+
+## 这是二级标题，对应HTML中<h2>标签
+
+### 这是三级标题，对应HTML中<h3>标签
+
+#### 这是四级标题，对应HTML中<h4>标签
+```
+
+#### 页面的标题不在侧边栏目录显示
+
+***注意：\*** 如果md文件的第一个标题是一级标题，那么默认已经忽略了。
+
+当设置了 subMaxLevel 时，默认情况下每个标题都会自动添加到目录中。如果你想忽略特定的标题，可以给它添加 {docsify-ignore} ：
+
+```markdown
+# Getting Started
+
+## Header {docsify-ignore}
+
+该标题不会出现在侧边栏的目录中。
+```
+
+要忽略特定页面上的所有标题，你可以在页面的第一个标题上使用 {docsify-ignore-all} :
+
+```markdown
+# Getting Started {docsify-ignore-all}
+
+## Header
+
+该页面所有标题都不会出现在侧边栏的目录中。
+```
+
+在使用时， {docsify-ignore} 和 {docsify-ignore-all} 都不会在页面上显示。
