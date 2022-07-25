@@ -65,3 +65,19 @@ docsify需要本地先安装`node`, 如果没有安装node，可在node官网选
 ```bash
 npm i docsify-cli -g
 ```
+
+安装结束后使用`docsify -v`查看是否安装成功：
+
+```bash
+docsify -v
+```
+
+#### 初始化一个项目
+
+首先需要创建一个项目目录：
+
+
+```bash
+docsify -v
+```
+mkdir docsify
