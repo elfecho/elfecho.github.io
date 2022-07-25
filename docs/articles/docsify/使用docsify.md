@@ -279,8 +279,6 @@ docsify默认是没有导航栏的，可以通过配置来显示导航栏。
 
 ![upgit_20220725_1658727540.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220725_1658727540.png)
 
-
-
 ### 通过配置文件定义导航栏
 
 首先需要在`index.html`文件中的`window.$docsify`添加`loadNavbar: true,`选项：
