@@ -79,3 +79,9 @@ day_name = switcher.get(day, get_default)()
 print(day_name)
 ```
 
+## 列表推导式
+
+```
+a = [1,2,3,4,5,6,7,8]
+```
+
