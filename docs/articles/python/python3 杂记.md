@@ -98,6 +98,8 @@ s = {1,2,3,4,5,6,7,8}
 s1 = [i**2 for i in s if i >= 5]
 print(b)
 print(b1)
+print(c1, list(c1))
+print(c2)
 print(d1)
 '''
 运行结果
@@ -106,6 +108,27 @@ print(d1)
 <generator object <genexpr> at 0x0000027011D7C2B0> [25, 36, 49, 64]
 [25, 36, 49, 64]
 [25, 36, 49, 64]
+'''
+```
+
+如何实现字典的列表推导式，可以看下面这个例子
+
+```python
+students = {
+    '喜小乐': 18,
+    '石敢当': 20,
+    '黄小五': 15,
+}
+
+b = {value: key for key, value in students.items()}
+c = [key for key, value in students.items()]
+
+print(b)
+print(c)
+'''
+运行结果
+{18: '喜小乐', 20: '石敢当', 15: '黄小五'}
+['喜小乐', '石敢当', '黄小五']
 '''
 ```
 
