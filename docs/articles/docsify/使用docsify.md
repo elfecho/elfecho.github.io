@@ -307,3 +307,57 @@ docsify默认是没有导航栏的，可以通过配置来显示导航栏。
 2. 如果只在根目录有一个`_navbar.md`文件，那么所有页面都将使用这个一个配置，也就是所有页面的导航栏都一样。
 3. 如果一个子目录中有`_navbar.md`文件，那么这个子目录下的所有页面将使用这个文件的导航栏。
 4. `_navbar.md`的加载逻辑是从每层目录下获取文件，如果当前目录不存在该文件则回退到上一级目录。例如当前路径为`/zh-cn/more-pages`则从`/zh-cn/_navbar.md`获取文件，如果不存在则从`/_navbar.md`获取。
+
+### 导航栏嵌套
+
+如果导航内容过多，可以写成嵌套的列表，会被渲染成下拉列表的形式：
+
+```markdown
+* 根目录
+  * [home](home)
+  * [guide](guide)
+
+* bar目录
+  * [bar](bar/)
+  * [a文件](bar/a)
+  * [b文件](bar/b)
+
+* foo目录
+  * [one](foo/one)
+  * [two](foo/two)
+```
+
+![upgit_20220725_1658729486.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220725_1658729486.png)
+
+## 设置封面
+
+docsify默认是没有封面的，默认有个首页`./README.md`。
+通过设置`coverpage`参数，可以开启渲染封面的功能。
+
+首先需要在`index.html`文件中的`window.$docsify`添加`coverpage: true`选项：
+
+```xml
+<script>
+  window.$docsify = {
+    coverpage: true
+  }
+</script>
+<script src="//unpkg.com/docsify"></script>
+```
+
+接着在项目根目录创建`_coverpage.md`文件，内容格式如下：
+
+```markdown
+![logo](_media/icon.svg)
+# 我的文档网站
+## 个人文档网站
+> 一个神奇的文档网站生成巩固
+
+* Simple and lightweight (~12kb gzipped)
+* Multiple themes
+* Not build static html files
+
+[GitHub](https://github.com/docsifyjs/docsify/)
+[Get Started](#quick-start)
+[Get Started](#quick-start)
+```
