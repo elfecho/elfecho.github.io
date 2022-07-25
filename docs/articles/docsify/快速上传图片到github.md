@@ -4,8 +4,6 @@ Obsidian已经有一个[Image auto upload](https://github.com/renmu123/obsidian-
 
 最后会介绍使用AutoHotkey的简单合用方法，同時介绍使用Obsidian Shell Commands外挂自动上传图片并插入GitHub图片地址的操作步骤。
 
-
-
 ### upgit 安装
 
 [upgit下载链接](https://github.com/pluveto/upgit/releases)
@@ -113,9 +111,6 @@ repo = "upgit-pic"
 username = "elfecho"
 ```
 
-
-
-
 ### AutoHotkey整合
 
 按〔Alt+V〕將剪贴板內的图片上传到GitHub，并將GitHub图片网址再插入剪贴板。
@@ -136,6 +131,8 @@ username = "elfecho"
 
 ![upgit_20220725_1658735375.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220725_1658735375.png)
 
-Output选用输出到目前档案的游标位置，亦即將GitHub的圖片網址以Markdown格式插入目前游標位置
+3. Output选用输出到目前档案的游标位置，亦即将GitHub的图片地址以Markdown格式插入目前游标位置
 
 ![upgit_20220725_1658735587.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220725_1658735587.png)
+
+4. 将`Shell commands: Exexcute upgit` 设置快捷键以方便快速操作
