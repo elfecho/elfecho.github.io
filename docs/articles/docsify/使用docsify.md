@@ -39,3 +39,25 @@ docsify使用方式很简单，只需要在项目中创建一个`index.html`文�
 这是我的首页介绍
 ```
 
+可以通过`http-server`启动服务
+可在终端输入`npm install http-server -g` 来安装`http-server`
+
+```bash
+http-server -p 8080
+```
+**_注意：_**  
+1.在此模式下编辑文件保存后，需要手动刷新浏览器才能看见修改的效果，下面介绍的`docsify-cli`可实现自动查看效果。  
+2.强烈建议把`index.html`文件中的`docsify.min.js`和`vue.css`文件复制到本地项目，然后使用如下方式引入：
+
+```html
+<link rel="stylesheet" href="./vue.css">
+<script src="./docsify.min.js"></script>
+```
+
+这样做的好处是不在依赖网络环境了
+
+### 使用`docsify-cli`来开发
+
+docsify需要本地先安装`node`, 如果没有安装node，可在node官网选择对应操作系统下载安装：[https://nodejs.org/zh-cn/](https://link.segmentfault.com/?enc=I8jTglj86w1fROL0FayGUA%3D%3D.1E8IvNhFLfemIs1alsa3niSlF7%2BgNkmKF%2FdgAXkFEwE%3D)
+
+终端输入`npm i docsify-cli -g`进行全局安装：
