@@ -2,9 +2,35 @@
 
 Obsidian已经有一个[Image auto upload](https://github.com/renmu123/obsidian-image-auto-upload-plugin)外挂，使用 [PicGo](https://github.com/Molunerfinn/PicGo)在背景执行是，将贴入Obsidian的图片自动上传到Github存储库里，想要节省操作步骤的朋友也可试用看看，但个人觉得PicGo必须在执行状态才能上传，整合性不如upgit方便
 
-最后面会介绍使用AutoHotkey的简单合用方法，同時介绍使用Obsidian Shell Commands外挂自動上傳圖檔與插入GitHub圖片網址的操作步驟。
+最后会介绍使用AutoHotkey的简单合用方法，同時介绍使用Obsidian Shell Commands外挂自动上传图片并插入GitHub图片地址的操作步骤。
 
-> 語法
+
+
+### upgit 安装
+
+[upgit下载链接](https://github.com/pluveto/upgit/releases)
+
+![upgit_20220725_1658734559.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220725_1658734559.png)
+
+下载后的档名改为 upgit.exe，然后设置Path环境变量指定到这个文件夹，然后新建一个config.toml作为upgit的设定档
+
+
+
+语法
+
+```
+upgit \[--target-dir TARGET-DIR] \[--verbose] \[--size-limit SIZE-LIMIT] \[--wait] \[--clean] \[--raw] \[--no-log] \[--output-type OUTPUT-TYPE] \[--output-format OUTPUT-FORMAT] FILE \[FILE ...]
+```
+
+示例：
+
+```bash
+upgit demo.png -f markdown
+```
+
+将demo.png图片上传到
+
+
 
 ### Github Token 设定
 
@@ -18,13 +44,9 @@ Obsidian已经有一个[Image auto upload](https://github.com/renmu123/obsidian-
 
 ![upgit_20220725_1658733907.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220725_1658733907.png)
 
-### upgit 安装
 
-[upgit下载链接](https://github.com/pluveto/upgit/releases)
 
-![upgit_20220725_1658734559.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220725_1658734559.png)
 
-下载后的档名改为 upgit.exe，然后设置Path环境变量指定到这个文件夹，然后新建一个config.toml作为upgit的设定档
 
 ### 建立专用的GitHub repo
 
