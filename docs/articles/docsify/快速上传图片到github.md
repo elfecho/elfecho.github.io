@@ -20,3 +20,75 @@ Obsidian已经有一个[Image auto upload](https://github.com/renmu123/obsidian-
 
 設定檔config.toml和upgit在同一個資料夾，依據自己GitHub的設定修改內容，範例如下：
 
+```
+# =============================================================================
+# UPGIT 配置
+# =============================================================================
+
+# 默认上传器
+default_uploader = "github"
+
+# 上传文件名的格式模板（仅特定上传器适配）
+#   / 目录分隔符, 作用: 是区分目录
+#   {year} 年份, 例如: 2022
+#   {month} 月份, 例如: 02
+#   {day} 天, 例如: 01
+#   {unix_ts} 时间戳, 例如: 1643617626
+#   {fname} 原始文件名，如 logo (不含后缀名)
+#   {fname_hash} {fname}的 MD5 散列值
+#   {ext} 文件后缀名, 例如.png
+#   下面的例子生成的文件名预览: 2022/01/upgit_20220131_1643617626.png
+#   如果目录不存在将会被程序自动创建
+rename = "{year}/{month}/upgit_{year}{month}{day}_{unix_ts}{ext}"
+
+
+# -----------------------------------------------------------------------------
+# 自定义输出格式
+# -----------------------------------------------------------------------------
+#   {url} 图片文件的网络URL地址
+[output_formats]
+"bbcode" = "[img]{url}[/img]"
+"html" = '<img src="{url}" />'
+"markdown-simple" = "![01|700]({url})"
+
+# -----------------------------------------------------------------------------
+# 直链替换规则 RawUrl -[replace]-> Url
+# -----------------------------------------------------------------------------
+
+# 如果您的网络访问Github异常或者缓慢，您可以尝试下面的配置以开启CDN加速
+# [replacements]
+# "raw.githubusercontent.com" = "cdn.jsdelivr.net/gh"
+# "/master" = "@master"
+
+# =============================================================================
+# 以下为各个上传器的配置示例. 用不到的留空即可
+# =============================================================================
+
+# Github 上传器
+[uploaders.github]
+# 保存文件的分支，例如 master 或 main
+branch = "master"
+
+# 您的拥有"repo"权限的 Github 令牌
+# 获取Github Token连接: https://github.com/settings/tokens
+pat = "ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+# 您的公共Github存储库的名称
+# 注意: 为了让您和他人可以访问到图片资源, 您的Github仓库一定要是公开的, 
+#       在私有仓库中Github会拦截未授权的请求,你将会得到一个404.
+repo = "upgit-pic"
+
+# 您的 Github 用户名 
+username = "elfecho"
+```
+
+### AutoHotkey整合
+
+按〔Alt+V〕將剪贴板內的图片上传到GitHub，并將GitHub图片网址再插入剪贴板。
+
+```bash
+!v::
+  ;;Run d:\util\upgit.exe :clipboard -o clipboard -f markdown
+  Run d:\util\upgit.exe :clipboard --output-type clipboard --output-format markdown
+  return
+```
