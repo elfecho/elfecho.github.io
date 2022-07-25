@@ -6,3 +6,10 @@ Obsidian已经有一个[Image auto upload](https://github.com/renmu123/obsidian-
 
 1. 登录自己的Github->右上角头像->【Setting】->左侧拉到最底部->【Developer settings】→Personal access tokens→Generate new token
 2. 输入【Note】、【Expiration】(有效期限)，在【Select scope】勾选repo以取得存储库读写权限
+3. 在最下方点击【Generate token】
+
+![upgit_20220725_1658733834.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220725_1658733834.png)
+
+
+
+![upgit_20220725_1658733907.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220725_1658733907.png)
