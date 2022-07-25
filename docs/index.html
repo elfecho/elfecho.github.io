@@ -10,7 +10,7 @@
   <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"> -->
   <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
   <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <!-- <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css"> -->
+  <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css">
   <!-- markmap is based on d3, so must load those files first. -->
   <script src="//unpkg.com/d3@3/d3.min.js"></script>
   <script src="//unpkg.com/markmap@0.6.1/lib/d3-flextree.js"></script>
@@ -363,20 +363,20 @@
   </div>
   </div>
   <script>
-    // const gitalkConfig = {
-    //   clientID: '16155433ca5b81d55ef9',
-    //   clientSecret: '8ce1c02f714f1ee7f9e2558709fdcd93ff66bec1',
-    //   accessToken: '30c55e31acbb0cb61d30f92d14e32541880eefaf',
-    //   repo: 'myNote',
-    //   owner: 'elfecho',
-    //   admin: ['elfecho'],
-    //   distractionFreeMode: false,
-    // }
-    // window.onhashchange = function(event){
-    //   if(event.newURL.split('?')[0] !== event.oldURL .split('?')[0]) {
-    //     location.reload()
-    //   }
-    // }
+    const gitalkConfig = {
+      clientID: '16155433ca5b81d55ef9',
+      clientSecret: '8ce1c02f714f1ee7f9e2558709fdcd93ff66bec1',
+      accessToken: '30c55e31acbb0cb61d30f92d14e32541880eefaf',
+      repo: 'myNote',
+      owner: 'elfecho',
+      admin: ['elfecho'],
+      distractionFreeMode: false,
+    }
+    window.onhashchange = function(event){
+      if(event.newURL.split('?')[0] !== event.oldURL .split('?')[0]) {
+        location.reload()
+      }
+    }
     
     window.$docsify = {
       name: 'Elfecho',
