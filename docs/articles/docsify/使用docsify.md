@@ -403,3 +403,67 @@ docsify封面支持自定义背景色或者背景图，在`_coverpage.md`文档�
 <script src="./docsify.min.js"></script>
 ```
 
+> 通过此配置可以把`./README.md`文件独立出来，当成项目真正的README介绍文件。
+
+### 多个封面
+
+如果你的文档网站是多语言的，或许你需要设置多个封面。
+例如你的文档目录结构如下
+
+```dos
+.
+└── docs
+    ├── README.md
+    ├── guide.md
+    ├── _coverpage.md
+    └── zh-cn
+        ├── README.md
+        └── guide.md
+        └── _coverpage.md
+```
+
+那么你可以在`index.html`文件中的`window.$docsify`这么配置:
+
+```javascript
+window.$docsify = {
+  coverpage: ['/', '/zh-cn/']
+};
+```
+
+或者具体指名文件名:
+
+```javascript
+window.$docsify = {
+  coverpage: {
+    '/': 'cover.md',
+    '/zh-cn/': 'cover.md'
+  }
+};
+```
+
+## 网站部署到GitHub Pages
+
+GitHub Pages 支持从三个地方读取文件:
+
+> 1、`master`分支
+> 2、`master`分支下的`docs`目录
+> 3、`gh-pages`分支
+
+> 1、如果你的文档直接是在项目根目录写的，那么可直接把代码推送到master分支上， `GitHub Pages`里选择`master branch`.
+> 2.如果你的文档是在master分支下的`docs/`目录下编写的，那么可直接把代码推送到master分支上，`GitHub Pages`里选择`master branch/docs folder`.
+
+本例子项目是直接在根目录中编写的，所以`GitHub Pages`里选择`master branch`的方式部署。
+
+首先在github网站上创建好仓库，然后终端打开项目目录：
+
+```bash
+git init
+git add .
+git commit -m 'docsify项目初始化'
+git remote add origin https://github.com/username/docsify.git
+git push --set-upstream origin master
+```
+
+代码推送到github上后，打开github的仓库，选择`Settings` -> `GitHub Pages` -> `master branch` -> `save`。
+
+![upgit_20220725_1658731914.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220725_1658731914.png)
