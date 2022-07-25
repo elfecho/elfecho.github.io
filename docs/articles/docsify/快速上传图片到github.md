@@ -14,8 +14,6 @@ Obsidian已经有一个[Image auto upload](https://github.com/renmu123/obsidian-
 
 下载后的档名改为 upgit.exe，然后设置Path环境变量指定到这个文件夹，然后新建一个config.toml作为upgit的设定档
 
-
-
 语法
 
 ```
@@ -26,11 +24,10 @@ upgit \[--target-dir TARGET-DIR] \[--verbose] \[--size-limit SIZE-LIMIT] \[--wai
 
 ```bash
 upgit demo.png -f markdown
+upgit demo1.png -f markdown-simple
 ```
 
-将demo.png图片上传到
-
-
+将demo.png图片上传到github，-f 后面是返回的格式
 
 ### Github Token 设定
 
@@ -132,7 +129,9 @@ username = "elfecho"
 
 ### 使用Obsidian Shell Commands外挂
 
-1. 安裝并启用Shell Commands外掛
+1. 安装并启用Shell Commands外挂
 2. 新增Shell命令
-   - 新的命令命名為upgit
-   - 命令內容：`upgit :clipboard -f markdown`將系統剪貼簿內容上傳到GitHub，並將執行結果以markdown格式輸出到標準輸出(stdout)
+   - 新的命令命名为upgit
+   - 命令内容：`upgit :clipboard -f markdown`将系统剪贴板内容上传到GitHub，并将执行结果以markdown格式输出到标准输出(stdout)
+
+![upgit_20220725_1658735375.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220725_1658735375.png)
