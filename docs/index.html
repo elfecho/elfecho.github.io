@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
   <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css">
+  <script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script>
+  <script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
   <!-- markmap is based on d3, so must load those files first. -->
   <script src="//unpkg.com/d3@3/d3.min.js"></script>
   <script src="//unpkg.com/markmap@0.6.1/lib/d3-flextree.js"></script>
@@ -363,7 +365,7 @@
   </div>
   </div>
   <script>
-    const gitalkConfig = {
+    var gitalk = new Gitalk({
       clientID: '16155433ca5b81d55ef9',
       clientSecret: '8ce1c02f714f1ee7f9e2558709fdcd93ff66bec1',
       accessToken: '30c55e31acbb0cb61d30f92d14e32541880eefaf',
@@ -371,12 +373,12 @@
       owner: 'elfecho',
       admin: ['elfecho'],
       distractionFreeMode: false,
-    }
-    window.onhashchange = function(event){
-      if(event.newURL.split('?')[0] !== event.oldURL .split('?')[0]) {
-        location.reload()
-      }
-    }
+    })
+    // window.onhashchange = function(event){
+    //   if(event.newURL.split('?')[0] !== event.oldURL .split('?')[0]) {
+    //     location.reload()
+    //   }
+    // }
     
     window.$docsify = {
       name: 'Elfecho',
@@ -457,18 +459,18 @@
       },
       plugins: [
         function (hook, vm) {
-          // hook.doneEach(function() {
-          //   var label, domObj, main, divEle, gitalk;
-          //   label = vm.route.path.split("/").pop();
-          //   domObj = Docsify.dom;
-          //   main = domObj.getNode("#main");
+          hook.doneEach(function() {
+            var label, domObj, main, divEle, gitalk;
+            label = vm.route.path.split("/").pop();
+            domObj = Docsify.dom;
+            main = domObj.getNode("#main");
 
-          //   Array.apply(
-          //     null,
-          //     document.querySelectorAll("div.gitalk-container")
-          //   ).forEach(function(ele) {
-          //     ele.remove();
-          //   });
+            Array.apply(
+              null,
+              document.querySelectorAll("div.gitalk-container")
+            ).forEach(function(ele) {
+              ele.remove();
+            });
 
           //   divEle = domObj.create("div");
           //   divEle.id = "gitalk-container-" + label;
@@ -480,6 +482,19 @@
           //   );
           //   gitalk.render("gitalk-container-" + label);
           // });
+          hook.mounted(function() {
+            var div = Docsify.dom.create('div')
+            div.id = 'gitalk-container'
+            var main = Docsify.dom.getNode('#main')
+            div.style = `width: ${main.clientWidth}px; margin: 0 auto 20px;`
+            Docsify.dom.appendTo(Docsify.dom.find('.content'), div)
+          })
+
+          hook.doneEach(function() {
+            var el = document.getElementById('gitalk-container')
+            while(el.hasChildNodes()) el.removeChild(el.firstChild)
+            gitalk.render('gitalk-container')
+          })
           hook.beforeEach(function (html) {
             var url = 'https://github.com/elfecho/elfecho.github.io/tree/master/docs/' + vm.route.file
             var editHtml = '[:memo: Edit Document](' + url + ')\n'
