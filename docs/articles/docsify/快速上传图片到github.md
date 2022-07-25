@@ -18,7 +18,7 @@ Obsidian已经有一个[Image auto upload](https://github.com/renmu123/obsidian-
 
 【New repository】建立Public存储库
 
-設定檔config.toml和upgit在同一個資料夾，依據自己GitHub的設定修改內容，範例如下：
+设定档config.toml和upgit在同一個资料夹，依據自己GitHub的设定修改內容，範例如下：
 
 ```
 # =============================================================================
@@ -82,6 +82,9 @@ repo = "upgit-pic"
 username = "elfecho"
 ```
 
+
+
+
 ### AutoHotkey整合
 
 按〔Alt+V〕將剪贴板內的图片上传到GitHub，并將GitHub图片网址再插入剪贴板。
@@ -92,3 +95,10 @@ username = "elfecho"
   Run d:\util\upgit.exe :clipboard --output-type clipboard --output-format markdown
   return
 ```
+
+### 使用Obsidian Shell Commands外挂
+
+1. 安裝并启用Shell Commands外掛
+2. 新增Shell命令
+   - 新的命令命名為upgit
+   - 命令內容：`upgit :clipboard -f markdown`將系統剪貼簿內容上傳到GitHub，並將執行結果以markdown格式輸出到標準輸出(stdout)
