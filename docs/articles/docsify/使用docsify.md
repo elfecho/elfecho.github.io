@@ -468,7 +468,7 @@ git push --set-upstream origin master
 
 ![upgit_20220725_1658731914.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220725_1658731914.png)
 
-## 周边插件
+## 实用插件
 
 ### 搜索插件
 
