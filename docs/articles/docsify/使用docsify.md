@@ -115,3 +115,53 @@ Listening at http://localhost:3000
 
 当修改文件保存后， `docsify serve ./`服务会自动实时更新
 
+## 关于每个页面和URL路径说明
+
+如果需要创建多个页面，或者需要多级路由的网站，在`docsify`里也能很容易的实现。例如创建一个`guide.md`文件，那么对应的路由就是`/#/guide`。
+如果你的目录结构如下：
+
+```1c
+-| ./
+  -| README.md
+  -| guide.md
+  -| zh-cn/
+    -| README.md
+    -| guide.md
+```
+
+那么对应的访问页面将是:
+
+```dart
+./README.md        => http://domain.com
+./guide.md         => http://domain.com/guide
+./zh-cn/README.md  => http://domain.com/zh-cn/
+./zh-cn/guide.md   => http://domain.com/zh-cn/guide
+```
+
+## 侧边栏设置
+
+默认情况下，侧边栏会根据当前文档的标题生成目录。
+
+![upgit_20220725_1658723845.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220725_1658723845.png)
+
+### 定制侧边栏
+
+首先需要在`index.html`文件中的`window.$docsify`添加`loadSidebar: true,`选项：
+
+```xml
+<script>
+  window.$docsify = {
+    loadSidebar: true
+  }
+</script>
+<script src="//unpkg.com/docsify"></script>
+```
+
+接着在项目根目录创建`_sidebar.md`文件，内容格式如下：
+
+```scss
+* [home1](home1)
+* [home2](home2)
+* [bar](bar/)
+* [bar/a](bar/a)
+```
