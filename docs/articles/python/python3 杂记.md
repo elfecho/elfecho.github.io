@@ -91,7 +91,8 @@ b = [i**2 for i in a]
 b1 = [i**2 for i in a if i >= 5]
 
 c = (1,2,3,4,5,6,7,8)
-c1 = (i**2 for i in c if i >= 5)
+c1 = (i**2 for i in c if i >= 5) # 这里返回的是一个可遍历的object
+c2 = [i**2 for i in c if i >= 5]
 
 s = {1,2,3,4,5,6,7,8}
 s1 = [i**2 for i in s if i >= 5]
@@ -101,6 +102,8 @@ print(d1)
 '''
 运行结果
 [1, 4, 9, 16, 25, 36, 49, 64]
+[25, 36, 49, 64]
+<generator object <genexpr> at 0x0000027011D7C2B0> [25, 36, 49, 64]
 [25, 36, 49, 64]
 [25, 36, 49, 64]
 '''
