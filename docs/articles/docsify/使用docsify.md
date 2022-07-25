@@ -6,7 +6,7 @@ docsify 是一个动态生成文档网站的工具。不同于 GitBook、Hexo �
 
 ## 引入docsify方式
 
-### 手动创建`index.html`并引入docsify文件
+### 手动创建index.html并引入docsify文件
 
 docsify使用方式很简单，只需要在项目中创建一个`index.html`文件，内容能够如下：
 
@@ -56,7 +56,7 @@ http-server -p 8080
 
 这样做的好处是不在依赖网络环境了
 
-### 使用`docsify-cli`来开发
+### 使用docsify-cli来开发
 
 docsify需要本地先安装`node`, 如果没有安装node，可在node官网选择对应操作系统下载安装：[https://nodejs.org/zh-cn/](https://link.segmentfault.com/?enc=I8jTglj86w1fROL0FayGUA%3D%3D.1E8IvNhFLfemIs1alsa3niSlF7%2BgNkmKF%2FdgAXkFEwE%3D)
 
@@ -170,7 +170,7 @@ Listening at http://localhost:3000
 
 **_注_**: 配置了`loadSidebar`后就不会生成默认的侧边栏了
 
-### 关于侧边栏`_sidebar.md`文件的说明
+### 关于侧边栏_sidebar.md文件的说明
 
 -   如果只在根目录有一个`_sidebar.md`文件，那么所有页面都将使用这个一个配置，也就是所有页面的侧边栏都一样。
 -   如果一个子目录中有`_sidebar.md`文件，那么这个子目录下的所有页面将使用这个文件的侧边栏。
@@ -263,7 +263,7 @@ subMaxLevel说明：
 
 docsify默认是没有导航栏的，可以通过配置来显示导航栏。
 
-### 在`index.html`中定义导航栏
+### 在index.html中定义导航栏
 
 如果导航的链接少，则可以直接在`index.html`文件直接定义导航栏，要注意链接要以`#/`开头：
 
