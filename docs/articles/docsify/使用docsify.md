@@ -258,3 +258,43 @@ subMaxLevel说明：
 ```
 
 在使用时， {docsify-ignore} 和 {docsify-ignore-all} 都不会在页面上显示。
+
+## 导航栏配置
+
+docsify默认是没有导航栏的，可以通过配置来显示导航栏。
+
+### 在`index.html`中定义导航栏
+
+如果导航的链接少，则可以直接在`index.html`文件直接定义导航栏，要注意链接要以`#/`开头：
+
+```xml
+<body>
+  <nav>
+    <a href="#/">项目</a>
+    <a href="#/home1">home1</a>
+    <a href="#/bar/a">bar/a</a>
+  </nav>
+</body>
+```
+
+### 通过配置文件定义导航栏
+
+首先需要在`index.html`文件中的`window.$docsify`添加`loadNavbar: true,`选项：
+
+```xml
+<script>
+  window.$docsify = {
+    loadNavbar: true
+  }
+</script>
+<script src="//unpkg.com/docsify"></script>
+```
+
+接着在项目根目录创建`_navbar.md`文件，内容格式如下：
+
+```markdown
+* [home1](home1)
+* [home2](home2)
+* [bar](bar/)
+* [bar/a](bar/a)
+```
