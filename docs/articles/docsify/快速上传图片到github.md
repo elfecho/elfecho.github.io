@@ -135,3 +135,7 @@ username = "elfecho"
    - 命令内容：`upgit :clipboard -f markdown`将系统剪贴板内容上传到GitHub，并将执行结果以markdown格式输出到标准输出(stdout)
 
 ![upgit_20220725_1658735375.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220725_1658735375.png)
+
+Output选用输出到目前档案的游标位置，亦即將GitHub的圖片網址以Markdown格式插入目前游標位置
+
+![upgit_20220725_1658735587.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220725_1658735587.png)
