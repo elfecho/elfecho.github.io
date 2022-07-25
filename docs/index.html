@@ -459,20 +459,18 @@
       },
       plugins: [
         function (hook, vm) {
-          hook.doneEach(function() {
-            var label, domObj, main, divEle, gitalk;
-            label = vm.route.path.split("/").pop();
-            domObj = Docsify.dom;
-            main = domObj.getNode("#main");
+          // hook.doneEach(function() {
+          //   var label, domObj, main, divEle, gitalk;
+          //   label = vm.route.path.split("/").pop();
+          //   domObj = Docsify.dom;
+          //   main = domObj.getNode("#main");
 
-            Array.apply(
-              null,
-              document.querySelectorAll("div.gitalk-container")
-            ).forEach(function(ele) {
-              ele.remove();
-            });
-          })
-
+          //   Array.apply(
+          //     null,
+          //     document.querySelectorAll("div.gitalk-container")
+          //   ).forEach(function(ele) {
+          //     ele.remove();
+          //   });
           //   divEle = domObj.create("div");
           //   divEle.id = "gitalk-container-" + label;
           //   divEle.className = "gitalk-container";
