@@ -116,8 +116,8 @@ username = "elfecho"
 
 ```bash
 !v::
-  ;;Run d:\util\upgit.exe :clipboard -o clipboard -f markdown
-  Run d:\util\upgit.exe :clipboard --output-type clipboard --output-format markdown
+  ;;Run d:\install\util\upgit.exe :clipboard -o clipboard -f markdown
+  Run d:\install\util\upgit.exe :clipboard --output-type clipboard --output-format markdown
   return
 ```
 
