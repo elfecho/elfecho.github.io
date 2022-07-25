@@ -88,12 +88,15 @@ a = [1,2,3,4,5,6,7,8]
 # 实现a里面的元素平方，用列表推导式实现
 b = [i**2 for i in a] 
 # 如果需要进行过滤一些条件的话，列表推导式就可以很大的起到作用了
-c = [i**2 for i in a if i >= 5]
+b1 = [i**2 for i in a if i >= 5]
+
+c = (1,2,3,4,5,6,7,8)
+c1 = (i**2 for i in c if i >= 5)
 
 s = {1,2,3,4,5,6,7,8}
 s1 = [i**2 for i in s if i >= 5]
 print(b)
-print(c)
+print(b1)
 print(d1)
 '''
 运行结果
