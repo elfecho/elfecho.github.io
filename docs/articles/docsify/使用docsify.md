@@ -111,7 +111,8 @@ Listening at http://localhost:3000
 
 然后浏览器打开`http://localhost:3000`就能看见效果
 
-![upgit_20220725_1658723661.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220725_1658723661.png)
+![upgit_20220725_1658724123.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220725_1658724123.png)
+
 
 当修改文件保存后， `docsify serve ./`服务会自动实时更新
 
