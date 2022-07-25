@@ -24,7 +24,7 @@ switch(day) {
 python中由于没有switch方法，我们可以使用字典的映射来代替这个方法
 
 ```python
-day = 6
+day = 0
 
 switcher = {
     0: 'Sunday',
@@ -32,9 +32,23 @@ switcher = {
     2: 'Tuesday'
 }
 
-day_name = switcher.get(day, 'Unkown')
+day_name = switcher[day]
+print(day_name)
+```
 
-  
+这样写有个问题，就是如果day编写的不是里面所涵盖的话就会报错，由于python的灵活性，我们可以通过以下改写而实现这个方法
+
+```python
+day = 6
+
+switcher = {
+    0: 'Sunday',
+    1: 'Monday',
+    2: 'Tuesday'
+}
+
+day_name = switcher.get(day, 'Unkown')
 
 print(day_name)
 ```
+
