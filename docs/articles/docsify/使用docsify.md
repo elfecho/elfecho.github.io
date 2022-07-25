@@ -97,3 +97,21 @@ docsify init ./
 > `.nojekyll`文件很重要，如果网站部署到`GitHub Pages`时，一定要注意这个文件
 
 直接编辑 ./README.md 就能更新网站内容，当然也可以添加其他`.md`文件
+
+#### 启动本地服务
+
+终端输入`docsify serve ./`来启动服务：
+
+```bash
+docsify serve ./
+
+Serving /Users/dragon/tmp/docsify now.
+Listening at http://localhost:3000
+```
+
+然后浏览器打开`http://localhost:3000`就能看见效果
+
+![upgit_20220725_1658723661.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220725_1658723661.png)
+
+当修改文件保存后， `docsify serve ./`服务会自动实时更新
+
