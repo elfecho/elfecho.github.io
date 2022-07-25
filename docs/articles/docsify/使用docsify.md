@@ -76,8 +76,24 @@ docsify -v
 
 首先需要创建一个项目目录：
 
+```bash
+mkdir docsify
+```
+
+进入项目目录后，使用`docsify init ./`来初始化一个项目：
 
 ```bash
-docsify -v
+cd docsify
+
+docsify init ./
 ```
-mkdir docsify
+
+初始化成功后,`docsify`目录会生成如下几个文件：
+
+> 1.  `index.html`入口文件
+> 2.  `README.md`会做为主页内容渲染
+> 3.  `.nojekyll`用于阻止 GitHub Pages 会忽略掉下划线开头的文件、
+> 
+> `.nojekyll`文件很重要，如果网站部署到`GitHub Pages`时，一定要注意这个文件
+
+直接编辑 ./README.md 就能更新网站内容，当然也可以添加其他`.md`文件
