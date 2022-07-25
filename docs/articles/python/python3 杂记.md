@@ -221,14 +221,23 @@ print(g)
 '''
 ```
 
-使用方式如下
-
 ```python
-next(g) # 同迭代器的方式一样调用
-next(g)
+# 使用方式一：
+print(next(g)) # 同迭代器的方式一样调用
+print(next(g))
+# 使用方式二：
+for i in g:
+	print(i)
 ```
 
+或者利用此函数以及 Iterator expression，你可以用很紧凑的代码构造出很多**迭代数列**：
 
+```python
+squares = (x * x for x in range(n))
+evens = (2 * x for x in range(n))
+```
+
+**总结概念**：
 
 - Generator Function：含有 yield 关键字的**函数**，会返回一系列值，可以使用 next() 对其返回值进行迭代。
 
