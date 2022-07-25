@@ -178,3 +178,30 @@ Listening at http://localhost:3000
 
 如果子目录有`_sidebar.md`,但你就想使用根目录的`_sidebar.md`，  
 可在`index.html`文件中的`window.$docsify`添加`alias`字段：
+
+```javascript
+window.$docsify = {
+    loadSidebar: true,
+    alias: {
+        '/.*/_sidebar.md': '/_sidebar.md'
+    }
+}
+```
+
+配置`alias`字段后，所有页面都会显示项目根目录`_sidebar.md`文件的配置作为侧边栏，子目录的`_sidebar.md`文件会失效。
+
+### 显示页面目录(当前页面的标题)
+
+定制的侧边栏仅显示了页面的链接。
+还可以设置在侧边栏显示当前页面的目录(标题)。
+需要在`index.html`文件中的`window.$docsify`添加`subMaxLevel`字段来设置：
+
+```javascript
+<script>
+  window.$docsify = {
+    loadSidebar: true,
+    subMaxLevel: 3
+  }
+</script>
+<script src="//unpkg.com/docsify"></script>
+```
