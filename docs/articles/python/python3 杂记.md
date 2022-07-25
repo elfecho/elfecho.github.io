@@ -132,3 +132,58 @@ print(c)
 '''
 ```
 
+## 迭代器 Iterator
+
+Python中一个可迭代对象(iterable object)是一个实现了`__iter__`方法的对象，它应该返回一个迭代器对象(iterator object)。迭代器是一个实现`__next__`方法的对象，它应该返回它的可迭代对象的下一个元素，并在没有可用元素时触发StopIteration异常。
+
+当我们使用for循环遍历任何可迭代对象时，它在内部使用iter()方法获取迭代器对象，该迭代器对象进一步使用next()方法进行迭代。此方法触发StopIteration以表示迭代结束。
+
+Python中大多数内置容器，如列表、元组、字符串等都是`可迭代对象`的。它们是iterable但不是iterator，把它们从iterable变成iterator可以使用iter()函数
+
+```python
+import copy
+class BookCollection:
+    def __init__(self):
+        self.data = ['《往事》', '《只能》', '《回味》']
+        self.cur = 0
+        pass
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.cur >= len(self.data):
+            raise StopIteration()
+        r = self.data[self.cur]
+        self.cur += 1
+        return r
+
+
+books = BookCollection()
+# books_copy = copy.copy(books)  # 浅拷贝
+books_copy = copy.deepcopy(books)  # 深拷贝
+
+print(next(books))
+print(next(books))
+print(next(books))
+
+for book in books_copy:
+    print(book)
+    
+'''
+运行结果
+《往事》
+《只能》
+《回味》
+《往事》
+《只能》
+《回味》
+'''
+```
+
+## 生成器 Generator
+-   Generator Function：含有 yield 关键字的**函数**，会返回一系列值，可以使用 next() 对其返回值进行迭代。
+-   Generator Iterator：generator function 返回的**对象**。可以进行一次性地迭代。
+-   Generator Expression：可以求值为 generator iterator 的**表达式**。使用小括号和 for 来定义, 如下面例子
+
+ 
