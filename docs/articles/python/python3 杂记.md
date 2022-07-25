@@ -183,6 +183,51 @@ for book in books_copy:
 
 ## 生成器 Generator
 
+如果我们需要打印1到10000的数字，我可以使用之前学过的列表推导式进行编写
+
+```python
+n = [i for i in range(0, 10001)]
+print(n)
+for i in n:
+	print(i)
+```
+这个n是非常占用内存的，如果需要打印1到1亿的话，把这个变量放在内存里，是非常消耗性能的，那这个时候我们可以使用生成器来解决这个问题
+
+```python
+def gen(max):
+    n = 0
+    while n <= max:
+        print(n)
+        n += 1
+        
+gen(10000)
+```
+
+这里写法的优势就是没有过度消耗计算机里的内存，每次打印都是实时计算出来的结果，很遗憾的是这个只是一个函数，还不是一个生成器，可以通过以下改写实现生成器
+
+```python
+def gen(max):
+    n = 0
+    while n <= max:
+        print(n)
+        yield n
+        n += 1
+        
+g = gen(10000)
+print(g)
+'''
+运行结果
+<generator object gen at 0x0000022748C69258>
+'''
+```
+
+使用方式如下
+
+```python
+next(g) # 同迭代器的方式一样调用
+next(g)
+```
+
 
 
 - Generator Function：含有 yield 关键字的**函数**，会返回一系列值，可以使用 next() 对其返回值进行迭代。
