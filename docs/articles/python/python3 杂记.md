@@ -182,8 +182,21 @@ for book in books_copy:
 ```
 
 ## 生成器 Generator
--   Generator Function：含有 yield 关键字的**函数**，会返回一系列值，可以使用 next() 对其返回值进行迭代。
--   Generator Iterator：generator function 返回的**对象**。可以进行一次性地迭代。
--   Generator Expression：可以求值为 generator iterator 的**表达式**。使用小括号和 for 来定义, 如下面例子
+- Generator Function：含有 yield 关键字的**函数**，会返回一系列值，可以使用 next() 对其返回值进行迭代。
+
+- Generator Iterator：generator function 返回的**对象**。可以进行一次性地迭代。
+
+- Generator Expression：可以求值为 generator iterator 的**表达式**。使用小括号和 for 来定义, 如下面例子
+
+  ```python
+  a = (i*i for i in range(10))
+  print(type(a))
+  '''
+  运行结果
+  <class 'generator'>
+  '''
+  ```
+
+  
 
  
