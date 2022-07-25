@@ -10,6 +10,13 @@ Obsidian已经有一个[Image auto upload](https://github.com/renmu123/obsidian-
 
 ![upgit_20220725_1658733834.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220725_1658733834.png)
 
-
+复制个人存取token：ghp_开头全部字串
 
 ![upgit_20220725_1658733907.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220725_1658733907.png)
+
+### 建立专用的GitHub repo
+
+【New repository】建立Public存储库
+
+設定檔config.toml和upgit在同一個資料夾，依據自己GitHub的設定修改內容，範例如下：
+
