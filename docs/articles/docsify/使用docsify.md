@@ -473,3 +473,68 @@ git push --set-upstream origin master
 ### 搜索插件
 
 全文搜索插件会根据当前页面上的超链接获取文档内容，在 localStorage 内建立文档索引。默认过期时间为一天，当然我们可以自己指定需要缓存的文件列表或者配置过期时间。
+
+```html
+<script>
+    window.$docsify = {
+      // 完整配置参数
+      search: {
+        maxAge: 86400000,               // 过期时间，单位毫秒，默认一天
+        paths: [],                      // or 'auto'，匹配文件路径
+        placeholder: 'Type to search',  // 搜索提示框文字， 支持本地化，例子在下面
+        // placeholder: {
+        //   '/zh-cn/': '搜索',
+        //   '/': 'Type to search'
+        // },
+        noData: 'No Results!',          // 找不到结果文字提示，支持本地化，例子在下面
+        // noData: {
+        //   '/zh-cn/': '找不到结果',
+        //   '/': 'No Results'
+        // },
+        depth: 2,                       // 搜索标题的最大程级, 1 - 6
+      }
+    }
+  </script>
+  <!-- 引入搜索模块 -->
+  <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
+```
+
+### 评论插件Gitalk
+
+Gitalk：一个现代化的，基于Preact和Github Issue的评论系统。
+使用例子：
+
+```xml
+<link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css">
+<script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script>
+<script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: 'Github Application Client ID',
+    clientSecret: 'Github Application Client Secret',
+    repo: 'Github repo',
+    owner: 'Github repo owner',
+    admin: ['Github repo collaborators, only these guys can initialize github issues'],
+    // facebook-like distraction free mode
+    distractionFreeMode: false
+  })
+</script>
+```
+
+Gitalk具体使用教程：[https://segmentfault.com/a/11...](https://segmentfault.com/a/1190000018072952)
+
+docsify其他插件：[https://docsify.js.org/#/zh-c...](https://link.segmentfault.com/?enc=m5Lw9lQNuRBcN29L784A9Q%3D%3D.xU6i7zW9Ousqk0ZayUldWhQl7Dr8A0eO2ktW%2Fc2KevYYy15vfe6%2BzDeOvbBAKRQJ)
+
+### 样式插件
+
+在网上找到一个样式：[https://jhildenbiddle.github....](https://link.segmentfault.com/?enc=oIYWgRvlKkaBUswQEyW4dA%3D%3D.B%2FLjWEqUARKjWA0AXyguoHJ9ePTw6uLBWEBSQUAVnUl9q%2BeeqZSUdFirAgo6x44h7XrbxPkOU5ILE5zdQbWoFN%2FGNbmpz6DpAEDukKnEQpI%3D)
+
+使用方法,在HTML文件中引入：
+
+```xml
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
+```
+
+## 参考资料
+
+docsify中文官网：[https://docsify.js.org/#/zh-cn/](https://link.segmentfault.com/?enc=4JzDhsCUyzQqnXKtrlSW2Q%3D%3D.BUbxRDMgmQLQppdr6rVp%2BAPKiY%2FnKlXuvI4wNsWwJBY%3D)
