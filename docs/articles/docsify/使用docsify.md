@@ -143,7 +143,8 @@ Listening at http://localhost:3000
 
 默认情况下，侧边栏会根据当前文档的标题生成目录。
 
-![upgit_20220725_1658723845.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220725_1658723845.png)
+![upgit_20220725_1658724722.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220725_1658724722.png)
+
 
 ### 定制侧边栏
 
@@ -161,8 +162,19 @@ Listening at http://localhost:3000
 接着在项目根目录创建`_sidebar.md`文件，内容格式如下：
 
 ```markdown
-* [home1](home1)
-* [home2](home2)
-* [bar](bar/)
+* [home](home)
+* [guide](guide)
 * [bar/a](bar/a)
+* [bar/b](bar/b)
 ```
+
+**_注_**: 配置了`loadSidebar`后就不会生成默认的侧边栏了
+
+### 关于侧边栏`_sidebar.md`文件的说明
+
+-   如果只在根目录有一个`_sidebar.md`文件，那么所有页面都将使用这个一个配置，也就是所有页面的侧边栏都一样。
+-   如果一个子目录中有`_sidebar.md`文件，那么这个子目录下的所有页面将使用这个文件的侧边栏。
+-   `_sidebar.md`的加载逻辑是从每层目录下获取文件，如果当前目录不存在该文件则回退到上一级目录。例如当前路径为`/zh-cn/more-pages`则从`/zh-cn/_sidebar.md`获取文件，如果不存在则从`/_sidebar.md`获取。
+
+如果子目录有`_sidebar.md`,但你就想使用根目录的`_sidebar.md`，  
+可在`index.html`文件中的`window.$docsify`添加`alias`字段：
