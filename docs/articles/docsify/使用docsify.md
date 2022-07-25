@@ -363,3 +363,26 @@ docsify默认是没有封面的，默认有个首页`./README.md`。
 
 ![upgit_20220725_1658731279.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220725_1658731279.png)
 
+***注：\***一份文档只会在根目录下加载封面，其他页面或者二级目录下都不会加载。
+
+#### 自定义封面背景
+
+目前的背景是随机生成的渐变色，每次刷新都会显示不同的颜色。
+docsify封面支持自定义背景色或者背景图，在`_coverpage.md`文档末尾添加：
+
+```markdown
+<!-- 背景图片 -->
+![](_media/bg.png)
+
+<!-- 背景色 -->
+![color](#fbb30b)
+```
+
+![upgit_20220725_1658731556.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220725_1658731556.png)
+
+> ***注意：\***
+> 1.自定义背景配置一定要在`_coverpage.md`文档末尾。
+> 2.背景图片和背景色只能有一个生效.
+> 3.背景色一定要是`#2f4253`这种格式的。
+
+#### 把封面作为首页
