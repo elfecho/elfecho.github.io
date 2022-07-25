@@ -365,7 +365,7 @@ docsify默认是没有封面的，默认有个首页`./README.md`。
 
 ***注：\***一份文档只会在根目录下加载封面，其他页面或者二级目录下都不会加载。
 
-#### 自定义封面背景
+### 自定义封面背景
 
 目前的背景是随机生成的渐变色，每次刷新都会显示不同的颜色。
 docsify封面支持自定义背景色或者背景图，在`_coverpage.md`文档末尾添加：
@@ -385,4 +385,21 @@ docsify封面支持自定义背景色或者背景图，在`_coverpage.md`文档�
 > 2.背景图片和背景色只能有一个生效.
 > 3.背景色一定要是`#2f4253`这种格式的。
 
-#### 把封面作为首页
+### 把封面作为首页
+
+配置了封面后，封面和首页是同时出现的，封面在上面，首页在下面。
+通过设置`onlyCover`参数，可以让docsify网站首页只显示封面，
+原来的首页通过`http://localhost:3000/#/README`访问。
+
+在`index.html`文件中的`window.$docsify`添加`onlyCover: true,`选项：
+
+```html
+<script>
+  window.$docsify = {
+    coverpage: true,
+    onlyCover: true,
+  }
+</script>
+<script src="./docsify.min.js"></script>
+```
+
