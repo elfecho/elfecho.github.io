@@ -60,4 +60,8 @@ http-server -p 8080
 
 docsify需要本地先安装`node`, 如果没有安装node，可在node官网选择对应操作系统下载安装：[https://nodejs.org/zh-cn/](https://link.segmentfault.com/?enc=I8jTglj86w1fROL0FayGUA%3D%3D.1E8IvNhFLfemIs1alsa3niSlF7%2BgNkmKF%2FdgAXkFEwE%3D)
 
-终端输入`npm i docsify-cli -g`进行全局安装：
+全局安装
+
+```bash
+npm i docsify-cli -g
+```
