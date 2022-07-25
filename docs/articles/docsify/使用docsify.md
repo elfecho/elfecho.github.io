@@ -348,7 +348,7 @@ docsify默认是没有封面的，默认有个首页`./README.md`。
 接着在项目根目录创建`_coverpage.md`文件，内容格式如下：
 
 ```markdown
-![logo](_media/icon.svg)
+![logo](_media/logo.png)
 # 我的文档网站
 ## 个人文档网站
 > 一个神奇的文档网站生成巩固
@@ -358,6 +358,5 @@ docsify默认是没有封面的，默认有个首页`./README.md`。
 * Not build static html files
 
 [GitHub](https://github.com/docsifyjs/docsify/)
-[Get Started](#quick-start)
-[Get Started](#quick-start)
+[Get Started](/README)
 ```
