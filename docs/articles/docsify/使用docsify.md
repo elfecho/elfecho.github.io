@@ -467,3 +467,9 @@ git push --set-upstream origin master
 代码推送到github上后，打开github的仓库，选择`Settings` -> `GitHub Pages` -> `master branch` -> `save`。
 
 ![upgit_20220725_1658731914.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220725_1658731914.png)
+
+## 周边插件
+
+### 搜索插件
+
+全文搜索插件会根据当前页面上的超链接获取文档内容，在 localStorage 内建立文档索引。默认过期时间为一天，当然我们可以自己指定需要缓存的文件列表或者配置过期时间。
