@@ -133,10 +133,10 @@ Listening at http://localhost:3000
 那么对应的访问页面将是:
 
 ```dart
-./README.md        => http://domain.com
-./guide.md         => http://domain.com/guide
-./zh-cn/README.md  => http://domain.com/zh-cn/
-./zh-cn/guide.md   => http://domain.com/zh-cn/guide
+./README.md        => http://localhost:3000
+./guide.md         => http://localhost:3000/guide
+./zh-cn/README.md  => http://localhost:3000/zh-cn/
+./zh-cn/guide.md   => http://localhost:3000/zh-cn/guide
 ```
 
 ## 侧边栏设置
@@ -160,7 +160,7 @@ Listening at http://localhost:3000
 
 接着在项目根目录创建`_sidebar.md`文件，内容格式如下：
 
-```scss
+```markdown
 * [home1](home1)
 * [home2](home2)
 * [bar](bar/)
