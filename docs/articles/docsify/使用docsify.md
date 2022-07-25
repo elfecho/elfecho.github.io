@@ -295,8 +295,15 @@ docsify默认是没有导航栏的，可以通过配置来显示导航栏。
 接着在项目根目录创建`_navbar.md`文件，内容格式如下：
 
 ```markdown
-* [home1](home1)
-* [home2](home2)
+* [home](home)
 * [bar](bar/)
 * [bar/a](bar/a)
 ```
+
+![upgit_20220725_1658729036.png](https://raw.githubusercontent.com/elfecho/upgit-pic/master/2022/07/upgit_20220725_1658729036.png)
+
+***注意：\***
+1. 如果使用配置文件来设置导航栏，那么在`index.html`中定义的导航栏只有在定制的首页才会生效，其他页面会被覆盖。
+2. 如果只在根目录有一个`_navbar.md`文件，那么所有页面都将使用这个一个配置，也就是所有页面的导航栏都一样。
+3. 如果一个子目录中有`_navbar.md`文件，那么这个子目录下的所有页面将使用这个文件的导航栏。
+4. `_navbar.md`的加载逻辑是从每层目录下获取文件，如果当前目录不存在该文件则回退到上一级目录。例如当前路径为`/zh-cn/more-pages`则从`/zh-cn/_navbar.md`获取文件，如果不存在则从`/_navbar.md`获取。
