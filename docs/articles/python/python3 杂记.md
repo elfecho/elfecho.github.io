@@ -358,8 +358,6 @@ True
 
 ## 装饰器的副作用
 
-
-
 ```python
 import time
 
@@ -394,3 +392,40 @@ wrapper
 这里想打印函数的名称跟注释都被装饰器影响到了，这样非常影响我们编写的方法，那我们需要怎么处理呢？
 
 python提供了`functool`包里的`wraps`可以解决
+
+```python
+from functools import wraps
+import time
+
+
+def dec_time(func):
+    @wraps(func)
+    def wrapper():
+        print(time.time())
+        func()
+    return wrapper
+
+@dec_time
+def f1():
+    '''
+        This is f1
+    '''
+    print(f1.__name__)
+
+
+print(help(f1))
+f1()
+'''
+运行结果
+Help on function f1 in module __main__:
+
+f1()
+    This is f1
+
+None
+1658816926.0481286
+f1
+'''
+```
+
+`wraps` 这个装饰器接收了f1这个函数，那这个装饰器是知道f1的函数名跟注释那些的，可以通过装饰器`wraps`进行复制到wrapper方法里面，这样就可以保持原有的函数名跟注释了
