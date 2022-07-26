@@ -273,3 +273,6 @@ evens = (2 * x for x in range(n))
 
 Python中数据为**空的对象**以及**None对象**在条件语句**都作False**看待：即 `None，False，0，[]，""，{}，()`都相当于False
 
+```python
+
+```
