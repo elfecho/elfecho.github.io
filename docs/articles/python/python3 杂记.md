@@ -261,5 +261,8 @@ evens = (2 * x for x in range(n))
   '''
   ```
 
-  
+## 空 None
 
+-   None是python中的一个特殊的常量，表示一个空的对象。
+-   **数据为空并不代表是空对象**，例如空列表、空字符串、0、False等**都不是None**。
+-   None有自己的数据类型NontType，你可以将None赋值给任意对象，但是不能创建一个NoneType对象
