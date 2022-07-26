@@ -325,4 +325,19 @@ False
 '''
 ```
 
-自定义对象可以通过 `__len__` 或`__bool__` 方法来改变对象返回真假
+自定义对象可以通过 `__len__` 或`__bool__` 方法来改变对象返回真假，`__bool__`的优先级高于`__len__`
+
+```python
+class Test():
+    def __len__(self):
+        return True
+        
+print(len(test))  # 如果对象里面没有定义__len__方法时会报错
+print(bool(test))    
+'''
+运行结果
+1
+True
+'''
+```
+
