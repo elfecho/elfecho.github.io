@@ -341,3 +341,18 @@ True
 '''
 ```
 
+```python
+class Test():
+    def __len__(self):
+        return False
+    def __bool__(self):
+        return True  # 这个只能使用布尔类型
+
+test = Test()
+print(bool(test))
+'''
+运行结果
+True
+'''
+```
+
