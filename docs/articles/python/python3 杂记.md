@@ -274,5 +274,29 @@ evens = (2 * x for x in range(n))
 Python中数据为**空的对象**以及**None对象**在条件语句**都作False**看待：即 `None，False，0，[]，""，{}，()`都相当于False
 
 ```python
+a = ''
+b = False
+c = []
 
+print(a == None)
+print(b == None)
+print(c == None)
+
+print(a is None)
+
+print(type(None))
+'''
+运行结果
+False
+False
+False
+False
+<class 'NoneType'>
+'''
 ```
+
+### None的比较——用is None而不是 == None
+
+因为None在Python里是个单例对象，一个变量如果是None，它一定和None对象指向同一个内存地址。is运算判断两个对象在内存中的地址是否一致.
+
+而 `==`运算符是比较对象的值是否相等，原理是调用类的 `__eq__`函数，而`__eq__`函数可以被重载：我们可以重载某类的`__eq__` 比较函数，让它总是返回True，则它的实例与None作 `==`运算时就为True了
