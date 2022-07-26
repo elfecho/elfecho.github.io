@@ -309,6 +309,8 @@ False
 class Test():
     def __len__(self):
         return 0
+    def __bool__(self):
+        return False
 
 test = Test()
 print(bool(None))
@@ -323,3 +325,4 @@ False
 '''
 ```
 
+自定义对象可以通过 `__len__` 或`__bool__` 方法来改变对象返回真假
