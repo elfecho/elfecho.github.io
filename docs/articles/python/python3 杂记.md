@@ -308,7 +308,7 @@ False
 ```python
 class Test():
     def __len__(self):
-        return 0
+        return 0  # 如果这个是非数字，会报错，只能使用整型或布尔值
     def __bool__(self):
         return False
 
