@@ -301,4 +301,25 @@ False
 
 而 `==`运算符是比较对象的值是否相等，原理是调用类的 `__eq__`函数，而`__eq__`函数可以被重载：我们可以重载某类的`__eq__` 比较函数，让它总是返回True，则它的实例与None作 `==`运算时就为True了
 
-### 对象存在并
+### 对象存在并不一定返回True
+
+比如下面这个例子：
+
+```python
+class Test():
+    def __len__(self):
+        return 0
+
+test = Test()
+
+if test:
+    print('S')
+else:
+    print('F')
+  
+'''
+运行结果
+F
+'''
+```
+
