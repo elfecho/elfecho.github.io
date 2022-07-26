@@ -311,15 +311,15 @@ class Test():
         return 0
 
 test = Test()
-
-if test:
-    print('S')
-else:
-    print('F')
+print(bool(None))
+print(bool([]))
+print(bool(test))
   
 '''
 运行结果
-F
+False
+False
+False
 '''
 ```
 
