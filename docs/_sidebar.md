@@ -17,6 +17,8 @@
 - 使用docsify笔记<!-- 对应 articles/docsify -->
 	- [使用docsify](articles/docsify/使用docsify)
 	- [快速上传图片到github](articles/docsify/快速上传图片到github)
+- uni-app笔记
+	- [uni-app引入iconfont](articles/uni-app/uni-app引入iconfont)
 - python<!-- 对应 articles/python -->
 	- [python3 基本数据类型](articles/python/python3%20基本数据类型.md)
 	- [python3 变量与运算符](articles/python/python3%20变量与运算符.md)
