@@ -363,7 +363,7 @@
       <p class="loader-text">LOADING</p>
     </div>
   </div>
-  </div>
+  <div id="gitalk-container" style="display: none;"></div>
   <script>
     var gitalk = new Gitalk({
       clientID: '16155433ca5b81d55ef9',
@@ -372,6 +372,8 @@
       repo: 'myNote',
       owner: 'elfecho',
       admin: ['elfecho'],
+      title: location.hash.match(/#(.*?)([?]|$)/)[1],
+      id: location.hash.match(/#(.*?)([?]|$)/)[1],
       distractionFreeMode: false,
     })
     // window.onhashchange = function(event){

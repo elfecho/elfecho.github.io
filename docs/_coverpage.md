@@ -9,4 +9,4 @@
 - 趁年轻多学习
 
 [GitHub](https://github.com/elfecho/)
-[Get Started](/README)
+[开始阅读](/README)
