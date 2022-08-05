@@ -508,3 +508,34 @@ Student(name='elfecho', age=18, school_name='Tsinghua')
 ```
 
 ### 数据嵌套
+
+数据类可以嵌套为其他数据类的字段, 可以简单创建一个有2个学科的成绩. elf 包含两个学科language与mathematics
+
+```python
+from dataclasses import dataclass, field
+from typing import Any, List
+
+@dataclass
+class Subject:
+    name: str
+    number: int
+
+language = Subject('language', 90)
+mathematics = Subject('mathematics', 69)
+
+@dataclass()
+class Student():
+    name: Any
+    age: int
+    school_name: str = 'Tsinghua'
+    subjects: List[Subject]
+
+    def say(self):
+        print(f'我叫{self.name}，今年{self.age}岁，就读于{self.school_name}')
+
+
+student = Student('elfecho', 18)
+print(student.__repr__())
+student.say()
+```
+
