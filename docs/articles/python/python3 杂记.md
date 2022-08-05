@@ -480,12 +480,17 @@ student.test()
 
 这种写法，是很多语音都有的一种弊端，比如javascript，需要定义一大堆的参数，使用dataclass装饰器可以简写上面
 
-## 类型提示和默认值
+### 类型提示和默认值
+
+dataclass 可以认为是提供了一个简写`__init__`方法的语法糖. 类型注释是必填项 (不限制数据类型时, 添加typing.Any为类型注释), 默认值的传递方式和`__init__`方法的参数格式一致. 
 
 ```python
+from dataclasses import dataclass
+from typing import Any
+
 @dataclass
 class Student():
-    name: str
+    name: Any
     age: int
     school_name: str = 'Tsinghua'
 
@@ -495,5 +500,11 @@ class Student():
 student = Student('elfecho', 20)
 print(student.__repr__())
 student.test()
+'''
+运行结果
+Student(name='elfecho', age=18, school_name='Tsinghua')
+我叫elfecho，今年18岁，就读于Tsinghua
+'''
 ```
 
+### 数据嵌套
