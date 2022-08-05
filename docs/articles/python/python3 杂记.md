@@ -488,7 +488,7 @@ dataclass 可以认为是提供了一个简写`__init__`方法的语法糖. 类�
 from dataclasses import dataclass
 from typing import Any
 
-@dataclass
+@dataclass(init=True, repr=True)
 class Student():
     name: Any
     age: int
