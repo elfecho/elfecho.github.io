@@ -569,3 +569,15 @@ class Student():
     subjects: List[Subject] = field(default_factory=lambda :[language])
 ```
 
+field 支持的参数
+
+| 参数            | 描述                             | 默认值 |
+| --------------- | -------------------------------- | ------ |
+| default         | 字段的默认值                     |        |
+| default_factory | 返回字段初始值的函数             |        |
+| init            | 是否在`__init__`()方法中使用字段 | True   |
+| repr            | 是否在`__repr__`()方法中使用字段 | True   |
+| compare         | 是否在比较对象时, 包括该字段     | True   |
+| hash            | 计算hash时, 是否包括字段         | True   |
+| metadata        | 包含字段信息的映射               |        |
+
