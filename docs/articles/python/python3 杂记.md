@@ -581,3 +581,21 @@ field 支持的参数
 | hash            | 计算hash时, 是否包括字段         | True   |
 | metadata        | 包含字段信息的映射               |        |
 
+### 不可变数据类
+
+要使数据类不可变，需要在创建类时设置frozen=True
+
+```python
+@dataclass(frozen=True)
+class Student():
+    name: str
+    age: int = 20
+    
+student = Student('elfecho', 18)
+student.name = 'zhangsan'
+'''
+运行结果
+dataclasses.FrozenInstanceError: cannot assign to field 'name'
+'''
+```
+
