@@ -486,13 +486,13 @@ student.test()
 @dataclass
 class Student():
     name: str
-    age: int = 18
-    school_name: str
+    age: int
+    school_name: str = 'Tsinghua'
 
     def test(self):
         print(self.name)
 
-student = Student('elfecho', 20, 'Tsinghua')
+student = Student('elfecho', 20)
 print(student.__repr__())
 student.test()
 ```
