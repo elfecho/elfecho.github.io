@@ -480,17 +480,19 @@ student.test()
 
 这种写法，是很多语音都有的一种弊端，比如javascript，需要定义一大堆的参数，使用dataclass装饰器可以简写上面
 
+## 类型提示和默认值
+
 ```python
 @dataclass
 class Student():
     name: str
-    age: int
+    age: int = 18
     school_name: str
 
     def test(self):
         print(self.name)
 
-student = Student('elfecho', 18, 'Tsinghua')
+student = Student('elfecho', 20, 'Tsinghua')
 print(student.__repr__())
 student.test()
 ```
