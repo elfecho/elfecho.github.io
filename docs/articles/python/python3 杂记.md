@@ -520,22 +520,52 @@ class Subject:
     name: str
     number: int
 
-language = Subject('language', 90)
-mathematics = Subject('mathematics', 69)
 
-@dataclass()
+@dataclass
 class Student():
     name: Any
     age: int
-    school_name: str = 'Tsinghua'
+    school_name: str
     subjects: List[Subject]
 
-    def say(self):
-        print(f'我叫{self.name}，今年{self.age}岁，就读于{self.school_name}')
 
+language = Subject('language', 90)
+mathematics = Subject('mathematics', 69)
+student = Student('elfecho', 18, 'Tsinghua', [language, mathematics])
+print(student)
+'''
+运行结果
+Student(name='elfecho', age=18, school_name='Tsinghua', subjects=[Subject(name='language', number=90), Subject(name='mathematics', number=69)])
+'''
+```
 
-student = Student('elfecho', 18)
-print(student.__repr__())
-student.say()
+### dataclasses中的field
+
+当我们尝试使用可变的数据类型, 给数据类中做默认值时, 触发了python中的大坑之一 **使用可变默认参数, 导致多个实例公用一个数据从而引发bug.** dataclass 默认阻止使用可变数据做默认值
+
+```python
+@dataclass
+class Student():
+    name: Any
+    age: int
+    school_name: str
+    subjects: List[Subject] = [language]
+'''
+运行结果
+ValueError: mutable default <class 'list'> for field subjects is not allowed: use default_factory
+'''
+```
+
+就像错误提示中的, 处理此种场景时, 需要使用 field 中的 default_factory 
+
+```python
+from dataclasses import field
+
+@dataclass
+class Student():
+    name: Any
+    age: int
+    school_name: str
+    subjects: List[Subject] = field(default_factory=lambda :[language])
 ```
 
