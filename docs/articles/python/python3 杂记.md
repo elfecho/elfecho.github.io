@@ -464,6 +464,34 @@ if (b:=len(a)) > 5:
 
 比如下面这个例子
 
+```python
+class Student():
+    def __init__(self, name, age, school_name):
+        self.name = name
+        self.age = age
+        self.school_name = school_name
+
+    def test(self):
+        print(self.name)
+
+student = Student('elfecho', 18, 'Tsinghua')
+student.test()
 ```
 
+这种写法，是很多语音都有的一种弊端，比如javascript，需要定义一大堆的参数，使用dataclass装饰器可以简写上面
+
+```python
+@dataclass
+class Student():
+    name: str
+    age: int
+    school_name: str
+
+    def test(self):
+        print(self.name)
+
+student = Student('elfecho', 18, 'Tsinghua')
+print(student.__repr__())
+student.test()
 ```
+
