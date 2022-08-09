@@ -53,7 +53,7 @@ $ pipenv uninstall --all
 
 ## 高级技巧
 
-### 导入`requirements.txt`
+### 导入requirements.txt
 
 当在执行`pipenv install`命令的时候，如果有一个`requirements.txt`文件，那么会自动从`requirements.txt`文件导入安装包信息并创建一个`Pipfile`文件。
 
@@ -85,7 +85,7 @@ $ pipenv --python 2.7.14
 
 `pipenv`会自动扫描系统寻找合适的版本信息，如果找不到的话，同时又安装了`pyenv`, 它会自动调用`pyenv`下载对应的版本的python
 
-### 指定安装包的源[](https://crazygit.wiseturtles.com/2018/01/08/pipenv-tour/#%E6%8C%87%E5%AE%9A%E5%AE%89%E8%A3%85%E5%8C%85%E7%9A%84%E6%BA%90)
+### 指定安装包的源
 
 如果我们需要在安装包时，从一个源下载一个安装包，然后从另一个源下载另一个安装包，我们可以通过下面的方式配置
 
