@@ -53,7 +53,7 @@ $ pipenv uninstall --all
 
 ## 高级技巧
 
-### 导入`requirements.txt
+### 导入`requirements.txt`
 
 当在执行`pipenv install`命令的时候，如果有一个`requirements.txt`文件，那么会自动从`requirements.txt`文件导入安装包信息并创建一个`Pipfile`文件。
 
@@ -73,7 +73,7 @@ $ pipenv install requests==2.13.0
 
 这个命令也会自动更新`Pipfile`文件
 
-### 指定Python的版本信息[](https://crazygit.wiseturtles.com/2018/01/08/pipenv-tour/#%E6%8C%87%E5%AE%9Apython%E7%9A%84%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF)
+### 指定Python的版本信息
 
 在创建虚拟环境的时候，我们可以指定使用的python版本信息，类似`pyenv`
 
@@ -84,3 +84,45 @@ $ pipenv --python 2.7.14
 ```
 
 `pipenv`会自动扫描系统寻找合适的版本信息，如果找不到的话，同时又安装了`pyenv`, 它会自动调用`pyenv`下载对应的版本的python
+
+### 指定安装包的源[](https://crazygit.wiseturtles.com/2018/01/08/pipenv-tour/#%E6%8C%87%E5%AE%9A%E5%AE%89%E8%A3%85%E5%8C%85%E7%9A%84%E6%BA%90)
+
+如果我们需要在安装包时，从一个源下载一个安装包，然后从另一个源下载另一个安装包，我们可以通过下面的方式配置
+
+```fallback
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[[source]]
+url = "http://pypi.home.kennethreitz.org/simple"
+verify_ssl = false
+name = "home"
+
+[dev-packages]
+
+[packages]
+requests = {version="*", index="home"}
+maya = {version="*", index="pypi"}
+records = "*"
+```
+
+如上设置了两个源：
+
+-   `pypi`([https://pypi.python.org/simple](https://pypi.python.org/simple))
+-   `home`([http://pypi.home.kennethreitz.org/simple](http://pypi.home.kennethreitz.org/simple))
+
+同时指定`requests`包从`home`源下载，`maya`包从`pypi`源下载
+
+### 生成requirements.txt文件
+
+我们也可以从`Pipfile`和`Pipfile.lock`文件来生成`requirements.txt`
+
+```fallback
+# 生成requirements.txt文件
+$ pipenv lock -r
+
+# 生成dev-packages的requirements.txt文件
+# pipenv lock -r -d
+```
