@@ -28,13 +28,13 @@
 - 关于浏览器笔记<!-- 对应 articles/browser -->
 	- [关于location](articles/browser/关于location)
 - python<!-- 对应 articles/python -->
-	- [python3 基本数据类型](articles/python/python3%20基本数据类型.md)
-	- [python3 变量与运算符](articles/python/python3%20变量与运算符.md)
-	- [python3 分支循环条件与枚举](articles/python/python3%20分支循环条件与枚举.md)
-	- [python3 模块与包](articles/python/python3%20模块与包.md)
-	- [python3 函数](articles/python/python3%20函数.md)
-	- [python3 面向对象](articles/python/python3%20面向对象.md)
-	- [python3 正则表达式](articles/python/python3%20正则表达式.md)
-	- [python3 枚举](articles/python/python3%20枚举.md)
-	- [python3 函数式编程](articles/python/python3%20函数式编程.md)
+	- [python3 基本数据类型](python3%20基本数据类型.md)
+	- [python3 变量与运算符](python3%20变量与运算符.md)
+	- [python3 分支循环条件与枚举](python3%20分支循环条件与枚举.md)
+	- [python3 模块与包](python3%20模块与包.md)
+	- [python3 函数](python3%20函数.md)
+	- [python3 面向对象](python3%20面向对象.md)
+	- [python3 正则表达式](python3%20正则表达式.md)
+	- [python3 枚举](python3%20枚举.md)
+	- [python3 函数式编程](python3%20函数式编程.md)
 
