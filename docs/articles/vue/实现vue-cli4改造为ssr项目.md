@@ -110,21 +110,9 @@ module.exports = {
 };
 ```
 
-
-
- 
-
-
-
 修改路由文件
 
-
-
-
-
-
-
-```
+```javascript
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from '../views/Home.vue';
@@ -143,24 +131,12 @@ export function createRouter() {
             {path: '/about', name: 'About', component: About},
         ]
     })
-}1.2.3.4.5.6.7.8.9.10.11.12.13.14.15.16.17.18.19.
+}
 ```
-
-
-
- 
-
-
 
 修改main.js文件
 
-
-
-
-
-
-
-```
+```javascript
 import Vue from "vue";
 import App from "./App.vue";
 import { createRouter } from "./router";
@@ -178,50 +154,26 @@ export function createApp() {
         render: (h) => h(App),
     });
     return { app, router };
-}1.2.3.4.5.6.7.8.9.10.11.12.13.14.15.16.17.18.
+}
 ```
 
-
-
- 
-
-
-
-### 在src下添加entry-client.js和entry-server.js文件
+## 在src下添加entry-client.js和entry-server.js文件
 
 ### entry-client.js
 
-
-
-
-
-
-
-```
+```javascript
 import {createApp} from './main.js';
 
 const {app, router} = createApp();
 
 router.onReady(()=>{
     app.$mount("#app");
-})1.2.3.4.5.6.7.
+})
 ```
 
+### entry-server.js
 
-
- 
-
-
-
-entry-server.js
-
-
-
-
-
-
-
-```
+```javascript
 import {createApp} from "./main.js";
 // context实际上就是server/index.js里面传参，后面会说到server/index.js
 export default context => {
@@ -237,24 +189,12 @@ export default context => {
             resolve(app);
         }, reject);
     })
-}1.2.3.4.5.6.7.8.9.10.11.12.13.14.15.16.
+}
 ```
 
+### 在src下创建server/index.js
 
-
- 
-
-
-
-在src下创建server/index.js
-
-
-
-
-
-
-
-```
+```javascript
 // nodejs服务器
 const express = require("express");
 const fs = require("fs");
@@ -302,24 +242,12 @@ app.get("*", async (req, res) => {
 
 app.listen(3000, () => {
     console.log("渲染服务器启动成功");
-});1.2.3.4.5.6.7.8.9.10.11.12.13.14.15.16.17.18.19.20.21.22.23.24.25.26.27.28.29.30.31.32.33.34.35.36.37.38.39.40.41.42.43.44.45.46.47.48.
+});
 ```
-
-
-
- 
-
-
 
 在public下面创建index.ssr.html文件
 
-
-
-
-
-
-
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -331,35 +259,19 @@ app.listen(3000, () => {
     <!--vue-ssr-outlet-->
     <!--上面这个一定要留着，它是服务端渲染模版的标记，没有就会报错，不信可以删了试一下-->
 </body>
-</html>1.2.3.4.5.6.7.8.9.10.11.12.
+</html>
 ```
-
-
-
- 
-
-
 
 然后所有的改造完成，运行命令
 
-
-
-
-
-```
+```bash
 // 先构建两个json文件
-npm run build1.2.
+npm run build
 ```
-
-
 
 再到server文件夹下运行
 
-
-
-
-
-```
+```bash
 node index.js
 // 如果显示: `渲染服务器启动成功`, 在浏览器打开 `localhost:3000` 端口，就能看到我们的页面
 ```
