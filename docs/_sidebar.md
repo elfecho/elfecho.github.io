@@ -6,6 +6,7 @@
 	- [vue3小技巧](/articles/vue/vue3小技巧)
 	- [ssr初探](/articles/vue/ssr初探)
 	- [axios实现导出导入Excel](/articles/vue/axios实现导出导入Excel)
+	- [实现vue-cli4改造为ssr项目](/articles/vue/实现vue-cli4改造为ssr项目)
 * web3笔记 <!-- 对应 articles/web3 -->
 	- [常用网络配置](articles/web3/常用网络配置)
 - 数据存储
