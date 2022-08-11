@@ -15,40 +15,26 @@ vue create vue-ssr
 
 经过漫长的等待，下载好文件开始我们的改造之路
 
- 
+###  文件目录
+
+进入vue-ssr文件夹，使用命令
+
+```
+vue ui
+```
 
 先安装几个依赖插件
 
-
-
-
-
-
-
-```
+```bash
 // 安不上用cnpm，yarn，npx
-npm i vue-server-renderer  -D
-npm i express -D
-npm i webpack-node-externals -D
-npm i lodash.merge -D
-npm i cross-env -D1.2.3.4.5.6.
+npm i vue-server-renderer express webpack-node-externals lodash.merge cross-env -D
 ```
-
-
-
- 
 
 
 
 修改package.json文件
 
-
-
-
-
-
-
-```
+```json
 "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -59,24 +45,12 @@ npm i cross-env -D1.2.3.4.5.6.
     "build:client": "vue-cli-service build", 
     "build:server": "cross-env WEBPACK_TARGET=node vue-cli-service build --mode server", 
     "build": "npm run build:server && npm run build:client" 
-}1.2.3.4.5.6.7.8.9.10.11.
+}
 ```
-
-
-
- 
-
-
 
 根目录下创建vue.config.js
 
-
-
-
-
-
-
-```
+```javascript
 // 服务器渲染的两个插件，控制server和client
 const VueSSRServerPlugin = require("vue-server-renderer/server-plugin"); // 生成服务端包
 const VueSSRClientPlugin = require("vue-server-renderer/client-plugin"); // 生成客户端包
@@ -133,7 +107,7 @@ module.exports = {
         });
       });
   }
-};1.2.3.4.5.6.7.8.9.10.11.12.13.14.15.16.17.18.19.20.21.22.23.24.25.26.27.28.29.30.31.32.33.34.35.36.37.38.39.40.41.42.43.44.45.46.47.48.49.50.51.52.53.54.55.56.57.
+};
 ```
 
 
