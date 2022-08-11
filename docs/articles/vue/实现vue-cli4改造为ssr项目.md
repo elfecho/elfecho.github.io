@@ -6,7 +6,7 @@
 
 在放你做demo的地方，创建一个项目
 
-```
+```bash
 vue create vue-ssr
 // 如果你安装了vue-cli4，选择vue2的版本，以下的改进过程是按vue2来做的1.2.
 ```
