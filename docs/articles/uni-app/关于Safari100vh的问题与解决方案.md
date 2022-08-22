@@ -10,7 +10,7 @@
 
 
 
-```
+```html
 <div class="container">
   <!-- height: 100vh - 50px -->
   <div class="page"></div>
@@ -57,16 +57,9 @@
 
 
 我们知道，`vh`、`vw` 都是 CSS 中的一种相对长度单位，`1vh` 表示 [viewport](https://links.jianshu.com/go?spm=a2c6h.12873639.article-detail.7.79736398lUzYoO&to=https%3A%2F%2Fdeveloper.mozilla.org%2Fen-US%2Fdocs%2FWeb%2FCSS%2FViewport_concepts%23mobile_viewports) 高度的 1%（`vm` 同理）。简单来讲，viewport 基本上是指当前文档的可见部分，因此 `100vh` 表示可见文档的最大高度。
-
 **可事实真是如此吗？**
 
-**
-**
-
 在 Safari 浏览器中，`100vh` 如下图所示（[出自](https://links.jianshu.com/go?spm=a2c6h.12873639.article-detail.8.79736398lUzYoO&to=https%3A%2F%2Fgithub.com%2Fpostcss%2Fpostcss-100vh-fix)）：
-
-
-
 
 
 ![20.webp.jpg](关于Safari100vh的问题与解决方案.assets/0125d6e9e309463abb51b1e6138e9ed1.jpg)
@@ -129,7 +122,7 @@
 
 
 
-```
+```html
 <!DOCTYPE html>
 <html>
   <head>
@@ -165,7 +158,7 @@
 
 
 
-```
+```css
 body {
   min-height: 100vh;
   min-height: -webkit-fill-available;
@@ -188,7 +181,7 @@ iOS 上的 Safari 中的表现是正常了，但是你会发现 Chrome 下红色
 
 
 
-```
+```css
 body {
   min-height: 100vh;
   display: flex;
@@ -212,12 +205,8 @@ body {
 
 **方案二：通过 CSS 变量计算 1vh 所表示的实际高度**
 
-**
-**
 
 思路：
-
-
 
 > 设置一个 CSS 变量（比如 `--vh`），然后通过 JavaScript 脚本动态设置 `--vh` 的值，然后使用时需兼容处理即可（比如，`height: 100vh; height: calc(var(--vh) * 100)`）。
 
@@ -225,7 +214,7 @@ body {
 
 
 
-```
+```html
 <style>
   :root {
     --vh: 1vh;
@@ -251,13 +240,12 @@ body {
 
 
 
-```
+```css
 .page {
   height: calc(100vh - 50px);
   height: calc(var(--vh) * 100 - 50px);
 }
 ```
-
 
 
 有一个 [react-div-100vh](https://links.jianshu.com/go?spm=a2c6h.12873639.article-detail.17.79736398lUzYoO&to=https%3A%2F%2Fgithub.com%2Fmvasin%2Freact-div-100vh) 库就是获取 `window.innerHeight`，然后将其值设置为容器高度实现的，然而这也是仅可处理 `100vh` 的情况。
