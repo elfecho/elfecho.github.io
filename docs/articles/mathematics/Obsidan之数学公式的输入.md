@@ -67,7 +67,11 @@ $$
 
 - 希腊字母
 
+```
 α \alphaα、β \betaβ、χ \chiχ、Δ \DeltaΔ、Γ \GammaΓ、Θ \ThetaΘ 之类的
+```
+
+$$ \alpha \beta  \chi  \Delta  \Gamma  \Theta$$
 
 ![](https://img-blog.csdnimg.cn/img_convert/54b67772e9ccb1e9242f9c05944f4561.jpeg)
 
