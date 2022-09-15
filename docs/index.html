@@ -26,6 +26,9 @@
       href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
       
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/marked@3"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
 </head>
 
@@ -474,36 +477,7 @@
             var el = document.getElementById('gitalk-container')
             while(el.hasChildNodes()) el.removeChild(el.firstChild)
             gitalk.render('gitalk-container')
-
-            // 支持$和$$
-            if (typeof MathJax !== "undefined") {
-              MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-            }
           })
-          // 支持$``$
-          hook.beforeEach(function (content) {
-            return content.replace(/\$`.*`\$/g, function (a) {
-              return a.replace("`", "").replace("`", "");
-            });
-          });
-          // 支持```math```块
-          hook.beforeEach(function (content) {
-            return content.replace("\r\n","\n");
-          });
-          hook.beforeEach(function (content) {
-            return content.replace("\r","\n");
-          });
-          hook.beforeEach(function (content) {
-            c = content.replace(
-              /```math\n[^`]*\n```/g,
-              function (a) {
-                return a
-                  .replace("```math", "\$\$\$\$")
-                  .replace("```", "\$\$\$\$");
-              }
-            );
-            return c
-          });
           // hook.beforeEach(function (html) {
           //   var url = 'https://github.com/elfecho/elfecho.github.io/tree/master/docs/' + vm.route.file
           //   var editHtml = '[:memo: Edit Document](' + url + ')\n'
@@ -516,27 +490,8 @@
       ]
     }
   </script>
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [['$','$'], ['\\(','\\)']],
-      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-      processClass: 'math',
-      processEscapes: true
-    },
-    TeX: {
-    equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
-    extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
-    Macros: {bm: "\\boldsymbol"}
-    },
-    'HTML-CSS': { linebreaks: { automatic: true } },
-    'preview-HTML': { linebreaks: { automatic: true } },
-    SVG: { linebreaks: { automatic: true } }
-    });
-  </script>
 
-  <!--MathJax数学公式支持-->
-  <script src="//cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
   <!-- Docsify v4 核心-->
   <!-- <script src="//cdn.jsdelivr.net/npm/docsify@4"></script> -->
   <script src="js/docsify@4.js"></script>
