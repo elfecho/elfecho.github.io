@@ -37,4 +37,5 @@
 	- Flask使用
 		- [使用pipenv](articles/python/Flask/使用pipenv.md)
 - 高等数学
+	- [Obsidan之数学公式的输入](articles/mathematics/Obsidan之数学公式的输入.md)
 	- [函数](articles/mathematics/函数.md)
