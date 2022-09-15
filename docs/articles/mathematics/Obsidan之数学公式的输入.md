@@ -173,11 +173,14 @@ $$lim ⁡ x → ∞ exp ⁡ ( − x ) = 0 \lim\limits_{x\to\infty}\exp(-x) = 0$$
 注意：`\,`在积分里的作用是为了增加些许间距，`\!`会减少一些间距。
 
 输出分段函数
-用`\begin{cases}`和\end{cases}来构造分段函数，中间则用\\来分段
+用`\begin{cases}`和`\end{cases}`来构造分段函数，中间则用`\\`来分段
 
-$$\begin{cases}f ( x ) = { 2 x ,    x > 0 3 x ,    x ≤ 0 f(x) =
-{2x,x>03x,x≤0\\
-{2x,x>03x,x≤0\\end{cases}$$
+$$
+\begin{cases}
+f(x) = \{ 2x, x>0 
+\\ 3x,x≤0 
+\end{cases}
+$$
 f(x)={ 
 2x,x>0
 3x,x≤0
