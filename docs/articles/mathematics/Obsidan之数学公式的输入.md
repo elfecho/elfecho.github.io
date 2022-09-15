@@ -113,50 +113,56 @@ $\sum$、$\int$、$\oint$、$\iint$、$\bigcap\bigcup\bigoplus\bigotimes$
 
 效果如下：
 
+```
 $\sin$、$\cos$、$\tan$、$\log$、 $\tan(at-n\pi)$
-1
-sin ⁡ \sinsin、cos ⁡ \coscos、tan ⁡ \tantan、log ⁡ \loglog、 tan ⁡ ( a t − n π ) \tan(at-n\pi)tan(at−nπ)
+```
 
-关系运算符和二进制运算符
+$\sin$、$\cos$、$\tan$、$\log$、 $\tan(at-n\pi)$
 
+
+- 关系运算符和二进制运算符
+
+![](https://img-blog.csdnimg.cn/img_convert/0048bd339dccf25bf152126d9ec0fe1b.jpeg)
 
 效果如下：
-
+```
 $\times$、$\ast$、$\div$、$\pm$、$\leq$、$\geq$、$\neq$、$\thickapprox$、$\sqsupset$、$\subset$、$\supseteq$、$\sqsupset$、$\sqsupseteq$、$\in$
-1
-× \times×、∗ \ast∗、÷ \div÷、± \pm±、≤ \leq≤、≥ \geq≥、≠ \neq 
-
+```
+$\times$、$\ast$、$\div$、$\pm$、$\leq$、$\geq$、$\neq$、$\thickapprox$、$\sqsupset$、$\subset$、$\supseteq$、$\sqsupset$、$\sqsupseteq$、$\in$
 
- =、≈ \thickapprox≈、⊐ \sqsupset⊐、⊂ \subset⊂、⊇ \supseteq⊇、⊐ \sqsupset⊐、⊒ \sqsupseteq⊒、∈ \in∈
 
-插入箭头符号
+- 插入箭头符号
 
+![](https://img-blog.csdnimg.cn/img_convert/0eb121c8d0a15ec5c09a5d38db1c7a0c.jpeg)
 
 效果如下：
+
+```
+$\leftarrow$、$\Leftarrow$、$\nLeftarrow$、$\rightleftarrows$
+```
 
 $\leftarrow$、$\Leftarrow$、$\nLeftarrow$、$\rightleftarrows$
-1
-← \leftarrow←、⇐ \Leftarrow⇐、⇍ \nLeftarrow⇍、⇄ \rightleftarrows⇄
 
-其他符号
+- 其他符号
 
+![](https://img-blog.csdnimg.cn/img_convert/535defcb0a558d6ca7bd45628cb1472d.jpeg)
 
-效果如下
+- 效果如下
+
+```
 $\infty$、$\angle$、$\int$、$\triangle$、$\square$
-1
-∞ \infty∞、∠ \angle∠、∫ \int∫、△ \triangle△、□ \square□
+```
 
-插入上下标
-用^表示上标，用_表示下标记
+$\infty$、$\angle$、$\int$、$\triangle$、$\square$
+
+- 插入上下标
+
+用`^`表示上标，用`_`表示下标记
 
 效果如下：
 
 sin ⁡ 2 ( θ ) + cos ⁡ 2 ( θ ) = 1 \sin^2(\theta) + \cos^2(\theta) = 1
-sin 
-2
- (θ)+cos 
-2
- (θ)=1
+
 
 ∑ n = 1 ∞ k \sum_{n=1}^\infty k
 n=1
