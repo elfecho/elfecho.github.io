@@ -5,13 +5,13 @@
 ```
 
 LaTex的语法
-注意：这里的数学公式都要在$在这$，或者`$$在这$$`
+注意：这里的数学公式都要在`$在这$` ，或者`$$在这$$`
 
 先说下怎么换行
 
 ```
 $$
-\begin{aligned}a=b+c \ b=c-a \\ c=a+b \end{aligned}
+\begin{aligned}a=b+c \\ b=c-a \\ c=a+b \end{aligned}
 $$
 ```
 $$
