@@ -474,7 +474,36 @@
             var el = document.getElementById('gitalk-container')
             while(el.hasChildNodes()) el.removeChild(el.firstChild)
             gitalk.render('gitalk-container')
+
+            // 支持$和$$
+            if (typeof MathJax !== "undefined") {
+              MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            }
           })
+          // 支持$``$
+          hook.beforeEach(function (content) {
+            return content.replace(/\$`.*`\$/g, function (a) {
+              return a.replace("`", "").replace("`", "");
+            });
+          });
+          // 支持```math```块
+          hook.beforeEach(function (content) {
+            return content.replace("\r\n","\n");
+          });
+          hook.beforeEach(function (content) {
+            return content.replace("\r","\n");
+          });
+          hook.beforeEach(function (content) {
+            c = content.replace(
+              /```math\n[^`]*\n```/g,
+              function (a) {
+                return a
+                  .replace("```math", "\$\$\$\$")
+                  .replace("```", "\$\$\$\$");
+              }
+            );
+            return c
+          });
           // hook.beforeEach(function (html) {
           //   var url = 'https://github.com/elfecho/elfecho.github.io/tree/master/docs/' + vm.route.file
           //   var editHtml = '[:memo: Edit Document](' + url + ')\n'
