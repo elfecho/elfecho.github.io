@@ -36,3 +36,5 @@
 		- [python3 杂记](articles/python/python3入门/python3%20杂记.md)
 	- Flask使用
 		- [使用pipenv](articles/python/Flask/使用pipenv.md)
+- 高等数学
+	- [函数](articles/mathematics/函数.md)
