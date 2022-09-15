@@ -11,7 +11,7 @@ LaTex的语法
 
 ```
 $$
-\begin{aligned}a=b+c\\b=c-a\\c=a+b \end{aligned}
+\begin{aligned}a=b+c \ b=c-a \\ c=a+b \end{aligned}
 $$
 ```
 $$

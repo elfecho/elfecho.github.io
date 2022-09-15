@@ -516,6 +516,27 @@
       ]
     }
   </script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processClass: 'math',
+      processEscapes: true
+    },
+    TeX: {
+    equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+    extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+    Macros: {bm: "\\boldsymbol"}
+    },
+    'HTML-CSS': { linebreaks: { automatic: true } },
+    'preview-HTML': { linebreaks: { automatic: true } },
+    SVG: { linebreaks: { automatic: true } }
+    });
+  </script>
+
+  <!--MathJax数学公式支持-->
+  <script src="//cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   <!-- Docsify v4 核心-->
   <!-- <script src="//cdn.jsdelivr.net/npm/docsify@4"></script> -->
   <script src="js/docsify@4.js"></script>
