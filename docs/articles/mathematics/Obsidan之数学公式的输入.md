@@ -175,81 +175,55 @@ $$lim ⁡ x → ∞ exp ⁡ ( − x ) = 0 \lim\limits_{x\to\infty}\exp(-x) = 0$$
 输出分段函数
 用`\begin{cases}`和`\end{cases}`来构造分段函数，中间则用`\\`来分段
 
+```
 $$
-\begin{cases}
-f(x) = \{ 2x, x>0 
-\\ 3x,x≤0 
-\end{cases}
+f(x) = \begin{cases} 2x, x>0 
+\\ 3x,x≤0 \end{cases}
 $$
-f(x)={ 
-2x,x>0
-3x,x≤0
+```
+$$
+f(x) = \begin{cases} 2x, x>0 
+\\ 3x,x≤0 \end{cases}
+$$
 
  
 
 一些常见的数学公式
+```
 $$
  f'(x) = x^2 + x
 $$
-1
-2
-3
-f ′ ( x ) = x 2 + x f'(x) = x^2 + x
-f 
-′
- (x)=x 
-2
- +x
-
+```
+$$
+ f'(x) = x^2 + x
+$$
+```
 $$
  \lim_{x\to0}\frac{9x^5+7x^3}{x^2+6x^8}
 $$
-1
-2
-3
-lim ⁡ x → 0 9 x 5 + 7 x 3 x 2 + 6 x 8 \lim_{x\to0}\frac{9x^5+7x^3}{x^2+6x^8}
-x→0
-lim
-
-
-x 
-2
- +6x 
-8
-
-9x 
-5
- +7x 
-3
+```
+$$
+ \lim_{x\to0}\frac{9x^5+7x^3}{x^2+6x^8}
+$$
 
 
 
-
+```
 $$
  \int_a^b f(x)\,dx
 $$
-1
-2
-3
-∫ a b f ( x )   d x \int_a^b f(x)\,dx
-∫ 
-a
-b
-
- f(x)dx
-
+```
+$$
+ \int_a^b f(x)\,dx
+$$
+```
 $$
  \int_0^{+\infty}f(x)\,dx
 $$
-1
-2
-3
-∫ 0 + ∞ f ( x )   d x \int_0^{+\infty}f(x)\,dx
-∫ 
-0
-+∞
-
- f(x)dx
+```
+$$
+ \int_0^{+\infty}f(x)\,dx
+$$
 
 $$
  \int_{x^2+y^2\leq R^2} \,f(x,y)\,dx\,dy = \int_{\theta=0}^{2\pi}\int_{r=0}^R \,f(r\cos\theta,r\sin\theta)\,r\,dr\,d\theta
