@@ -161,37 +161,23 @@ $\infty$、$\angle$、$\int$、$\triangle$、$\square$
 
 效果如下：
 
-sin ⁡ 2 ( θ ) + cos ⁡ 2 ( θ ) = 1 \sin^2(\theta) + \cos^2(\theta) = 1
 
+$$ sin ⁡ 2 ( θ ) + cos ⁡ 2 ( θ ) = 1 \sin^2(\theta) + \cos^2(\theta) = 1 $$ 
 
-∑ n = 1 ∞ k \sum_{n=1}^\infty k
-n=1
-∑
-∞
+$$∑ n = 1 ∞ k \sum_{n=1}^\infty k$$
 
- k
+$$∫ a b f ( x )   d x \int_a^bf(x)\,dx$$
 
-∫ a b f ( x )   d x \int_a^bf(x)\,dx
-∫ 
-a
-b
+$$lim ⁡ x → ∞ exp ⁡ ( − x ) = 0 \lim\limits_{x\to\infty}\exp(-x) = 0$$
 
- f(x)dx
-
-lim ⁡ x → ∞ exp ⁡ ( − x ) = 0 \lim\limits_{x\to\infty}\exp(-x) = 0
-x→∞
-lim
-
- exp(−x)=0
-
-注意：\,在积分里的作用是为了增加些许间距，\!会减少一些间距。
+注意：`\,`在积分里的作用是为了增加些许间距，`\!`会减少一些间距。
 
 输出分段函数
-用\begin{cases}和\end{cases}来构造分段函数，中间则用\\来分段
+用`\begin{cases}`和\end{cases}来构造分段函数，中间则用\\来分段
 
-f ( x ) = { 2 x ,    x > 0 3 x ,    x ≤ 0 f(x) =
-{2x,x>03x,x≤0
-{2x,x>03x,x≤0
+$$\begin{cases}f ( x ) = { 2 x ,    x > 0 3 x ,    x ≤ 0 f(x) =
+{2x,x>03x,x≤0\\
+{2x,x>03x,x≤0\\end{cases}$$
 f(x)={ 
 2x,x>0
 3x,x≤0
