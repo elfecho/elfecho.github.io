@@ -67,61 +67,49 @@ $$
 
 - 希腊字母
 
-α \alphaα、β \betaβ、χ \chiχ、Δ \DeltaΔ、Γ \GammaΓ、Θ \ThetaΘ之类的
+α \alphaα、β \betaβ、χ \chiχ、Δ \DeltaΔ、Γ \GammaΓ、Θ \ThetaΘ 之类的
 
-
+![](https://img-blog.csdnimg.cn/img_convert/54b67772e9ccb1e9242f9c05944f4561.jpeg)
 
 一些数学结构
 
+![](https://img-blog.csdnimg.cn/img_convert/c29930fba2831080025bfe93ef1b4e25.jpeg)
 
 效果如下：
+```
 $\frac{123}{999}$、$\sqrt[n]{abc}$、$\frac{\sqrt{234}}{\sqrt[n]{abc}}$、$\underrightarrow{abc}$、$\overrightarrow{abc}$
-1
-123 999 \frac{123}{999} 
-999
-123
-
- 、a b c n \sqrt[n]{abc} 
-n
-
-abc
-
- 、234 a b c n \frac{\sqrt{234}}{\sqrt[n]{abc}} 
-n
-
-abc
+```
+$\frac{123}{999}$、$\sqrt[n]{abc}$、$\frac{\sqrt{234}}{\sqrt[n]{abc}}$、$\underrightarrow{abc}$、$\overrightarrow{abc}$
 
 
-234
 
- 
-
- 、a b c → \underrightarrow{abc} 
-abc
-
- 、a b c → \overrightarrow{abc} 
-abc
-
-
-插入定界符
+- 插入定界符
 
 
 效果如下
+```
 $|$、$\|$、$\Uparrow$、$\{\}$
-1
-∣ |∣、∥ \|∥、⇑ \Uparrow⇑、{ } \{\}{}
+```
 
-插入一些可变大小的符号
+$|$、$\|$、$\Uparrow$、$\{\}$
+
+- 插入一些可变大小的符号
+
+![](https://img-blog.csdnimg.cn/img_convert/cb6a9862d5fca7af9718b4a6f8b2ab95.png)
 
 
 效果如下：
+```
+$\sum$、$\int$、$\oint$、$\iint$、$\bigcap\bigcup\bigoplus\bigotimes$
+```
 
 $\sum$、$\int$、$\oint$、$\iint$、$\bigcap\bigcup\bigoplus\bigotimes$
-1
-∑ \sum∑、∫ \int∫、∮ \oint∮、∬ \iint∬、⋂ ⋃ ⨁ ⨂ \bigcap\bigcup\bigoplus\bigotimes⋂⋃⨁⨂
 
-插入一些函数名称
 
+
+- 插入一些函数名称
+
+![](https://img-blog.csdnimg.cn/img_convert/e59f97f3b96d7f7d4c6b7d29eef09c10.jpeg)
 
 效果如下：
 
