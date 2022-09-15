@@ -986,3 +986,7 @@ pre:after {
     text-align: right;
     top: 0
 }
+/* 处理数学公式排版 */
+.katex-display>.katex {
+    text-align: left;
+}
