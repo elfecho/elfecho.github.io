@@ -161,13 +161,21 @@ $\infty$、$\angle$、$\int$、$\triangle$、$\square$
 
 效果如下：
 
-
+```
+$$ sin ⁡ 2 ( θ ) + cos ⁡ 2 ( θ ) = 1 \sin^2(\theta) + \cos^2(\theta) = 1 $$
+```
 $$ sin ⁡ 2 ( θ ) + cos ⁡ 2 ( θ ) = 1 \sin^2(\theta) + \cos^2(\theta) = 1 $$ 
-
+```
 $$∑ n = 1 ∞ k \sum_{n=1}^\infty k$$
-
+```
+$$∑ n = 1 ∞ k \sum_{n=1}^\infty k$$
+```
 $$∫ a b f ( x )   d x \int_a^bf(x)\,dx$$
-
+```
+$$∫ a b f ( x )   d x \int_a^bf(x)\,dx$$
+```
+$$lim ⁡ x → ∞ exp ⁡ ( − x ) = 0 \lim\limits_{x\to\infty}\exp(-x) = 0$$
+```
 $$lim ⁡ x → ∞ exp ⁡ ( − x ) = 0 \lim\limits_{x\to\infty}\exp(-x) = 0$$
 
 注意：`\,`在积分里的作用是为了增加些许间距，`\!`会减少一些间距。
@@ -206,8 +214,6 @@ $$
  \lim_{x\to0}\frac{9x^5+7x^3}{x^2+6x^8}
 $$
 
-
-
 ```
 $$
  \int_a^b f(x)\,dx
@@ -224,46 +230,20 @@ $$
 $$
  \int_0^{+\infty}f(x)\,dx
 $$
-
+```
 $$
  \int_{x^2+y^2\leq R^2} \,f(x,y)\,dx\,dy = \int_{\theta=0}^{2\pi}\int_{r=0}^R \,f(r\cos\theta,r\sin\theta)\,r\,dr\,d\theta
 $$
-1
-2
-3
-∫ x 2 + y 2 ≤ R 2   f ( x , y )   d x   d y = ∫ θ = 0 2 π ∫ r = 0 R   f ( r cos ⁡ θ , r sin ⁡ θ )   r   d r   d θ \int_{x^2+y^2\leq R^2} \,f(x,y)\,dx\,dy = \int_{\theta=0}^{2\pi}\int_{r=0}^R \,f(r\cos\theta,r\sin\theta)\,r\,dr\,d\theta
-∫ 
-x 
-2
- +y 
-2
- ≤R 
-2
+```
+$$
+ \int_{x^2+y^2\leq R^2} \,f(x,y)\,dx\,dy = \int_{\theta=0}^{2\pi}\int_{r=0}^R \,f(r\cos\theta,r\sin\theta)\,r\,dr\,d\theta
+$$
 
-
- f(x,y)dxdy=∫ 
-θ=0
-2π
-
- ∫ 
-r=0
-R
-
- f(rcosθ,rsinθ)rdrdθ
-
+```
 $$
  \int\!\!\!\int_D f(x,y)dxdy
 $$
-1
-2
-3
-∫  ⁣ ⁣ ⁣ ∫ D f ( x , y ) d x d y \int\!\!\!\int_D f(x,y)dxdy
-∫∫ 
-D
-
- f(x,y)dxdy
-
-参考
-————————————————
-版权声明：本文为CSDN博主「流岁金沙」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/skoyine/article/details/125588874
+```
+$$
+ \int\!\!\!\int_D f(x,y)dxdy
+$$
