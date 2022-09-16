@@ -367,19 +367,19 @@
       <p class="loader-text">LOADING</p>
     </div>
   </div>
-  <div id="gitalk-container" style="display: none;"></div>
+  <!-- <div id="gitalk-container" style="display: none;"></div> -->
   <script>
-    var gitalk = new Gitalk({
-      clientID: '16155433ca5b81d55ef9',
-      clientSecret: '8ce1c02f714f1ee7f9e2558709fdcd93ff66bec1',
-      // accessToken: '30c55e31acbb0cb61d30f92d14e32541880eefaf',
-      repo: 'myNote',
-      owner: 'elfecho',
-      admin: ['elfecho'],
-      title: location.hash.match(/#(.*?)([?]|$)/)[1],
-      id: location.hash.match(/#(.*?)([?]|$)/)[1],
-      distractionFreeMode: false,
-    })
+    // var gitalk = new Gitalk({
+    //   clientID: '16155433ca5b81d55ef9',
+    //   clientSecret: '8ce1c02f714f1ee7f9e2558709fdcd93ff66bec1',
+    //   // accessToken: '30c55e31acbb0cb61d30f92d14e32541880eefaf',
+    //   repo: 'myNote',
+    //   owner: 'elfecho',
+    //   admin: ['elfecho'],
+    //   title: location.hash.match(/#(.*?)([?]|$)/)[1],
+    //   id: location.hash.match(/#(.*?)([?]|$)/)[1],
+    //   distractionFreeMode: false,
+    // })
     // window.onhashchange = function(event){
     //   if(event.newURL.split('?')[0] !== event.oldURL .split('?')[0]) {
     //     location.reload()
@@ -466,19 +466,19 @@
       plugins: [
         function (hook, vm) {
           // 配置gitalk
-          hook.mounted(function() {
-            var div = Docsify.dom.create('div')
-            div.id = 'gitalk-container'
-            var main = Docsify.dom.getNode('#main')
-            div.style = `width: ${main.clientWidth}px; margin: 0 auto 20px;`
-            Docsify.dom.appendTo(Docsify.dom.find('.content'), div)
-          })
+          // hook.mounted(function() {
+          //   var div = Docsify.dom.create('div')
+          //   div.id = 'gitalk-container'
+          //   var main = Docsify.dom.getNode('#main')
+          //   div.style = `width: ${main.clientWidth}px; margin: 0 auto 20px;`
+          //   Docsify.dom.appendTo(Docsify.dom.find('.content'), div)
+          // })
 
-          hook.doneEach(function() {
-            var el = document.getElementById('gitalk-container')
-            while(el.hasChildNodes()) el.removeChild(el.firstChild)
-            gitalk.render('gitalk-container')
-          })
+          // hook.doneEach(function() {
+          //   var el = document.getElementById('gitalk-container')
+          //   while(el.hasChildNodes()) el.removeChild(el.firstChild)
+          //   gitalk.render('gitalk-container')
+          // })
           // hook.beforeEach(function (html) {
           //   var url = 'https://github.com/elfecho/elfecho.github.io/tree/master/docs/' + vm.route.file
           //   var editHtml = '[:memo: Edit Document](' + url + ')\n'
