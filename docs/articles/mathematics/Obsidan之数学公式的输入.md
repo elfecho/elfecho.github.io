@@ -142,10 +142,10 @@ $\times$、$\ast$、$\div$、$\pm$、$\leq$、$\geq$、$\neq$、$\thickapprox$�
 效果如下：
 
 ```
-$\leftarrow$、$\Leftarrow$、$\nLeftarrow$、$\rightleftarrows$
+$\leftarrow$、$\Leftarrow$、$\nLeftarrow$、$\rightleftarrows$、$\Leftrightarrow$
 ```
 
-$\leftarrow$、$\Leftarrow$、$\nLeftarrow$、$\rightleftarrows$
+$\leftarrow$、$\Leftarrow$、$\nLeftarrow$、$\rightleftarrows$、$\Leftrightarrow$
 
 - 其他符号
 
