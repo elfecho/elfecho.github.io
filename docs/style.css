@@ -990,3 +990,7 @@ pre:after {
 .katex-display>.katex {
     text-align: left;
 }
+
+.katex-display>.katex>.katex-html {
+    overflow-x: auto;
+}
