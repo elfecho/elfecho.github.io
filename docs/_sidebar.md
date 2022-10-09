@@ -40,3 +40,4 @@
 	- [Obsidan之数学公式的输入](articles/mathematics/Obsidan之数学公式的输入.md)
 	- [函数](articles/mathematics/函数.md)
 	- [极限](articles/mathematics/极限.md)
+	- [导数](articles/mathematics/导数.md)
