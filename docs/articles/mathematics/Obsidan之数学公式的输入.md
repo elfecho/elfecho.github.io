@@ -65,7 +65,7 @@ $$
  \end{Vmatrix}
 $$
 
-- 希腊字母
+### 希腊字母
 
 ```
 α \alphaα、β \betaβ、χ \chiχ、Δ \DeltaΔ、Γ \GammaΓ、Θ \ThetaΘ 之类的
@@ -87,7 +87,7 @@ $\frac{123}{999}$、$\sqrt[n]{abc}$、$\frac{\sqrt{234}}{\sqrt[n]{abc}}$、$\und
 
 
 
-- 插入定界符
+### 插入定界符
 
 
 效果如下
@@ -97,7 +97,7 @@ $|$、$\|$、$\Uparrow$、$\{\}$
 
 $|$、$\|$、$\Uparrow$、$\{\}$
 
-- 插入一些可变大小的符号
+### 插入一些可变大小的符号
 
 ![](https://img-blog.csdnimg.cn/img_convert/cb6a9862d5fca7af9718b4a6f8b2ab95.png)
 
@@ -111,7 +111,7 @@ $\sum$、$\int$、$\oint$、$\iint$、$\bigcap\bigcup\bigoplus\bigotimes$
 
 
 
-- 插入一些函数名称
+### 插入一些函数名称
 
 ![](https://img-blog.csdnimg.cn/img_convert/e59f97f3b96d7f7d4c6b7d29eef09c10.jpeg)
 
@@ -124,7 +124,7 @@ $\sin$、$\cos$、$\tan$、$\log$、 $\tan(at-n\pi)$
 $\sin$、$\cos$、$\tan$、$\log$、 $\tan(at-n\pi)$
 
 
-- 关系运算符和二进制运算符
+### 关系运算符和二进制运算符
 
 ![](https://img-blog.csdnimg.cn/img_convert/0048bd339dccf25bf152126d9ec0fe1b.jpeg)
 
@@ -135,7 +135,7 @@ $\times$、$\ast$、$\div$、$\pm$、$\leq$、$\geq$、$\neq$、$\thickapprox$�
 $\times$、$\ast$、$\div$、$\pm$、$\leq$、$\geq$、$\neq$、$\thickapprox$、$\sqsupset$、$\subset$、$\supseteq$、$\sqsupset$、$\sqsupseteq$、$\in$
 
 
-- 插入箭头符号
+### 插入箭头符号
 
 ![](https://img-blog.csdnimg.cn/img_convert/0eb121c8d0a15ec5c09a5d38db1c7a0c.jpeg)
 
@@ -145,9 +145,9 @@ $\times$、$\ast$、$\div$、$\pm$、$\leq$、$\geq$、$\neq$、$\thickapprox$�
 $\leftarrow$、$\Leftarrow$、$\nLeftarrow$、$\rightleftarrows$、$\Leftrightarrow$
 ```
 
-$\leftarrow$、$\Leftarrow$、$\nLeftarrow$、$\rightleftarrows$、$\Leftrightarrow$
+$\leftarrow$、$\Leftarrow$、$\nLeftarrow$、$\rightleftarrows$、$\Leftrightarrow$ 、$\rightarrow$、$\Rightarrow$、$\nRightarrow$
 
-- 其他符号
+### 其他符号
 
 ![](https://img-blog.csdnimg.cn/img_convert/535defcb0a558d6ca7bd45628cb1472d.jpeg)
 
@@ -159,7 +159,7 @@ $\infty$、$\angle$、$\int$、$\triangle$、$\square$
 
 $\infty$、$\angle$、$\int$、$\triangle$、$\square$
 
-- 插入上下标
+### 插入上下标
 
 用`^`表示上标，用`_`表示下标记
 
@@ -200,7 +200,8 @@ $$
 
  
 
-一些常见的数学公式
+### 一些常见的数学公式
+
 ```
 $$
  f'(x) = x^2 + x
