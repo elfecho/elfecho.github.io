@@ -47,4 +47,5 @@
 	- [极限](articles/mathematics/极限.md)
 	- [导数](articles/mathematics/导数.md)
 	- [积分](articles/mathematics/积分.md)
+	- [向量](articles/mathematics/向量.md)
 
