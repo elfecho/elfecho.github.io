@@ -37,4 +37,14 @@
 	- [python3 正则表达式](python3%20正则表达式.md)
 	- [python3 枚举](python3%20枚举.md)
 	- [python3 函数式编程](python3%20函数式编程.md)
+	- [python3 原生爬虫](articles/python/python3入门/python3%20原生爬虫.md)
+	- [python3 杂记](articles/python/python3入门/python3%20杂记.md)
+	- Flask使用
+		- [使用pipenv](articles/python/Flask/使用pipenv.md)
+- 高等数学
+	- [Obsidan之数学公式的输入](articles/mathematics/Obsidan之数学公式的输入.md)
+	- [函数](articles/mathematics/函数.md)
+	- [极限](articles/mathematics/极限.md)
+	- [导数](articles/mathematics/导数.md)
+	- [积分](articles/mathematics/积分.md)
 
