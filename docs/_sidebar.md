@@ -42,4 +42,6 @@
 	- [极限](articles/mathematics/极限.md)
 	- [导数](articles/mathematics/导数.md)
 	- [积分](articles/mathematics/积分.md)
-	- [](articles/mathematics/##%20多元函数.md)
+	- [多元函数](articles/mathematics/##%20多元函数.md)
+- 面试笔记
+	- [算法](articles/interview/算法.md)
