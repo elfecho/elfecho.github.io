@@ -45,3 +45,5 @@
 	- [多元函数](articles/mathematics/##%20多元函数.md)
 - 面试笔记
 	- [算法](articles/interview/算法.md)
+- 信息系统项目管理
+	- [信息化与信息系统](articles/Information/信息化与信息系统.md)
