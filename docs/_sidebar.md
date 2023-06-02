@@ -40,6 +40,8 @@
 	- [导学](articles/typescript/导学.md)
 	- [学习方法](articles/typescript/学习方法.md)
 	- [环境配置](articles/typescript/环境配置.md)
+	- [基础类型](articles/typescript/基础类型.md)
+	- [函数类型](articles/typescript/函数类型.md)
 - 高等数学
 	- [Obsidan之数学公式的输入](articles/mathematics/Obsidan之数学公式的输入.md)
 	- [函数](articles/mathematics/函数.md)
