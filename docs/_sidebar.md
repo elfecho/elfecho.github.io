@@ -45,6 +45,7 @@
 	- [TS引入的新类型](articles/typescript/05-TS引入的新类型.md)
 	- [交叉类型与联合类型](articles/typescript/06-交叉类型与联合类型.md)
 	- [工作原理相关概念](articles/typescript/07-工作原理相关概念.md)
+	- [Interface 接口](articles/typescript/08-Interface接口.md)
 - <!-- 高等数学
 	- [Obsidan之数学公式的输入](articles/mathematics/Obsidan之数学公式的输入.md)
 	- [函数](articles/mathematics/函数.md)
