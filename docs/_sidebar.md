@@ -43,13 +43,15 @@
 	- [基础类型](articles/typescript/03-基础类型.md)
 	- [函数类型](articles/typescript/04-函数类型.md)
 	- [TS引入的新类型](articles/typescript/05-TS引入的新类型.md)
-- 高等数学
+	- [交叉类型与联合类型](articles/typescript/06-交叉类型与联合类型.md)
+	- [工作原理相关概念](articles/typescript/07-工作原理相关概念.md)
+- <!-- 高等数学
 	- [Obsidan之数学公式的输入](articles/mathematics/Obsidan之数学公式的输入.md)
 	- [函数](articles/mathematics/函数.md)
 	- [极限](articles/mathematics/极限.md)
 	- [导数](articles/mathematics/导数.md)
 	- [积分](articles/mathematics/积分.md)
-	- [多元函数](articles/mathematics/##%20多元函数.md)
+	- [多元函数](articles/mathematics/##%20多元函数.md) -->
 - 面试笔记
 	- [算法](articles/interview/算法.md)
 - 信息系统项目管理
