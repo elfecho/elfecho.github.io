@@ -103,3 +103,21 @@ role[0] = "admin"; // error 类型"RoleDic"中的索引签名仅允许读取
 ```
 
 ### 绕开多余属性检查
+
+```typescript
+interface MyType {
+  color: string;
+}
+
+const getTypes = (myType: MyType) => {
+  return `${myType.color}`
+}
+
+getTypes({
+  color: 'red',
+  type: 'color',
+  num: 1
+})
+```
+
+上面这种情况会出现
