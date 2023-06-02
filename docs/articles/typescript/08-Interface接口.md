@@ -64,23 +64,31 @@ let p: Person2 = {
 
 ### 接口继承
 ```typescript
-namespace a {
-  interface Speakable {
-    speak(): void;
-  }
-  // 子接口通过 extends 继承父接口的属性和方法
-  interface SpeakChinese extends Speakable {
-    speakChinese(): void;
-  }
-  class Chinese implements SpeakChinese {
-    speakChinese(): void {
-      throw new Error("Method not implemented.");
-    }
-    speak(): void {
-      throw new Error("Method not implemented.");
-    }
-  }
+interface publicPoint {
+  x: number;
+  y: number;
+  z: number;
+}  
+
+interface Point extends publicPoint {
+  a?: number;
 }
+interface Point1 extends publicPoint, Point2 {
+  a: string;
+  b: string;
+}
+interface Point2 {
+  d: number;
+}
+const myPoint: Point = {x: 1, y: 2, z: 23};
+const myPoint1: Point1 = {
+  x: 1,
+  y: 2,
+  z: 3,
+  a: '100',
+  b: '200',
+  d: 12233
+};
 ```
 
 ### readonly 在接口中的使用
@@ -214,3 +222,10 @@ const getTypes = ({color}: MyType) => {
 const option = {color: 'yellow', sum: 1}
 getTypes(option)
 ```
+
+
+### 小结
+
+- 接口可以定义任意类型&结构
+- Interface可扩展extends&自动合并相同类型接口
+- 绕开多余属性检查:类型断言、索引签名、类型兼容
