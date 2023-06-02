@@ -46,6 +46,59 @@ TypeScript 接口是开放式的，这是 TypeScript 的一个重要原则，它
 - 声明也不用等号赋值，而是冒号指定类型；
 - 每条声明之前用换行分隔即可，或者也可以使用分号或者逗号，都是可以的。
 
+### 任意属性
+
+```typescript
+interface Person2 {
+  readonly id: number;
+  name: string;
+  [key: string]: any; // 加上后，可以添加任意的属性
+}
+let p: Person2 = {
+  id: 1,
+  name: '张三',
+  age: 12
+}
+
+```
+
+### 接口继承
+```typescript
+namespace a {
+  interface Speakable {
+    speak(): void;
+  }
+  // 子接口通过 extends 继承父接口的属性和方法
+  interface SpeakChinese extends Speakable {
+    speakChinese(): void;
+  }
+  class Chinese implements SpeakChinese {
+    speakChinese(): void {
+      throw new Error("Method not implemented.");
+    }
+    speak(): void {
+      throw new Error("Method not implemented.");
+    }
+  }
+}
+```
+
+### readonly 在接口中的使用
+
+```typescript
+namespace b {
+  interface Person {
+    readonly id: number
+  }
+  let p: Person = {
+    id: 1
+  }
+  console.log(p.id); // 1
+  // p.id = 2; // 无法分配到 "id" ，因为它是只读属性。ts(2540)
+}
+
+```
+
 ## 扩展用法
 
 ### 函数类型
@@ -120,4 +173,44 @@ getTypes({
 })
 ```
 
-上面这种情况会出现
+上面这种情况会出现 “type”不在类型“MyType”中
+
+1. 类型断言
+
+```typescript
+getTypes({
+  color: 'red',
+  type: 'color',
+  num: 1
+} as MyType)
+```
+
+2. 索引签名
+
+```typescript
+interface MyType {
+  color: string;
+  [prop: string]: any;
+}
+
+getTypes({
+  color: 'red',
+  type: 'color',
+  num: 1,
+  num1: [],
+  a: () => {}
+})
+```
+
+3. 类型兼容（不推荐使用）
+
+```typescript
+interface MyType {
+  color: string;
+}
+const getTypes = ({color}: MyType) => {
+  return `${color}`
+}
+const option = {color: 'yellow', sum: 1}
+getTypes(option)
+```
