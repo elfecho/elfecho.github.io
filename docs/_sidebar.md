@@ -38,10 +38,11 @@
 		- [使用pipenv](articles/python/Flask/使用pipenv.md)
 - typescript学习
 	- [导学](articles/typescript/导学.md)
-	- [学习方法](articles/typescript/学习方法.md)
-	- [环境配置](articles/typescript/环境配置.md)
-	- [基础类型](articles/typescript/基础类型.md)
-	- [函数类型](articles/typescript/函数类型.md)
+	- [学习方法](articles/typescript/01-学习方法.md)
+	- [环境配置](articles/typescript/02-环境配置.md)
+	- [基础类型](articles/typescript/03-基础类型.md)
+	- [函数类型](articles/typescript/04-函数类型.md)
+	- [TS引入的新类型](articles/typescript/05-TS引入的新类型.md)
 - 高等数学
 	- [Obsidan之数学公式的输入](articles/mathematics/Obsidan之数学公式的输入.md)
 	- [函数](articles/mathematics/函数.md)
