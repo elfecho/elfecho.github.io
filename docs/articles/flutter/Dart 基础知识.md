@@ -7,5 +7,4 @@ main(){
 }
 ```
 
-练一练 [DartPad](https://dartpad.dev/?id=f87ca34abbb00945b006129847d09813)。
-DartPad是Dart的一个线上playground，提供Dart线上playground还有:Online Dart Compiler。
+[DartPad](https://dartpad.dev/)是Dart的一个线上playground，提供Dart线上playground还有:Online Dart Compiler。
