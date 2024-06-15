@@ -2,7 +2,34 @@
 
 Flex布局
 
-#### 处理滑动不能实时触发事件
+## 查看 SpUtil 的存储文件
+
+### 对于Android设备：
+
+SharedPreferences的数据通常保存在以下路径下的一个.xml文件中：
+
+复制
+
+`/data/data/<包名>/shared_prefs/`
+
+要查看这个路径下的内容，需要root权限，或者使用Android Studio的Device File Explorer（设备文件浏览器）。但是，如果你在开发时使用的是模拟器，就可以直接通过Android Studio中的Device File Explorer查看这个路径下的文件内容了。SharedPreferences的文件通常以你的Preferences名称命名，或者是你的应用包名后跟`_preferences.xml`。
+
+### 对于iOS设备：
+
+在iOS上，SharedPreferences（NSUserDefaults）的数据被保存在应用沙盒内的`Library/Preferences`目录下。文件名通常是以应用的包名为前缀的`.plist`文件。
+
+要查看这些文件，你可以使用Xcode的Devices and Simulators窗口。选择你的设备，找到你的应用，然后通过下载应用的沙盒内容来查看这些文件。同样的，如果你使用的是iOS模拟器，也可以通过相应的文件系统路径直接访问。
+
+### 注意：
+
+1. 直接访问这些文件主要用于调试目的。
+2. 实际开发中，不推荐直接操作这些文件，而是应该通过SharedPreferences的API来访问这些数据。
+3. 当需要在物理设备上调试时，如果没有root（对于Android）或没有特定的权限（对于iOS），查看这些文件可能会比较困难。
+
+如果你需要检查`SpUtil`（或任何SharedPreferences的封装）存储的具体值，建议在应用内部提供一个调试页面，或通过日志输出等方式来查看和调试数据。
+
+
+## 处理滑动不能实时触发事件
 
 `TabController`的`addListener`方法监听的是索引的改变，而不是直接监听滑动手势。当你用手指滑动`TabBarView`时，`TabController`的索引只有在滑动结束且新页面完全到位时才会更新。这就是为什么你可能会觉得监听有“延迟性”的原因——实际上这不是延迟，而是等待滑动动作完成的结果。
 
