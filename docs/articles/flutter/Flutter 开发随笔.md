@@ -103,3 +103,52 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
 在这个例子中，我们使用`PageController`来监听用户的滑动操作，并通过`addListener`方法实时获取滑动事件。同时，我们也需要在用户点击`TabBar`时更新`PageView`的页面，这通过监听`TabController`并调用`_pageController.animateToPage`方法来实现。
 
 通过这种方式，你可以实时地获取到滑动事件，而不会有“延迟性”的感觉。这种方法结合了`TabController`和`PageController`的优势，既保持了`TabBar`和`TabBarView`的联动，也能够实时监听滑动事件。
+
+## flutter 如何设置软件icon
+
+在Flutter中设置应用图标是一个重要的步骤，因为它帮助用户在他们的设备上快速识别你的应用。以下是如何为Android和iOS平台设置软件图标的步骤：
+
+### 1. 准备你的图标文件
+首先，你需要为你的应用准备图标。通常，你需要多种尺寸的图标适应不同设备的屏幕。建议使用一个高分辨率的母图（如512x512像素）来生成各种尺寸的图标。
+
+### 2. 使用 `flutter_launcher_icons` 包
+`flutter_launcher_icons` 是一个在Flutter项目中自动化配置启动图标的流行方式。通过这个包，你可以简单地设定一张图片，这个工具将会帮你生成所有必需的图标尺寸，并自动配置它们。
+
+首先，将 `flutter_launcher_icons` 添加到你的 `pubspec.yaml` 文件中的 `dev_dependencies` 部分，并在 `flutter` 部分配置图标文件：
+
+```yaml
+dev_dependencies:
+  flutter_launcher_icons: ^0.9.2
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/app_icon.png"
+```
+
+这里 `"assets/icon/app_icon.png"` 是你的图标文件相对于项目根目录的路径。确保你已经将图标文件放到正确的位置。
+
+### 3. 运行包
+完成 `pubspec.yaml` 配置后，在终端运行以下命令来生成图标并应用到你的Flutter项目中：
+
+```bash
+flutter pub get
+flutter pub run flutter_launcher_icons:main
+```
+
+这些命令会根据你的配置生成所需的图标并替换掉iOS和Android的默认图标。
+
+### 4. 确认图标已经设置
+为了确认图标已经被正确设置，你可以运行你的应用到模拟器或真实设备上并检查图标。
+
+### 5. 手动设置（可选）
+如果你不想使用 `flutter_launcher_icons` 包，你也可以手动设置图标：
+
+- **对于Android：**
+  - 将不同尺寸的图标放入 `android/app/src/main/res` 目录下的相应 `mipmap-` 文件夹中。
+  
+- **对于iOS：**
+  - 打开你的iOS项目（使用Xcode），然后在Xcode中的`Assets.xcassets`文件夹中找到`AppIcon`。这里你可以拖放你的图标到对应的槽中。
+
+### 结论
+使用 `flutter_launcher_icons` 包是设置Flutter应用图标的最简单方法，它自动处理大多数的细节和配置。然而，如果需要更详细的控制，你也可以选择手动方式进行配置。不管哪种方法，确保图标质量符合设计标准，并且在所有设备上看起来都很完美。
