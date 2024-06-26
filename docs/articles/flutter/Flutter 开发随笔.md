@@ -152,3 +152,109 @@ flutter pub run flutter_launcher_icons:main
 
 ### 结论
 使用 `flutter_launcher_icons` 包是设置Flutter应用图标的最简单方法，它自动处理大多数的细节和配置。然而，如果需要更详细的控制，你也可以选择手动方式进行配置。不管哪种方法，确保图标质量符合设计标准，并且在所有设备上看起来都很完美。
+
+
+## 要使用 Flutter 对接 `android.car.jar` 并实现驾驶模式，你需要按照以下步骤进行操作：
+
+### 步骤 1: 获取 `android.car.jar`
+
+首先，你需要从你的 Android SDK 中获取 `android.car.jar` 文件。根据你提供的文档，这个文件通常位于 Android SDK 的特定目录下。例如：
+
+```groovy
+def sdkDir = project.android.sdkDirectory.canonicalPath
+def androidCarJar = "$sdkDir/platforms/android-31/optional/android.car.jar"
+```
+
+### 步骤 2: 在 `build.gradle` 中配置依赖
+
+在你的 Flutter 插件项目的 `android/build.gradle` 文件中添加对 `android.car.jar` 的依赖：
+
+```groovy
+dependencies {
+    compileOnly files(androidCarJar)
+}
+```
+
+### 步骤 3: 在 `AndroidManifest.xml` 中声明驾驶模式
+
+在你的 Flutter 插件项目的 `android/src/main/AndroidManifest.xml` 文件中，为每个需要支持驾驶模式的 Activity 添加 `meta-data` 标签：
+
+```xml
+<application>
+    <activity android:name=".YourActivityA">
+        <meta-data android:name="distractionOptimized" android:value="true" />
+    </activity>
+    <!-- 其他 Activity 同样添加 meta-data 标签 -->
+</application>
+```
+
+### 步骤 4: 在原生代码中实现驾驶模式逻辑
+
+在你的 Flutter 插件项目的原生 Android 代码中，实现驾驶模式的逻辑。这通常涉及到获取 `CarUxRestrictionsManager` 实例并监听驾驶模式的变化：
+
+```kotlin
+private lateinit var mCarUxRestrictionsManager: CarUxRestrictionsManager?
+
+private fun carUxRestrictions(connectedCar: Car): Int {
+    try {
+        mCarUxRestrictionsManager = connectedCar.getCarManager(Car.CAR_UX_RESTRICTION_SERVICE) as CarUxRestrictionsManager?
+        mCarUxRestrictionsManager?.registerListener { carUxRestrictions ->
+            handleUxRestrictionsChanged(carUxRestrictions)
+        }
+    } catch (e: Exception) {
+        Logger.warning("carUxRestrictions fail ${e.message}")
+    }
+    return mCarUxRestrictionsManager?.currentCarUxRestrictions?.activeRestrictions ?: 0
+}
+
+private fun handleUxRestrictionsChanged(carUxRestrictions: CarUxRestrictions) {
+    Logger.info("handleUxRestrictionsChanged value ${carUxRestrictions.activeRestrictions}")
+    // TODO: 根据驾驶模式调整应用行为
+}
+```
+
+### 步骤 5: 在 Flutter 代码中调用原生方法
+
+在你的 Flutter 代码中，你需要调用原生代码来获取驾驶模式的状态，并根据这些状态调整你的应用行为。你可以使用 `MethodChannel` 来实现这一点：
+
+```dart
+import 'package:flutter/services.dart';
+
+class CarModeService {
+  static const MethodChannel _channel =
+      MethodChannel('car_mode_channel');
+
+  Future<int> getCarMode() async {
+    final int mode = await _channel.invokeMethod('getCarMode');
+    return mode;
+  }
+}
+```
+
+在原生代码中，你需要实现 `MethodChannel` 的对应方法：
+
+```kotlin
+class CarModeMethodCallHandler(private val activity: Activity) : MethodChannel.MethodCallHandler {
+    override fun onMethodCall(call: MethodCall, result: Result) {
+        when (call.method) {
+            "getCarMode" -> {
+                val mode = carUxRestrictions(activity)
+                result.success(mode)
+            }
+            else -> result.notImplemented()
+        }
+    }
+}
+```
+
+### 步骤 6: 测试和验证
+
+确保在实际的车辆环境中测试你的应用，以验证驾驶模式是否正确工作，并且应用在驾驶模式下的行为符合预期。
+
+### 注意事项
+
+- 确保你有权访问 `android.car.jar` 并了解如何在你的应用程序中正确地集成和使用它。
+- 在将 `android.car.jar` 集成到你的项目中后，进行彻底的测试，以确保你的应用在所有目标设备上都能正常工作。
+- 遵循 Android Automotive OS 的 API 使用规则和权限要求。
+
+请记住，`android.car.jar` 是 Android Automotive OS 的一部分，它可能不是公开可用的，或者可能需要特定的权限和配置才能使用。在尝试使用此类库之前，请确保你有权访问它，并且了解如何在你的应用程序中正确地集成和使用它。
