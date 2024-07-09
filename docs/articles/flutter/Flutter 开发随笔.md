@@ -8,7 +8,6 @@ Flex布局
 
 SharedPreferences的数据通常保存在以下路径下的一个.xml文件中：
 
-复制
 
 `/data/data/<包名>/shared_prefs/`
 
