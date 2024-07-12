@@ -257,3 +257,164 @@ class CarModeMethodCallHandler(private val activity: Activity) : MethodChannel.M
 - 遵循 Android Automotive OS 的 API 使用规则和权限要求。
 
 请记住，`android.car.jar` 是 Android Automotive OS 的一部分，它可能不是公开可用的，或者可能需要特定的权限和配置才能使用。在尝试使用此类库之前，请确保你有权访问它，并且了解如何在你的应用程序中正确地集成和使用它。
+
+
+## 接入media
+
+```kotlin
+package com.example.vehicle
+
+import android.car.Car
+import android.car.drivingstate.CarUxRestrictionsManager
+import android.content.ComponentName
+import android.content.IntentFilter
+import android.os.Build
+import android.os.Bundle
+import android.os.IBinder
+import android.util.Log
+import androidx.media.session.MediaSessionCompat
+import io.flutter.embedding.android.FlutterActivity
+import io.flutter.plugin.common.EventChannel
+import io.flutter.plugin.common.MethodChannel
+
+class MainActivity : FlutterActivity() {
+    private val CHANNEL = "media_control_channel"
+    private val EVENT_CHANNEL = "car_ux_restrictions_event"
+    private var mCar: Car? = null
+    private var carUxRestrictionsManager: CarUxRestrictionsManager? = null
+    private lateinit var mediaSession: MediaSessionCompat
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        initialCar()
+        initSession()
+        setupMediaControlChannel()
+        registerMediaButtonReceiver()
+    }
+
+    private fun setupMediaControlChannel() {
+        MethodChannel(flutterEngine!!.dartExecutor.binaryMessenger, CHANNEL).setMethodCallHandler { call, result ->
+            when (call.method) {
+                "play" -> {
+                    mediaSession.controller.transportControls.play()
+                    result.success(null)
+                }
+                "pause" -> {
+                    mediaSession.controller.transportControls.pause()
+                    result.success(null)
+                }
+                "next" -> {
+                    mediaSession.controller.transportControls.skipToNext()
+                    result.success(null)
+                }
+                "previous" -> {
+                    mediaSession.controller.transportControls.skipToPrevious()
+                    result.success(null)
+                }
+                else -> {
+                    result.notImplemented()
+                }
+            }
+        }
+
+        EventChannel(flutterEngine!!.dartExecutor.binaryMessenger, EVENT_CHANNEL).setStreamHandler(
+            object : EventChannel.StreamHandler {
+                override fun onListen(arguments: Any?, events: EventChannel.EventSink?) {
+                    carUxRestrictionsManager?.registerListener {
+                        Log.d("MainActivity", "restriction changed ${carUxRestrictionsManager?.currentCarUxRestrictions}")
+                        events?.success(carUxRestrictionsManager?.currentCarUxRestrictions?.isRequiresDistractionOptimization ?: false)
+                    }
+                }
+
+                override fun onCancel(arguments: Any?) {
+                    carUxRestrictionsManager?.unregisterListener()
+                }
+            }
+        )
+    }
+
+    private fun initialCar() {
+        if (Build.VERSION.SDK_INT < 30) {
+            Log.d("MainActivity", "Android SDK < 30")
+            mCar = Car.createCar(applicationContext, object : ServiceConnection {
+                override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
+                    service?.let {
+                        Log.d("MainActivity", "obtain car success $service")
+                        registerRestrictionListener(mCar!!)
+                    }
+                }
+                override fun onServiceDisconnected(name: ComponentName?) {
+                    mCar = null
+                }
+            })
+            try {
+                mCar?.connect()
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        } else {
+            mCar = Car.createCar(
+                applicationContext, null, 0
+            ) { car, ready ->
+                mCar = if (ready) {
+                    registerRestrictionListener(car)
+                    car
+                } else {
+                    null
+                }
+            }
+        }
+    }
+
+    private fun initSession() {
+        mediaSession = MediaSessionCompat(this, "session tag").apply {
+            setCallback(MyMediaSessionCallback())
+            isActive = true
+        }
+        Log.d("MainActivity", "sessionToken: ${mediaSession.sessionToken}")
+    }
+
+    private fun registerRestrictionListener(car: Car) {
+        Log.d("MainActivity", "registerRestrictionListener")
+        val uxRestrictionsManager =
+            car.getCarManager(Car.CAR_UX_RESTRICTION_SERVICE) as CarUxRestrictionsManager
+        Log.d("MainActivity", "current restriction ${uxRestrictionsManager.currentCarUxRestrictions}")
+        carUxRestrictionsManager = uxRestrictionsManager
+    }
+
+    private fun getCarUxRestrictions(): Boolean {
+        return carUxRestrictionsManager?.currentCarUxRestrictions?.isRequiresDistractionOptimization ?: false
+    }
+
+    private fun registerMediaButtonReceiver() {
+        val filter = IntentFilter(Intent.ACTION_MEDIA_BUTTON)
+        val buttonReceiver = MediaButtonReceiver()
+        registerReceiver(buttonReceiver, filter)
+    }
+
+    override fun onDestroy() {
+        mCar?.disconnect()
+        mediaSession.release()
+        super.onDestroy()
+    }
+
+    private inner class MyMediaSessionCallback : MediaSessionCompat.Callback() {
+        override fun onPlay() {
+            // Handle play
+        }
+
+        override fun onPause() {
+            // Handle pause
+        }
+
+        override fun onSkipToNext() {
+            // Handle next track
+        }
+
+        override fun onSkipToPrevious() {
+            // Handle previous track
+        }
+    }
+}
+
+```
