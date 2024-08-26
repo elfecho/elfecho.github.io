@@ -31,5 +31,5 @@ var name="JavaScript";
 // Dart
 String name = 'dart'; // Explicitly typed as a string.
 var otherName = Dart'; // Inferred string.
-// Both are acceptable in Dart.
+// Both are acceptable in Dart.122
 ```
