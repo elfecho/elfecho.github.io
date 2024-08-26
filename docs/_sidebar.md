@@ -63,5 +63,5 @@
 	- [Dart 基础知识](articles/flutter/Dart%20基础知识.md)
 	- [Flutter 基础知识](articles/flutter/Flutter%20基础知识.md)
 	- [Flutter 开发随笔](articles/flutter/Flutter%20开发随笔.md)
-- AI常用指令
-	- 
+- AI使用笔记
+	- [AI常用指令](articles/AI/AI常用指令.md)
