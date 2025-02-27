@@ -10,7 +10,7 @@
 	- [Vue3 Custom Renderer：动机、使用与原理](/articles/vue/Vue3CustomRenderer：动机、使用与原理)
 - React笔记 <!-- 对应 articles/react -->
 	- [React入门](/articles/react/React入门)
-	- [使用 Create React App](使用%20Create%20React%20App)
+	- [使用 Create React App](/articles/react/使用%20Create%20React%20App)
 	- [使用 Commit Lint 和 Husky 规范化 Git 提交信息](/articles/react/使用%20Commit%20Lint%20和%20Husky%20规范化%20Git%20提交信息)
 	- [JSX的使用](/articles/react/JSX的使用)
 	- [React Hooks](/articles/react/React%20Hooks)
