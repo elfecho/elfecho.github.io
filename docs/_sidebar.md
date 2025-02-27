@@ -1,12 +1,20 @@
 * [首页](/README)    <!-- 对应 README.md -->
 * vue笔记 <!-- 对应 articles/vue -->
 	- [vue3高级用法](articles/vue/vue高级用法)
-	- [vue3 Composition API](/articles/vue/vue3CompositionAPI)
+	- [vue3新特性](/articles/vue/vue3新特性.md)
 	- [搭建vue3集成项目](/articles/vue/搭建vue3集成项目.md)
 	- [vue3小技巧](/articles/vue/vue3小技巧)
 	- [ssr初探](/articles/vue/ssr初探)
 	- [axios实现导出导入Excel](/articles/vue/axios实现导出导入Excel)
 	- [实现vue-cli4改造为ssr项目](/articles/vue/实现vue-cli4改造为ssr项目)
+	- [Vue3 Custom Renderer：动机、使用与原理](/articles/vue/Vue3CustomRenderer：动机、使用与原理)
+- - React <!-- 对应 articles/react -->
+	- [React入门](/articles/react/React入门)
+	- [使用 Create React App](使用%20Create%20React%20App.md)
+	- [使用 Commit Lint 和 Husky 规范化 Git 提交信息](/articles/react/使用%20Commit%20Lint%20和%20Husky%20规范化%20Git%20提交信息)
+	- [JSX的使用](/articles/react/JSX的使用)
+	- [React Hooks](/articles/react/React%20Hooks)
+	- [在 React 中使用 CSS 样式](/articles/react/在%20React%20中使用%20CSS%20样式)
 * web3笔记 <!-- 对应 articles/web3 -->
 	- [常用网络配置](articles/web3/常用网络配置)
 - 数据存储
@@ -63,5 +71,9 @@
 	- [Dart 基础知识](articles/flutter/Dart%20基础知识.md)
 	- [Flutter 基础知识](articles/flutter/Flutter%20基础知识.md)
 	- [Flutter 开发随笔](articles/flutter/Flutter%20开发随笔.md)
+- vite学习笔记
+	- [create-vite全流程](articles/vite/create-vite全流程.md)
 - AI使用笔记
 	- [AI常用指令](articles/AI/AI常用指令.md)
+- vscode使用方式
+	- [vscode快捷指令](articles/vscode/vscode快捷指令.md)

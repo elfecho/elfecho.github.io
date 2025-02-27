@@ -1,0 +1,22 @@
+{
+  "local-fileposition": {
+    "20200812220555-lj3enxa": {
+      "endId": "20240508001403-j8ceveg",
+      "focusEnd": 3,
+      "focusId": "20240507235359-cxxv6kp",
+      "focusStart": 3,
+      "rootId": "20200812220555-lj3enxa",
+      "scrollTop": 475,
+      "startId": "20210528115012-vst5lwt"
+    },
+    "20200825162036-4dx365o": {
+      "endId": "20211213122332-wozw982",
+      "focusEnd": 0,
+      "focusId": "20210604182832-nm3hapx",
+      "focusStart": 0,
+      "rootId": "20200825162036-4dx365o",
+      "scrollTop": 0,
+      "startId": "20210604182832-nm3hapx"
+    }
+  }
+}
