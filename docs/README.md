@@ -19,7 +19,7 @@
 	- [vue3小技巧](/articles/vue/vue3小技巧)
 	- [ssr初探](/articles/vue/ssr初探)
 	- [axios实现导出导入Excel](/articles/vue/axios实现导出导入Excel)
-- - React <!-- 对应 articles/react -->
+* React笔记 <!-- 对应 articles/react -->
 	- [React入门](/articles/react/React入门)
 	- [使用 Create React App](使用%20Create%20React%20App.md)
 	- [使用 Commit Lint 和 Husky 规范化 Git 提交信息](/articles/react/使用%20Commit%20Lint%20和%20Husky%20规范化%20Git%20提交信息)

@@ -8,15 +8,24 @@
 	- [axios实现导出导入Excel](/articles/vue/axios实现导出导入Excel)
 	- [实现vue-cli4改造为ssr项目](/articles/vue/实现vue-cli4改造为ssr项目)
 	- [Vue3 Custom Renderer：动机、使用与原理](/articles/vue/Vue3CustomRenderer：动机、使用与原理)
-- - React <!-- 对应 articles/react -->
+- React笔记 <!-- 对应 articles/react -->
 	- [React入门](/articles/react/React入门)
 	- [使用 Create React App](使用%20Create%20React%20App.md)
 	- [使用 Commit Lint 和 Husky 规范化 Git 提交信息](/articles/react/使用%20Commit%20Lint%20和%20Husky%20规范化%20Git%20提交信息)
 	- [JSX的使用](/articles/react/JSX的使用)
 	- [React Hooks](/articles/react/React%20Hooks)
 	- [在 React 中使用 CSS 样式](/articles/react/在%20React%20中使用%20CSS%20样式)
-* web3笔记 <!-- 对应 articles/web3 -->
-	- [常用网络配置](articles/web3/常用网络配置)
+- typescript学习
+	- [导学](articles/typescript/导学.md)
+	- [学习方法](articles/typescript/01-学习方法.md)
+	- [环境配置](articles/typescript/02-环境配置.md)
+	- [基础类型](articles/typescript/03-基础类型.md)
+	- [函数类型](articles/typescript/04-函数类型.md)
+	- [TS引入的新类型](articles/typescript/05-TS引入的新类型.md)
+	- [交叉类型与联合类型](articles/typescript/06-交叉类型与联合类型.md)
+	- [工作原理相关概念](articles/typescript/07-工作原理相关概念.md)
+	- [Interface 接口](articles/typescript/08-Interface接口.md)
+	- [Class 类](articles/typescript/09-Class类.md)
 - 数据存储
 	- [使用indexedDB](articles/storage/使用indexedDB)
 - git笔记 <!-- 对应 articles/git -->
@@ -44,17 +53,6 @@
 		- [python3 杂记](articles/python/python3入门/python3%20杂记.md)
 	- Flask使用
 		- [使用pipenv](articles/python/Flask/使用pipenv.md)
-- typescript学习
-	- [导学](articles/typescript/导学.md)
-	- [学习方法](articles/typescript/01-学习方法.md)
-	- [环境配置](articles/typescript/02-环境配置.md)
-	- [基础类型](articles/typescript/03-基础类型.md)
-	- [函数类型](articles/typescript/04-函数类型.md)
-	- [TS引入的新类型](articles/typescript/05-TS引入的新类型.md)
-	- [交叉类型与联合类型](articles/typescript/06-交叉类型与联合类型.md)
-	- [工作原理相关概念](articles/typescript/07-工作原理相关概念.md)
-	- [Interface 接口](articles/typescript/08-Interface接口.md)
-	- [Class 类](articles/typescript/09-Class类.md)
 - <!-- 高等数学
 	- [Obsidan之数学公式的输入](articles/mathematics/Obsidan之数学公式的输入.md)
 	- [函数](articles/mathematics/函数.md)
@@ -77,3 +75,5 @@
 	- [AI常用指令](articles/AI/AI常用指令.md)
 - vscode使用方式
 	- [vscode快捷指令](articles/vscode/vscode快捷指令.md)
+- web3笔记 <!-- 对应 articles/web3 -->
+	- [常用网络配置](articles/web3/常用网络配置)
