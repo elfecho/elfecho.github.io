@@ -199,12 +199,12 @@ const SelectInput = () => {
 
 表单的提交处理是将用户输入的数据收集并发送的过程。通过`onSubmit`事件处理程序，我们可以执行相关操作。
 
-```javascript
+```typescript
 const FormSubmitExample = () => {
   const [name, setName] = useState('');
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (event: ChangeEvent<HTMLFormElement>) => {
+    event.preventDefault(); // 阻止默认行为
     console.log('提交的名字:', name);
   };
 
