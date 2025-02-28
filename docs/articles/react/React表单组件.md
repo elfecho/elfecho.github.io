@@ -76,11 +76,11 @@ const TextAreaInput = () => {
 
 单选按钮允许用户从一组选项中选择一个。
 
-```javascript
+```typescript
 const RadioInput = () => {
   const [selectedOption, setSelectedOption] = useState('');
 
-  const handleChange = (event) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSelectedOption(event.target.value);
   };
 
@@ -114,42 +114,57 @@ const RadioInput = () => {
 
 复选框允许用户选择多个选项。
 
-```javascript
+```typescript
 const CheckboxInput = () => {
-  const [checkedItems, setCheckedItems] = useState({
-    option1: false,
-    option2: false,
-  });
-
-  const handleChange = (event) => {
-    setCheckedItems({
-      ...checkedItems,
-      [event.target.name]: event.target.checked,
-    });
-  };
-
+  const [selectedCityList, setSelectedCityList] = useState<string[]>([])
+  function handleCityChange(event: ChangeEvent<HTMLInputElement>) {
+    const city = event.target.value
+    console.log(city)
+    // state 不可变数据
+    if (selectedCityList.includes(city)) {
+      setSelectedCityList(
+        selectedCityList.filter(item => {
+          if (item === city) return false
+          return true
+        })
+      )
+    } else {
+      setSelectedCityList(selectedCityList.concat(city))
+    }
+  }
+  
   return (
-    <div>
-      <label>
-        <input
-          type="checkbox"
-          name="option1"
-          checked={checkedItems.option1}
-          onChange={handleChange}
-        />
-        选项1
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          name="option2"
-          checked={checkedItems.option2}
-          onChange={handleChange}
-        />
-        选项2
-      </label>
-      <p>已选择: {JSON.stringify(checkedItems)}</p>
-    </div>
+	<label htmlFor="checkbox1">北京</label>
+	<input
+		type="checkbox"
+		value="beijing"
+		id="checkbox1"
+		checked={selectedCityList.includes('beijing')}
+		onChange={handleCityChange}
+	/>
+	<label htmlFor="checkbox2">上海</label>
+	<input
+		type="checkbox"
+		value="shanghai"
+		id="checkbox2"
+		checked={selectedCityList.includes('shanghai')}
+		onChange={handleCityChange}
+	/>
+	<label htmlFor="checkbox3">深圳</label>
+	<input
+		type="checkbox"
+		value="shenzhen"
+		id="checkbox3"
+		checked={selectedCityList.includes('shenzhen')}
+		onChange={handleCityChange}
+	/>
+	<p>已选择: {JSON.stringify(selectedCityList)}</p>
+	{/* 通过隐藏域进行提交 */}
+	<input
+        type="hidden"
+        name="cites"
+        value={JSON.stringify(selectedCityList)}
+    />
   );
 };
 ```
