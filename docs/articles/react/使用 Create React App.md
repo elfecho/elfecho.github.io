@@ -23,6 +23,8 @@ npm -v
 
 ```bash
 npx create-react-app my-app
+# typescript环境
+npx create-react-app my-app --template typescript
 ```
 
 这里的 `my-app` 是你想要创建的应用名称。你可以将其替换为任何你想要的名称。
