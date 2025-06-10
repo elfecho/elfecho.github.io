@@ -14,11 +14,18 @@
 
 * vue笔记 <!-- 对应 articles/vue -->
 	- [vue3高级用法](articles/vue/vue高级用法)
-	- [vue3 Composition API](/articles/vue/vue3CompositionAPI)
+	- [vue3 Composition API](vue3新特性.md)
 	- [搭建vue3集成项目](/articles/vue/搭建vue3集成项目.md)
 	- [vue3小技巧](/articles/vue/vue3小技巧)
 	- [ssr初探](/articles/vue/ssr初探)
 	- [axios实现导出导入Excel](/articles/vue/axios实现导出导入Excel)
+* React笔记 <!-- 对应 articles/react -->
+	- [React入门](/articles/react/React入门)
+	- [使用 Create React App](使用%20Create%20React%20App.md)
+	- [使用 Commit Lint 和 Husky 规范化 Git 提交信息](/articles/react/使用%20Commit%20Lint%20和%20Husky%20规范化%20Git%20提交信息)
+	- [JSX的使用](/articles/react/JSX的使用)
+	- [React Hooks](/articles/react/React%20Hooks)
+	- [在 React 中使用 CSS 样式](/articles/react/在%20React%20中使用%20CSS%20样式)
 * web3笔记 <!-- 对应 articles/web3 -->
 	- [常用网络配置](articles/web3/常用网络配置)
 - 数据存储
@@ -41,11 +48,5 @@
 	- [python3 杂记](articles/python/python3入门/python3%20杂记.md)
 	- Flask使用
 		- [使用pipenv](articles/python/Flask/使用pipenv.md)
-- 高等数学
-	- [Obsidan之数学公式的输入](articles/mathematics/Obsidan之数学公式的输入.md)
-	- [函数](articles/mathematics/函数.md)
-	- [极限](articles/mathematics/极限.md)
-	- [导数](articles/mathematics/导数.md)
-	- [积分](articles/mathematics/积分.md)
-	- [向量](articles/mathematics/向量.md)
+
 

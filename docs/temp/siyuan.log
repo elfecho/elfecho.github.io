@@ -1,0 +1,44 @@
+I 2024/08/26 16:37:19 working.go:147: 
+      ___                                   ___           ___           ___
+     /  /\        ___           ___        /__/\         /  /\         /__/\
+    /  /:/_      /  /\         /__/|       \  \:\       /  /::\        \  \:\
+   /  /:/ /\    /  /:/        |  |:|        \  \:\     /  /:/\:\        \  \:\
+  /  /:/ /::\  /__/::\        |  |:|    ___  \  \:\   /  /:/~/::\   _____\__\:\
+ /__/:/ /:/\:\ \__\/\:\__   __|__|:|   /__/\  \__\:\ /__/:/ /:/\:\ /__/::::::::\
+ \  \:\/:/~/:/    \  \:\/\ /__/::::\   \  \:\ /  /:/ \  \:\/:/__\/ \  \:\~~\~~\/
+  \  \::/ /:/      \__\::/    ~\~~\:\   \  \:\  /:/   \  \::/       \  \:\  ~~~
+   \__\/ /:/       /__/:/       \  \:\   \  \:\/:/     \  \:\        \  \:\
+     /__/:/        \__\/         \__\/    \  \::/       \  \:\        \  \:\
+     \__\/                                 \__\/         \__\/         \__\/
+I 2024/08/26 16:37:19 runtime.go:74: kernel is booting:
+    * ver [3.1.3]
+    * arch [amd64]
+    * os [Microsoft Windows 10 Home China]
+    * pid [13092]
+    * runtime mode [prod]
+    * working directory [C:\Program Files\WindowsApps\89C2A984.SiYuan_3.1.3.0_x64__1qfd3tsw4ngc2\app\resources]
+    * read only [false]
+    * container [std]
+    * database [ver=20220501]
+    * workspace directory [G:\myNotes\elfecho.github.io\docs]
+I 2024/08/26 16:37:19 conf.go:164: initialized language [zh_CN] based on device locale
+I 2024/08/26 16:37:19 conf.go:321: using Microsoft Store edition
+I 2024/08/26 16:37:20 runtime.go:123: use network proxy [system]
+I 2024/08/26 16:37:20 serve.go:127: kernel [pid=13092] http server [127.0.0.1:50500] is booting
+I 2024/08/26 16:37:21 blocktree.go:75: reinitialized database [G:\myNotes\elfecho.github.io\docs\temp\blocktree.db]
+I 2024/08/26 16:37:21 database.go:92: the database structure is changed, rebuilding database...
+I 2024/08/26 16:37:21 database.go:109: reinitialized database [G:\myNotes\elfecho.github.io\docs\temp\siyuan.db]
+I 2024/08/26 16:37:21 conf.go:838: database size [4.1 kB], tree/block count [0/0]
+I 2024/08/26 16:37:21 working.go:193: kernel booted
+I 2024/08/26 16:37:21 box.go:77: auto stat [trees=0, blocks=0, dataSize=36.87 kB, assetsSize=0 B]
+I 2024/08/26 16:37:21 disk.go:33: disk usage [total=819.27 GB, used=46.57 GB, free=772.7 GB]
+I 2024/08/26 16:37:25 index.go:220: rebuilt database for notebook [20210808180117-czj9bvb] in [0.21s], tree [count=70, size=1.4 MB]
+I 2024/08/26 16:37:25 index.go:290: resolved refs [36] in [70ms]
+I 2024/08/26 16:37:26 pandoc.go:176: initialized built-in pandoc [ver=3.1.1, bin=G:\myNotes\elfecho.github.io\docs\temp\pandoc\bin\pandoc.exe]
+I 2024/08/26 16:37:26 conf.go:1100: pandoc initialized, set pandoc bin to [G:\myNotes\elfecho.github.io\docs\temp\pandoc\bin\pandoc.exe]
+I 2024/08/26 16:39:34 conf.go:595: exiting kernel [force=false, setCurrentWorkspace=true, execInstallPkg=0]
+I 2024/08/26 16:39:34 conf.go:1090: closed user guide box [20210808180117-czj9bvb]
+I 2024/08/26 16:39:37 database.go:1284: closed database
+I 2024/08/26 16:39:37 conf.go:1021: cleared workspace temp
+I 2024/08/26 16:39:38 sync.go:722: sync websocket closed
+I 2024/08/26 16:39:38 conf.go:595: exiting kernel [force=false, setCurrentWorkspace=true, execInstallPkg=0]
