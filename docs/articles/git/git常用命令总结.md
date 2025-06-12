@@ -89,6 +89,43 @@ git push origin HEAD --force
 
 ### 4. 为git仓库配置SSH公钥
 
-···
+#### 生成新的SSH密钥
+
+```shell
+ssh-keygen -t ed25519 -C "your_email@example.com"
+```
+
+> 注意
+> 如果你使用的是不支持 Ed25519 算法的旧系统，请使用以下命令：
+
+```shell
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+
+#### 测试SSH密钥
+
+```shell
+ssh -T git@github.com
+# Attempts to ssh to GitHub
+```
+
+#### 为设备设置多个SSH密钥
+
+在 `.ssh` 目录下新建一个config文件夹，配置类似如下
+
+```
+# github
+Host github.com
+HostName github.com
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/id_rsa
+
+  
+# coding.net
+Host elfecho.coding.net
+HostName coding.net
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/id_ed25519
+```
 
 
