@@ -20,22 +20,8 @@
               "icon": "lucide-file",
               "title": "_sidebar"
             }
-          },
-          {
-            "id": "6dbee14b5789ef1f",
-            "type": "leaf",
-            "state": {
-              "type": "bases",
-              "state": {
-                "file": "docs/articles/docsify/未命名 1.base",
-                "viewName": "表格"
-              },
-              "icon": "lucide-table",
-              "title": "未命名 1"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -149,10 +135,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "f5bd54ab18bfbe61",
+  "active": "c10c1d236ade8bd9",
   "lastOpenFiles": [
-    "docs/articles/docsify/未命名.base",
     "docs/articles/docsify/未命名 1.base",
+    "docs/articles/docsify/未命名.base",
     "docs/articles/docsify/快速上传图片到github.md",
     "docs/articles/docsify/使用docsify.md",
     "docs/articles/vue/xgplayer 预览图.md",
