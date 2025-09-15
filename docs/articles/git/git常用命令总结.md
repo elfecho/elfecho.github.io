@@ -111,7 +111,7 @@ ssh -T git@github.com
 
 #### 为设备设置多个SSH密钥
 
-在 `.ssh` 目录下新建一个config文件夹，配置类似如下
+在 `.ssh` 目录下新建一个config文件，配置类似如下
 
 ```
 # github
