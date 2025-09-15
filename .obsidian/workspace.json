@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/_sidebar.md",
+                "file": "docs/articles/docsify/使用docsify.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "_sidebar"
+              "title": "使用docsify"
             }
           }
         ]
@@ -137,10 +137,10 @@
   },
   "active": "c10c1d236ade8bd9",
   "lastOpenFiles": [
+    "docs/_sidebar.md",
     "docs/articles/docsify/使用docsify.md",
     "docs/articles/docsify/未命名.base",
     "docs/articles/docsify/未命名 1.base",
-    "docs/_sidebar.md",
     "docs/articles/docsify/快速上传图片到github.md",
     "docs/articles/vue/xgplayer 预览图.md",
     "docs/articles/git/git常用命令总结.md",
