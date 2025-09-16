@@ -421,72 +421,113 @@ it("double inner width", () => {
 
 ### 依赖注入 (Dependency Injection)
 
-前面三种方法都是在“外部”通过 mock 来控制依赖，而依赖注入（DI）则是一种从“内部”改变代码设计，使其天生对测试友好的架构模式。
+前面三种方法都是在“外部”通过 mock 来控制依赖，它们像是给代码做“微创手术”。而依赖注入（DI）则完全不同，它是一种从“内部”改变代码设计，使其**天生对测试友好**的架构模式。
 
-**核心思想**：一个模块不应该自己创建或查找其依赖，而应该由外部提供（“注入”）给它。
+它不仅仅是一种技巧，更是一种设计思想的体现。
 
-**场景**：一个 `UserService` 需要一个 `Logger` 服务来记录日志。
+#### 核心思想：依赖倒置与程序接缝
 
-**❌ 紧耦合设计:**
+在理解 DI 之前，我们先了解两个关键概念：
 
-`src/UserService.ts`:
+1. **依赖倒置原则 (Dependency Inversion Principle)** ：这是 SOLID 设计原则中的“D”。它规定：
+
+- 高层模块不应该依赖于低层模块，两者都应该依赖于其**抽象**。
+- 抽象不应该依赖于细节，细节应该依赖于抽象。
+- 说白了就是：你的核心业务逻辑（高层），不应该关心具体的技术实现（低层，如“如何读文件”、“如何发邮件”），而只应该依赖一个稳定的“约定”（即接口或抽象类）。
+
+1. **程序接缝 (Seam)** ：这是 DI 在代码中创造出的一个“可替换点”。通过这个“接缝”，我们可以轻松地换掉一个组件的具体实现，而不影响其他代码。这极大地降低了代码的耦合度。
+
+现在，让我们通过您的例子，看看这两个概念是如何落地的。
+
+#### 场景：读取并处理文件
+
+**目标**：我们有一个高层业务逻辑函数 `readAndProcessFile`，它需要读取一个文件，然后对内容进行处理。
+
+**❌ 紧耦合设计 (没有接缝):**
 
 ```typescript
-import { Logger } from './Logger';
+import { readFileSync } from 'fs';
 
-class UserService {
-private logger = new Logger(); // UserService 自己创建了依赖
-
-createUser(name: string) {
-// ... 创建用户逻辑 ...
-this.logger.log(`User ${name} created.`);
-}
+// 高层逻辑 和 底层实现(fs) 紧紧地绑在了一起
+export function readAndProcessFile(filePath: string): string {
+const content: string = readFileSync(filePath, 'utf-8'); // 直接依赖了 fs 模块
+return content + "-> test unit";
 }
 ```
 
-测试这个 `UserService` 时，我们被迫要处理真实的 `Logger`，很麻烦。
+这个函数非常难以测试，因为我们无法在不接触真实文件系统的情况下测试它。它没有“接缝”。
 
-**✅ 依赖注入设计:**
+**✅ 依赖注入设计 (创建接缝):**
 
-`src/UserService.ts`:
+**第1步：定义抽象 (约定)** 我们首先定义一个“约定”——`FileReader` 接口。它规定了“任何能读文件的东西，都必须有一个 `read` 方法”。
+
+`src/readAndProcessFile.ts`:
 
 ```typescript
-import { ILogger } from './Logger'; // 依赖于接口而非具体实现
-
-class UserService {
-// 依赖通过构造函数被“注入”
-constructor(private logger: ILogger) {}
-
-createUser(name: string) {
-// ... 创建用户逻辑 ...
-this.logger.log(`User ${name} created.`);
-}
+// 这是“抽象”，是高层和底层都要遵守的约定
+export interface FileReader {
+read(filePath: string): string;
 }
 ```
 
-**测试方法**：在测试中，我们可以轻松地注入一个假的 `Logger` 对象。
+**第2步：高层模块依赖于抽象** 我们的业务逻辑函数现在不再关心具体怎么读文件，它只要求传入一个**遵守 `FileReader` 约定的东西**。
 
-`src/UserService.test.ts`:
+`src/readAndProcessFile.ts`:
 
 ```typescript
-describe('UserService', () => {
-it('should log a message when a user is created', () => {
-// 1. 创建一个假的 logger 对象（一个简单的 mock）
-const mockLogger = {
-log: vi.fn(), // 我们只关心 log 方法是否被调用
-};
+export function readAndProcessFile(
+filePath: string,
+fileReader: FileReader // 依赖于接口，而不是具体实现！这就是“接缝”
+): string {
+const content: string = fileReader.read(filePath);
+return content + "-> test unit";
+}
+```
 
-// 2. 将假的 logger 注入到 UserService 中
-const userService = new UserService(mockLogger);
-userService.createUser('Alice');
+注意看 `fileReader: FileReader` 这个参数，这就是我们开辟的“程序接缝”。
 
-// 3. 断言 mockLogger 的 log 方法被正确调用了
-expect(mockLogger.log).toHaveBeenCalledWith('User Alice created.');
+**第3步：在不同场景下，注入不同的“细节”**
+
+- **在生产环境中**，我们注入一个真正能读文件的 `TextFileReader`。 `src/index.ts`:
+
+```typescript
+import { readFileSync } from 'fs';
+import { FileReader, readAndProcessFile } from './readAndProcessFile';
+
+// 这是“细节”，它依赖于“抽象”
+class TextFileReader implements FileReader {
+read(filePath: string): string {
+return readFileSync(filePath, 'utf-8');
+}
+}
+// 从接缝注入真实实现
+const result = readAndProcessFile("example.txt", new TextFileReader());
+```
+
+- **在测试环境中**，我们注入一个假的 `StubFileReader`。 `src/readAndProcessFile.spec.ts`:
+
+```typescript
+import { it, expect, describe } from 'vitest';
+import { FileReader, readAndProcessFile } from './readAndProcessFile';
+
+describe('di function', () => {
+it('read and process file', () => {
+// 这是测试用的“细节”，它也依赖于“抽象”
+class StubFileReader implements FileReader {
+read(filePath: string): string {
+// 在测试中，我们完全控制了文件的内容
+return "zsf";
+}
+}
+
+// 从接缝注入测试实现
+const result = readAndProcessFile('./test', new StubFileReader());
+
+expect(result).toBe("zsf-> test unit");
 });
 });
 ```
 
-依赖注入是一种更优雅的架构层面的解决方案。它让代码更加模块化，并且几乎不需要 `vi.mock` 或 `vi.spyOn` 就能进行简单的测试。
 
 ### 总结
 
