@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/articles/vitest/01-vitest入门到进阶指南.md",
+                "file": "docs/articles/vitest/02-vitest测试数据的艺术三大模式与两大原则.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "01-vitest入门到进阶指南"
+              "title": "02-vitest测试数据的艺术三大模式与两大原则"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 390.5
   },
   "right": {
     "id": "13b945f2cf0df1ee",
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "docs/articles/vitest/01-vitest入门到进阶指南.md",
+                "file": "docs/articles/vitest/02-vitest测试数据的艺术三大模式与两大原则.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "01-vitest入门到进阶指南 的反向链接列表"
+              "title": "02-vitest测试数据的艺术三大模式与两大原则 的反向链接列表"
             }
           },
           {
@@ -137,12 +137,15 @@
   },
   "active": "c10c1d236ade8bd9",
   "lastOpenFiles": [
+    "docs/articles/vitest/01-vitest入门指南.md",
+    "docs/articles/react/使用 Commit Lint 和 Husky 规范化 Git 提交信息.md",
+    "docs/articles/vite/create-vite全流程.md",
+    "docs/articles/vitest/02-vitest测试数据的艺术三大模式与两大原则.md",
     "docs/_sidebar.md",
-    "docs/articles/vitest/01-vitest入门到进阶指南.md",
-    "articles/vitest/01-vitest入门.md",
-    "docs/articles/storage/使用indexedDB.md",
     "articles/vitest",
     "articles",
+    "articles/vitest/01-vitest入门.md",
+    "docs/articles/storage/使用indexedDB.md",
     "docs/articles/vitest",
     "articles/vitest/01-vitest入门1.md",
     "docs/README.md",
@@ -158,7 +161,6 @@
     "docs/articles/vue/xgplayer 预览图.md",
     "docs/articles/git/git常用命令总结.md",
     "docs/articles/vite/vite7搭建vue3项目.md",
-    "docs/articles/vite/create-vite全流程.md",
     "articles/vite",
     "docs/articles/vue/vue3小技巧.md",
     "docs/articles/typescript/01-学习方法.md",
@@ -169,7 +171,6 @@
     "articles/react/在 React 中使用 CSS 样式.md",
     "articles/react",
     "docs/articles/react/react面试.md",
-    "docs/articles/react/JSX的使用.md",
-    "docs/articles/react/React表单组件.md"
+    "docs/articles/react/JSX的使用.md"
   ]
 }

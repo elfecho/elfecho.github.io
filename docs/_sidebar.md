@@ -29,7 +29,8 @@
 	- [Interface 接口](articles/typescript/08-Interface接口.md)
 	- [Class 类](articles/typescript/09-Class类.md)
 - vitest学习
-	- [vitest入门到进阶指南](articles/vitest/01-vitest入门到进阶指南.md)
+	- [vitest入门指南](articles/vitest/01-vitest入门指南.md)
+	- [vitest测试数据的艺术三大模式与两大原则](articles/vitest/02-vitest测试数据的艺术三大模式与两大原则.md)
 - 数据存储
 	- [使用indexedDB](articles/storage/使用indexedDB)
 - git笔记 <!-- 对应 articles/git -->
