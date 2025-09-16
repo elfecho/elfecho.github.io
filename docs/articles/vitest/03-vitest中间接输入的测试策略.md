@@ -504,7 +504,7 @@ return readFileSync(filePath, 'utf-8');
 const result = readAndProcessFile("example.txt", new TextFileReader());
 ```
 
-- **在测试环境中**，我们注入一个假的 `StubFileReader`。 `src/readAndProcessFile.spec.ts`:
+- **在测试环境中**，我们注入一个假的 `StubFileReader`。`src/readAndProcessFile.spec.ts`:
 
 ```typescript
 import { it, expect, describe } from 'vitest';
