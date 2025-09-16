@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/_sidebar.md",
+                "file": "docs/articles/vitest/01-vitest入门到进阶指南.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "_sidebar"
+              "title": "01-vitest入门到进阶指南"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "docs/articles/vite/create-vite全流程.md",
+                "file": "docs/articles/vitest/01-vitest入门到进阶指南.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "create-vite全流程 的反向链接列表"
+              "title": "01-vitest入门到进阶指南 的反向链接列表"
             }
           },
           {
@@ -137,14 +137,14 @@
   },
   "active": "c10c1d236ade8bd9",
   "lastOpenFiles": [
-    "docs/articles/vitest/01-vitest入门1.md",
     "docs/_sidebar.md",
+    "docs/articles/vitest/01-vitest入门到进阶指南.md",
+    "articles/vitest/01-vitest入门.md",
+    "docs/articles/storage/使用indexedDB.md",
+    "articles/vitest",
+    "articles",
     "docs/articles/vitest",
     "articles/vitest/01-vitest入门1.md",
-    "articles/vitest/01-vitest入门.md",
-    "articles/vitest",
-    "docs/articles/storage/使用indexedDB.md",
-    "articles",
     "docs/README.md",
     "docs/_coverpage.md",
     "docs/_navbar.md",
@@ -170,7 +170,6 @@
     "articles/react",
     "docs/articles/react/react面试.md",
     "docs/articles/react/JSX的使用.md",
-    "docs/articles/react/React表单组件.md",
-    "docs/articles/react/React Hooks.md"
+    "docs/articles/react/React表单组件.md"
   ]
 }
