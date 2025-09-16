@@ -137,10 +137,17 @@
   },
   "active": "c10c1d236ade8bd9",
   "lastOpenFiles": [
-    "articles/vitest/01-vitest入门.md",
+    "docs/articles/vitest/01-vitest入门1.md",
     "docs/_sidebar.md",
+    "docs/articles/vitest",
+    "articles/vitest/01-vitest入门1.md",
+    "articles/vitest/01-vitest入门.md",
     "articles/vitest",
+    "docs/articles/storage/使用indexedDB.md",
     "articles",
+    "docs/README.md",
+    "docs/_coverpage.md",
+    "docs/_navbar.md",
     "docs/articles/typescript/09-Class类.md",
     "docs/Pasted image 20250225170555.png",
     "docs/articles/AI/AI常用指令.md",
@@ -161,12 +168,9 @@
     "articles/vue",
     "articles/react/在 React 中使用 CSS 样式.md",
     "articles/react",
-    "docs/_navbar.md",
-    "docs/README.md",
     "docs/articles/react/react面试.md",
     "docs/articles/react/JSX的使用.md",
     "docs/articles/react/React表单组件.md",
-    "docs/articles/react/React Hooks.md",
-    "docs/articles/interview/算法.md"
+    "docs/articles/react/React Hooks.md"
   ]
 }

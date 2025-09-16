@@ -17,7 +17,7 @@
 	- [在 React 中使用 CSS 样式](/articles/react/在%20React%20中使用%20CSS%20样式)
 	- [React表单组件](/articles/react/React表单组件)
 	- [Redux状态管理](/articles/react/Redux状态管理)
-- typescript学习
+- typescript学习 <!-- 对应 articles/typescript -->
 	- [导学](articles/typescript/导学.md)
 	- [学习方法](articles/typescript/01-学习方法.md)
 	- [环境配置](articles/typescript/02-环境配置.md)
@@ -30,6 +30,7 @@
 	- [Class 类](articles/typescript/09-Class类.md)
 - vitest学习
 	- [vitest入门](articles/vitest/01-vitest入门.md)
+	- [vitest入门1](docs/articles/vitest/01-vitest入门1.md)
 - 数据存储
 	- [使用indexedDB](articles/storage/使用indexedDB)
 - git笔记 <!-- 对应 articles/git -->

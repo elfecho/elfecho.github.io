@@ -3,5 +3,7 @@
   "livePreview": true,
   "newFileLocation": "current",
   "attachmentFolderPath": "./",
-  "alwaysUpdateLinks": true
+  "alwaysUpdateLinks": true,
+  "newFileFolderPath": "docs/articles",
+  "newLinkFormat": "shortest"
 }
