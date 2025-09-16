@@ -72,9 +72,13 @@ isPremiumUserStub.mockRestore();
 
 当我们的间接输入来源是一个完整的第三方库（如 `axios`）、一个复杂的 Class 或是一个从别处导入的常量时，`vi.spyOn` 可能不够用。这时，我们需要在模块层面进行模拟，也就是使用 `vi.mock`。
 
+#### 示例1：模拟第三方库 (如 `axios`)
+
 **场景**：一个 `fetchUserProfile` 函数，使用 `axios` 库来获取用户数据。
 
 `src/api.ts`:
+
+typescript
 
 ```typescript
 import axios from 'axios';
@@ -89,15 +93,15 @@ return null;
 }
 ```
 
-测试这个函数时，我们绝不能发起真实的网络请求。测试必须是快速、稳定且独立于网络的。
-
-**测试方法**：使用 `vi.mock` 模拟整个 `axios` 模块。
+**测试方法**：使用 `vi.mock` 模拟整个 `axios` 模块，避免真实的网络请求。
 
 `src/api.test.ts`:
 
+typescript
+
 ```typescript
 import { describe, it, expect, vi } from 'vitest';
-import axios from 'axios'; // 导入的是被 mock 后的 axios
+import axios from 'axios';
 import { fetchUserProfile } from './api';
 
 // 告诉 Vitest：当代码中 'import axios' 时，使用我们提供的假对象
@@ -106,7 +110,6 @@ vi.mock('axios');
 describe('fetchUserProfile', () => {
 it('should return user data on successful fetch', async () => {
 const userData = { id: 1, name: 'John Doe' };
-// 因为 axios 被 mock 了，我们可以像操作一个假对象一样控制它
 vi.mocked(axios.get).mockResolvedValue({ data: userData });
 
 const profile = await fetchUserProfile('1');
@@ -114,18 +117,146 @@ const profile = await fetchUserProfile('1');
 expect(profile).toEqual(userData);
 expect(axios.get).toHaveBeenCalledWith('/users/1');
 });
+});
+```
 
-it('should return null when fetch fails', async () => {
-vi.mocked(axios.get).mockRejectedValue(new Error('Network error'));
+---
 
-const profile = await fetchUserProfile('1');
+#### 示例2：模拟 Class (类)
 
-expect(profile).toBeNull();
+**场景**：我们有一个 `NotificationService` 类负责发送通知。一个业务函数 `registerUser` 在成功后会实例化这个类并调用其 `send` 方法。
+
+`src/services/notification.ts`:
+
+typescript
+
+```typescript
+export class NotificationService {
+constructor(private transport: 'email' | 'sms') {}
+
+send(user: string, message: string) {
+// 真实的发送逻辑...
+console.log(`Sending ${this.transport} to ${user}: ${message}`);
+return true;
+}
+}
+```
+
+`src/user.ts`:
+
+typescript
+
+```typescript
+import { NotificationService } from './services/notification';
+
+export function registerUser(name: string) {
+// ... 用户注册逻辑 ...
+const notifier = new NotificationService('email');
+notifier.send(name, 'Welcome to our platform!');
+return true;
+}
+```
+
+**测试方法**：测试 `registerUser` 时，我们不希望它真的发送通知。我们只想确认 `NotificationService` 被正确地实例化和调用了。
+
+`src/user.test.ts`:
+
+typescript
+
+```typescript
+import { describe, it, expect, vi } from 'vitest';
+import { NotificationService } from './services/notification';
+import { registerUser } from './user';
+
+// 模拟整个 notification 模块
+vi.mock('./services/notification');
+
+describe('registerUser', () => {
+it('should create a notification service and send a welcome message', () => {
+registerUser('Alice');
+
+// 检查 NotificationService 的构造函数是否被调用，并且参数是 'email'
+expect(NotificationService).toHaveBeenCalledTimes(1);
+expect(NotificationService).toHaveBeenCalledWith('email');
+
+// Vitest 的 vi.mock 会自动模拟 Class 的所有实例
+// 我们可以通过 vi.mocked(ClassName).mock.instances 访问到所有被创建的实例
+const mockInstance = vi.mocked(NotificationService).mock.instances[0];
+
+// 检查实例的 send 方法是否被正确调用
+expect(mockInstance.send).toHaveBeenCalledTimes(1);
+expect(mockInstance.send).toHaveBeenCalledWith('Alice', 'Welcome to our platform!');
 });
 });
 ```
 
-`vi.mock` 的威力在于它可以替换掉任何模块的导出，无论是函数、对象、Class 还是常量，让我们从源头上控制了间接输入。
+通过这种方式，我们完全控制了 `NotificationService` 这个 Class 的行为，验证了我们的业务逻辑，同时又将测试与真实的通知发送逻辑隔离开。
+
+---
+
+#### 示例3：模拟常量与对象
+
+正如您所提供的精彩示例，`vi.mock` 同样可以用来修改导入的常量或配置对象。这在测试依赖不同配置的代码时非常有用。
+
+**场景**：我们有一个配置文件导出了 `name` 常量。一个 `tellName` 函数使用了这个常量。
+
+`src/config.ts`:
+
+typescript
+
+```typescript
+export const config = {
+allowTellAge: true,
+age: 18,
+};
+
+export const name = "cxr";
+```
+
+`src/use-variable.ts`:
+
+typescript
+
+```typescript
+import { name } from './config';
+
+export function tellName() {
+return `${name}-heiheihei`;
+}
+```
+
+**测试方法**：我们想在测试中临时改变 `name` 的值，来验证 `tellName` 函数的输出。
+
+`src/use-variable.spec.ts`:
+
+typescript
+
+```typescript
+import { it, expect, describe, vi } from "vitest";
+import { tellName } from "./use-variable";
+
+// vi.mock 的第二个参数是一个工厂函数，可以动态创建 mock
+// 这对于只修改模块部分导出而保留其他导出非常有用
+vi.mock("./config", async (importOriginal) => {
+// importOriginal 是一个函数，调用它会返回原始的、未被 mock 的模块
+const originalModule = await importOriginal();
+
+return {
+...(originalModule as any), // 展开原始模块的所有导出
+name: "c", // 覆盖 name 的值
+};
+});
+
+describe("使用变量的形式", () => {
+it("tell name", () => {
+const r = tellName();
+// 断言函数使用了我们 mock 后的值
+expect(r).toBe("c-heiheihei");
+});
+});
+```
+
+这个例子展示了 `vi.mock` 的一个高级用法：通过**工厂函数**，我们可以读取原始模块的内容，然后返回一个修改过的版本。这确保了我们只修改了需要测试的常量（`name`），而 `config` 对象等其他导出保持不变。
 
 ---
 
