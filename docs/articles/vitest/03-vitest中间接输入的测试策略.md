@@ -78,8 +78,6 @@ isPremiumUserStub.mockRestore();
 
 `src/api.ts`:
 
-typescript
-
 ```typescript
 import axios from 'axios';
 
@@ -96,8 +94,6 @@ return null;
 **测试方法**：使用 `vi.mock` 模拟整个 `axios` 模块，避免真实的网络请求。
 
 `src/api.test.ts`:
-
-typescript
 
 ```typescript
 import { describe, it, expect, vi } from 'vitest';
@@ -128,8 +124,6 @@ expect(axios.get).toHaveBeenCalledWith('/users/1');
 
 `src/services/notification.ts`:
 
-typescript
-
 ```typescript
 export class NotificationService {
 constructor(private transport: 'email' | 'sms') {}
@@ -143,8 +137,6 @@ return true;
 ```
 
 `src/user.ts`:
-
-typescript
 
 ```typescript
 import { NotificationService } from './services/notification';
@@ -160,8 +152,6 @@ return true;
 **测试方法**：测试 `registerUser` 时，我们不希望它真的发送通知。我们只想确认 `NotificationService` 被正确地实例化和调用了。
 
 `src/user.test.ts`:
-
-typescript
 
 ```typescript
 import { describe, it, expect, vi } from 'vitest';
@@ -202,8 +192,6 @@ expect(mockInstance.send).toHaveBeenCalledWith('Alice', 'Welcome to our platform
 
 `src/config.ts`:
 
-typescript
-
 ```typescript
 export const config = {
 allowTellAge: true,
@@ -214,8 +202,6 @@ export const name = "cxr";
 ```
 
 `src/use-variable.ts`:
-
-typescript
 
 ```typescript
 import { name } from './config';
@@ -228,8 +214,6 @@ return `${name}-heiheihei`;
 **测试方法**：我们想在测试中临时改变 `name` 的值，来验证 `tellName` 函数的输出。
 
 `src/use-variable.spec.ts`:
-
-typescript
 
 ```typescript
 import { it, expect, describe, vi } from "vitest";
