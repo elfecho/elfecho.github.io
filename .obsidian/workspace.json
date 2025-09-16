@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/_sidebar.md",
+                "file": "articles/vitest/01-vitest入门.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "_sidebar"
+              "title": "01-vitest入门"
             }
           }
         ]
@@ -137,10 +137,13 @@
   },
   "active": "c10c1d236ade8bd9",
   "lastOpenFiles": [
+    "docs/_sidebar.md",
+    "articles/vitest/01-vitest入门.md",
+    "articles/vitest",
+    "articles",
     "docs/Pasted image 20250225170555.png",
     "docs/articles/AI/AI常用指令.md",
     "docs/articles/docsify/使用docsify.md",
-    "docs/_sidebar.md",
     "docs/articles/docsify/未命名.base",
     "docs/articles/docsify/未命名 1.base",
     "docs/articles/docsify/快速上传图片到github.md",
@@ -149,7 +152,6 @@
     "docs/articles/vite/vite7搭建vue3项目.md",
     "docs/articles/vite/create-vite全流程.md",
     "articles/vite",
-    "articles",
     "docs/articles/vue/vue3小技巧.md",
     "docs/articles/typescript/01-学习方法.md",
     "articles/react/JSX的使用.md",
