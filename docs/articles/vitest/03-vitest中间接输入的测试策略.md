@@ -246,77 +246,176 @@ expect(r).toBe("c-heiheihei");
 
 ### 环境变量与全局对象 - 间接层处理技巧
 
-最棘手的间接输入往往来自全局，比如 `process.env` (Node.js 环境变量) 或 `window` (浏览器全局对象)。直接在代码中使用它们会让测试变得非常困难。
+全局依赖是单元测试中最常见的“拦路虎”。它们就像程序中的“幽灵”，看不见摸不着，却实实在在地影响着代码的行为。在这一部分，我们将深入探讨如何使用 Vitest 控制三类主要的全局依赖：**环境变量**、**自定义全局变量**和**浏览器全局对象**。
 
-**技巧**：不要直接在业务逻辑中访问全局变量，而是创建一个“间接层”（或称“抽象层”），将全局依赖隔离起来。
+对于每一类，我们都将探讨两种核心策略：
 
-**场景**：一个组件只在生产环境 (`process.env.NODE_ENV === 'production'`) 下才显示某个分析脚本。
+- **直接模拟**：使用 Vitest 提供的 `stub` API，快速、直接地修改全局状态。
+- **架构解耦**：通过建立“间接层”来隔离全局依赖，让代码更清晰、更健壮。
 
-**❌ 糟糕的设计 (直接访问):**
+---
 
-`src/Analytics.tsx`:
+#### 场景1：环境变量 (`process.env` 和 `import.meta.env`)
 
-```tsx
-const Analytics = () => {
-// 业务逻辑与全局变量紧密耦合，难以测试
-if (process.env.NODE_ENV === 'production') {
-return <script src="analytics.js"></script>;
-}
-return null;
-};
-```
+在 Node.js 中我们使用 `process.env`，在 Vite 项目中我们常用 `import.meta.env`。
 
-**✅ 优秀的设计 (使用间接层):**
-
-首先，我们创建一个配置文件来隔离全局访问。
-
-`src/config.ts`:
+**代码示例:** `src/user.ts`
 
 ```typescript
-export const isProduction = process.env.NODE_ENV === 'production';
-export const appVersion = '1.0.0';
-```
+import { getEnvUserAge } from './env'; // 这是一个间接层函数
 
-然后，业务代码依赖我们自己的配置文件。
-
-`src/Analytics.tsx`:
-
-```tsx
-import { isProduction } from './config';
-
-const Analytics = () => {
-// 现在，依赖的是我们自己可控的模块
-if (isProduction) {
-return <script src="analytics.js"></script>;
+// 方式一：直接访问 import.meta.env
+export function doubleUserAgeDirectly() {
+  return Number(import.meta.env.VITE_USER_AGE) * 2;
 }
-return null;
-};
+
+// 方式二：通过间接层访问
+export function doubleUserAgeWithLayer() {
+  return Number(getEnvUserAge()) * 2;
+}
 ```
 
-**测试方法**：现在测试变得异常简单，我们只需 mock 我们自己的 `config.ts` 模块。
-
-`src/Analytics.test.tsx`:
+`src/env.ts` (我们的间接层)
 
 ```typescript
-import { render } from '@testing-library/react';
-import { describe, it, vi } from 'vitest';
-import Analytics from './Analytics';
+export function getEnvUserAge() {
+  return import.meta.env.VITE_USER_AGE;
+}
+```
 
-// Mock 我们自己的 config 模块
-vi.mock('./config', () => ({
-isProduction: true, // 假设现在是生产环境
-}));
+**测试策略:**
 
-describe('Analytics', () => {
-it('should render script in production', () => {
-const { container } = render(<Analytics />);
-// 断言 script 标签存在
-expect(container.querySelector('script')).not.toBeNull();
+`src/user.spec.ts`
+
+```typescript
+import { it, expect, describe, vi, afterEach } from 'vitest';
+import { doubleUserAgeDirectly, doubleUserAgeWithLayer } from './user';
+import { getEnvUserAge } from './env';
+
+// 策略A：对于直接访问，使用 vi.stubEnv
+it('doubleUserAgeDirectly should work with vi.stubEnv', () => {
+  vi.stubEnv('VITE_USER_AGE', '18');
+  const r = doubleUserAgeDirectly();
+  expect(r).toBe(36);
+  vi.unstubAllEnvs(); // 记得清理！
 });
+
+// 策略B：对于间接层，mock 我们自己的模块
+vi.mock('./env'); // mock 间接层模块
+it('doubleUserAgeWithLayer should work with vi.mock', () => {
+  vi.mocked(getEnvUserAge).mockReturnValue('2'); // 控制间接层函数的返回值
+  const r = doubleUserAgeWithLayer();
+  expect(r).toBe(4);
 });
 ```
 
-这个“间接层”技巧是处理环境依赖的行业标准，它让原本难以测试的代码变得清晰可控。
+**小结**：两种方式都可行。`vi.stubEnv` 更直接，而“间接层”让依赖关系更明确。
+
+---
+
+#### 场景2：自定义全局变量
+
+有时，代码会依赖一个被挂载到全局作用域（`global` 或 `window`）的自定义对象。
+
+**代码示例:** `src/user.ts`
+
+```typescript
+// 假设 zs 是一个被其他脚本挂载到全局的配置对象
+// @ts-ignore
+export function getDoubleZsAge() {
+  return zs.age * 2;
+}
+```
+
+**测试策略：**
+
+`src/user.spec.ts`
+
+```typescript
+import { it, expect, describe, vi } from 'vitest';
+import { getDoubleZsAge } from './user';
+
+it('should work with custom global variable using vi.stubGlobal', () => {
+  // 使用 vi.stubGlobal 来伪造一个全局变量 zs
+  vi.stubGlobal('zs', { age: 18 });
+
+  const r = getDoubleZsAge();
+  expect(r).toBe(36);
+
+  vi.unstubAllGlobals(); // 同样，记得清理
+});
+```
+
+**小结**：对于自定义的全局变量，`vi.stubGlobal` 是最理想、最直接的工具。
+
+---
+
+#### 场景3：浏览器全局对象 (`window`, `document` 等)
+
+这是最复杂的一类，因为 `window` 上的许多属性（如 `innerWidth`, `location`）是只读的或有复杂的行为，直接修改它们非常脆弱且不可靠。
+
+**代码示例:** `src/window.ts` (间接层)
+
+```typescript
+// 我们不直接在业务代码里用 window.innerWidth
+// 而是封装一个函数，让依赖变得明确
+export function getInnerWidth() {
+  return window.innerWidth;
+}
+```
+
+`src/user.ts`
+
+```typescript
+import { getInnerWidth } from './window';
+
+export function getDoubleInnerWidth() {
+  // 业务代码依赖的是我们自己的模块，而不是全局的 window
+  return getInnerWidth() * 2;
+}
+```
+
+**测试策略：**
+
+`src/user.spec.ts`
+
+```typescript
+import { it, expect, describe, vi } from 'vitest';
+import { getDoubleInnerWidth } from './user';
+
+// 对于 window 这种复杂的原生对象，最佳实践就是 mock 我们的间接层
+vi.mock('./window.ts', () => {
+  return {
+    // 我们告诉测试，当调用 getInnerWidth 时，不要去读 window，直接返回 200
+    getInnerWidth: () => 200,
+  };
+});
+
+it('should get double inner width via abstraction layer', () => {
+  const r = getDoubleInnerWidth();
+  expect(r).toBe(400);
+});
+
+/*
+// 为什么不这样做？(不推荐)
+it("double inner width", () => {
+  // 直接 stub window 上的属性可能在某些环境下失败，且不清晰
+  vi.stubGlobal("innerWidth", 100); 
+  const r = doubleInnerWidth();
+  expect(r).toBe(200);
+});
+*/
+```
+
+**小结**：对于浏览器原生全局对象，**强烈推荐使用“间接层”的架构模式**。它能将不稳定的 `window` 依赖，转化为我们完全可控的、稳定的模块依赖。
+
+### 最终总结：如何选择？
+
+|依赖类型|推荐策略|Vitest API|备注|
+|---|---|---|---|
+|**环境变量**|**直接模拟** 或 **间接层**|`vi.stubEnv` / `vi.mock`|两者皆可，根据代码是否方便重构来选择。|
+|**自定义全局变量**|**直接模拟**|`vi.stubGlobal`|这是最简单、最有效的方案。|
+|**浏览器全局对象**|**强烈推荐间接层**|`vi.mock`|最稳定、最清晰的做法，能从根本上改善代码设计。|
 
 ---
 
