@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/articles/AI/AI常用指令.md",
+                "file": "docs/_sidebar.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "AI常用指令"
+              "title": "_sidebar"
             }
           }
         ]
@@ -137,6 +137,8 @@
   },
   "active": "c10c1d236ade8bd9",
   "lastOpenFiles": [
+    "docs/Pasted image 20250225170555.png",
+    "docs/articles/AI/AI常用指令.md",
     "docs/articles/docsify/使用docsify.md",
     "docs/_sidebar.md",
     "docs/articles/docsify/未命名.base",
