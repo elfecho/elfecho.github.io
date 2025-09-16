@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/articles/vitest/02-vitest测试数据的艺术三大模式与两大原则.md",
+                "file": "docs/articles/vitest/03-vitest中间接输入的测试策略.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "02-vitest测试数据的艺术三大模式与两大原则"
+              "title": "03-vitest中间接输入的测试策略"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "docs/articles/vitest/02-vitest测试数据的艺术三大模式与两大原则.md",
+                "file": "docs/articles/vitest/03-vitest中间接输入的测试策略.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "02-vitest测试数据的艺术三大模式与两大原则 的反向链接列表"
+              "title": "03-vitest中间接输入的测试策略 的反向链接列表"
             }
           },
           {
@@ -138,13 +138,14 @@
   },
   "active": "c10c1d236ade8bd9",
   "lastOpenFiles": [
+    "docs/_sidebar.md",
+    "docs/articles/vitest/03-vitest中间接输入的测试策略.md",
+    "articles/vitest",
+    "articles",
+    "docs/articles/vitest/02-vitest测试数据的艺术三大模式与两大原则.md",
     "docs/articles/vitest/01-vitest入门指南.md",
     "docs/articles/react/使用 Commit Lint 和 Husky 规范化 Git 提交信息.md",
     "docs/articles/vite/create-vite全流程.md",
-    "docs/articles/vitest/02-vitest测试数据的艺术三大模式与两大原则.md",
-    "docs/_sidebar.md",
-    "articles/vitest",
-    "articles",
     "articles/vitest/01-vitest入门.md",
     "docs/articles/storage/使用indexedDB.md",
     "docs/articles/vitest",
@@ -171,7 +172,6 @@
     "articles/vue",
     "articles/react/在 React 中使用 CSS 样式.md",
     "articles/react",
-    "docs/articles/react/react面试.md",
-    "docs/articles/react/JSX的使用.md"
+    "docs/articles/react/react面试.md"
   ]
 }
