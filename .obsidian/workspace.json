@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "articles/vitest/01-vitest入门.md",
+                "file": "docs/_sidebar.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "01-vitest入门"
+              "title": "_sidebar"
             }
           }
         ]
@@ -137,8 +137,9 @@
   },
   "active": "c10c1d236ade8bd9",
   "lastOpenFiles": [
-    "docs/_sidebar.md",
     "articles/vitest/01-vitest入门.md",
+    "docs/articles/typescript/09-Class类.md",
+    "docs/_sidebar.md",
     "articles/vitest",
     "articles",
     "docs/Pasted image 20250225170555.png",
