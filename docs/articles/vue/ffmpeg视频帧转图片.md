@@ -170,10 +170,19 @@ ffmpeg -framerate 1 -i temp_folder/thumb_%04d.jpg -vf "tile=5x4" -an -q:v 3 spri
 ```bash
 #!/bin/bash
 
+# ============================================================================
+# FFmpeg Batch Video Sprite Generator (v1.1 - Bash, Nested, Optimized)
+#
+# DESCRIPTION:
+#   Optimized version that uses a robust 'find' command construction
+#   without 'eval', and correctly handles filenames with spaces.
+# ============================================================================
+
+
 # --- USAGE ---
 # 1. Save this script as process_folder_nested.sh
 # 2. Grant execution permission: chmod +x process_folder_nested.sh
-# 3. Run with a video folder path: ./process_folder_nested.sh /path/to/your/videos
+# 3. Run with a video folder path: ./process_folder_nested.sh "/path/to/your videos"
 # -------------
 
 # Check for folder argument
@@ -182,7 +191,9 @@ echo "ERROR: Please provide a folder path containing videos as an argument."
 exit 1
 fi
 
-INPUT_FOLDER=$(realpath "\$1") # Resolve to absolute path
+# Resolve to an absolute path to handle relative paths correctly
+# The quotes around "\$1" are crucial for paths with spaces
+INPUT_FOLDER=$(realpath "\$1")
 if [ ! -d "$INPUT_FOLDER" ]; then
 echo "ERROR: Folder '$INPUT_FOLDER' not found."
 exit 1
@@ -210,17 +221,22 @@ echo "================================================="
 mkdir -p "$OUTPUT_ROOT_DIR"
 
 FRAME_INTERVAL=$((FPS * INTERVAL_SECONDS))
+TOTAL_VIDEOS=0
 
-# Construct find command to exclude the output directory itself from being processed
-FIND_CMD="find \"$INPUT_FOLDER\" -type f \( -iname \"*.${VIDEO_EXTENSIONS[0]}\""
-for ext in "${VIDEO_EXTENSIONS[@]:1}"; do
-FIND_CMD+=" -o -iname \"*.$ext\""
+# --- Find all video files and pipe them to the processing loop ---
+# This method is robust, avoids using 'eval', and handles special characters.
+
+# 1. Build an array of '-o -iname "*.ext"' arguments for the find command.
+find_args=()
+for ext in "${VIDEO_EXTENSIONS[@]}"; do
+find_args+=(-o -iname "*.$ext")
 done
-FIND_CMD+=' \) -not -path "$OUTPUT_ROOT_DIR/*"'
 
-# Execute the find command and process files
-eval $FIND_CMD | while read VIDEO_FILE; do
+# 2. Execute find, dropping the first "-o" and excluding the output path.
+# The main loop reads file paths from 'find' safely.
+find "$INPUT_FOLDER" -type f \( "${find_args[@]:1}" \) -not -path "$OUTPUT_ROOT_DIR/*" | while IFS= read -r VIDEO_FILE; do
 
+((TOTAL_VIDEOS++))
 VIDEO_BASENAME=$(basename "$VIDEO_FILE")
 VIDEO_NAME="${VIDEO_BASENAME%.*}"
 
@@ -234,10 +250,10 @@ mkdir -p "$VIDEO_OUTPUT_DIR"
 mkdir -p "$VIDEO_TEMP_DIR"
 
 echo "  > Step 1/3: Extracting frames..."
-ffmpeg -i "$VIDEO_FILE" -vf "select='not(mod(n\,$FRAME_INTERVAL))',scale=$THUMB_WIDTH:-1" -an -q:v $JPG_QUALITY -vsync vfr "$VIDEO_TEMP_DIR/thumb_%04d.jpg" >/dev/null 2>&1
+ffmpeg -nostdin -i "$VIDEO_FILE" -vf "select='not(mod(n\,$FRAME_INTERVAL))',scale=$THUMB_WIDTH:-1" -an -q:v $JPG_QUALITY -vsync vfr "$VIDEO_TEMP_DIR/thumb_%04d.jpg" >/dev/null 2>&1
 
 echo "  > Step 2/3: Tiling sprites..."
-ffmpeg -framerate 1 -i "$VIDEO_TEMP_DIR/thumb_%04d.jpg" -vf "tile=$TILE_LAYOUT" -an -q:v $JPG_QUALITY "$VIDEO_OUTPUT_DIR/sprite_%03d.jpg" >/dev/null 2>&1
+ffmpeg -nostdin -framerate 1 -i "$VIDEO_TEMP_DIR/thumb_%04d.jpg" -vf "tile=$TILE_LAYOUT" -an -q:v $JPG_QUALITY "$VIDEO_OUTPUT_DIR/sprite_%03d.jpg" >/dev/null 2>&1
 
 echo "  > Step 3/3: Cleaning up temporary files..."
 rm -rf "$VIDEO_TEMP_DIR"
@@ -245,7 +261,15 @@ echo "  > Finished: $VIDEO_BASENAME"
 echo ""
 done
 
-echo "All tasks completed!"
+echo "================================================="
+if [ $TOTAL_VIDEOS -eq 0 ]; then
+echo "No supported video files found in the source directory."
+else
+echo "All tasks completed. Processed $TOTAL_VIDEOS video file(s)."
+fi
+echo "Results are saved in: \"$OUTPUT_ROOT_DIR\""
+echo "================================================="
+
 
 ```
 
