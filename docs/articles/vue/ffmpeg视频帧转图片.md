@@ -104,8 +104,6 @@ ffmpeg -i your_video.mp4 -vf "select='gt(scene,0.4)',scale=480:-1" -vframes 1 th
 
 **命令模板：**
 
-bash
-
 ```bash
 ffmpeg -i [视频文件] -vf "select='not(mod(n\,[帧间隔]))',scale=[宽度]:[高度],tile=[列数]x[行数]" -vframes 1 -q:v [质量] [雪碧图文件名]
 ```
@@ -113,8 +111,6 @@ ffmpeg -i [视频文件] -vf "select='not(mod(n\,[帧间隔]))',scale=[宽度]:[
 **实战示例 (生成一张 5x4 的雪碧图):** 假设视频 25fps，每 10 秒截一张，小图宽 160px。
 
 - 帧间隔 = 10 * 25 = 250。
-
-bash
 
 ```bash
 ffmpeg -i your_video.mp4 -vf "select='not(mod(n\,250))',scale=160:-1,tile=5x4" -vframes 1 -q:v 3 sprite_preview.jpg
@@ -131,8 +127,6 @@ ffmpeg -i your_video.mp4 -vf "select='not(mod(n\,250))',scale=160:-1,tile=5x4" -
 **实现原理：** 我们只需要从上一条命令中**移除 `-vframes 1`** 并**修改输出文件名**。`tile` 过滤器在填满一个网格（例如 5x4）后，会自动输出当前这张雪碧图，并开始创建下一张。
 
 **修改后的命令模板：**
-
-bash
 
 ```bash
 ffmpeg -i [视频文件] -vf "select='not(mod(n\,[帧间隔]))',scale=[宽度]:[高度],tile=[列数]x[行数]" -an -q:v [质量] [输出文件序列格式]
@@ -172,13 +166,156 @@ ffmpeg -i your_long_video.mp4 -vf "select='not(mod(n\,250))',scale=160:-1,tile=5
 
 **控制处理时长 (可选):** 如果你只想为视频的前 30 分钟生成雪碧图，可以使用 `-t` 参数来指定处理时长。
 
-bash
-
 ```bash
 ffmpeg -i your_long_video.mp4 -t 00:30:00 -vf "select='not(mod(n\,250))',scale=160:-1,tile=5x4" -an -q:v 3 sprite_30min_%03d.jpg
 ```
 
-#### **6. 常见问题排查 (FAQ)**
+### **6. 自动化工作流：批量处理与文件整理**
+
+在实际项目中，我们通常希望将生成的缩略图文件存放在一个与视频文件同名的专属文件夹内，以方便管理。例如，处理 `my_movie.mp4` 时，自动创建一个名为 `my_movie` 的文件夹，并将所有雪碧图输出到其中。
+
+这需要通过一个简单的脚本来实现。下面我们为不同操作系统提供相应的解决方案。
+
+#### **6.1 Linux / macOS 用户 (使用 Bash 脚本)**
+
+您可以将下面的代码保存为一个名为 `generate_sprites.sh` 的文件。
+
+```bash
+#!/bin/bash
+
+# --- 使用说明 ---
+# 1. 将此脚本保存为 generate_sprites.sh
+# 2. 赋予执行权限: chmod +x generate_sprites.sh
+# 3. 运行脚本并传入视频文件路径: ./generate_sprites.sh /path/to/your_video.mp4
+# -----------------
+
+# 检查是否提供了视频文件参数
+if [ -z "\$1" ]; then
+    echo "错误: 请提供一个视频文件路径作为参数。"
+    echo "用法: \$0 <视频文件>"
+    exit 1
+fi
+
+VIDEO_FILE="\$1"
+
+# 检查文件是否存在
+if [ ! -f "$VIDEO_FILE" ]; then
+    echo "错误: 文件 '$VIDEO_FILE' 不存在。"
+    exit 1
+fi
+
+# --- 参数配置 ---
+INTERVAL_SECONDS=10      # 每隔多少秒截一张图
+TILE_LAYOUT="5x4"        # 雪碧图布局（5列 x 4行）
+THUMB_WIDTH=160          # 每张小图的宽度
+JPG_QUALITY=3            # JPG图片质量 (1-31, 越小越好)
+# -----------------
+
+# 从视频文件名创建输出目录名 (例如: "my_video.mp4" -> "my_video")
+BASENAME=$(basename "$VIDEO_FILE")
+DIR_NAME="${BASENAME%.*}"
+
+# 创建目录 (如果目录已存在，-p 参数会静默处理，不会报错)
+mkdir -p "$DIR_NAME"
+echo "输出目录 '$DIR_NAME' 已创建或已存在。"
+
+# 使用 ffprobe 获取视频帧率 (更精确的计算方法)
+# 如果 ffprobe 不可用，可以手动设置一个默认值，如 FPS=25
+FPS=$(ffprobe -v error -select_streams v:0 -show_entries stream=r_frame_rate -of default=noprint_wrappers=1:nokey=1 "$VIDEO_FILE")
+# 将帧率从 "30000/1001" 这种格式计算为数值
+FPS_VALUE=$(echo "$FPS" | bc -l)
+FRAME_INTERVAL=$(echo "$FPS_VALUE * $INTERVAL_SECONDS" | bc)
+
+echo "视频帧率: $FPS_VALUE fps, 帧间隔设置为: $FRAME_INTERVAL"
+echo "开始生成雪碧图..."
+
+# 执行 FFmpeg 命令
+ffmpeg -i "$VIDEO_FILE" \
+       -vf "select='not(mod(n\,${FRAME_INTERVAL%.*}))',scale=$THUMB_WIDTH:-1,tile=$TILE_LAYOUT" \
+       -an -q:v $JPG_QUALITY \
+       "$DIR_NAME/sprite_%03d.jpg"
+
+echo "处理完成！雪碧图已保存至 '$DIR_NAME' 文件夹。"
+```
+
+**如何使用:**
+
+1. 将以上代码复制并保存为 `generate_sprites.sh` 文件。
+2. 在终端中，给它执行权限：`chmod +x generate_sprites.sh`
+3. 运行它，后面跟上你的视频文件路径：`./generate_sprites.sh my_long_video.mp4`
+4. 脚本会自动创建一个名为 `my_long_video` 的文件夹，并将所有生成的 `sprite_xxx.jpg` 文件放入其中。
+
+#### **6.2 Windows 用户 (使用 Batch 脚本)**
+
+您可以将下面的代码保存为一个名为 `generate_sprites.bat` 的文件。
+
+```batch
+@echo off
+
+:: --- 使用说明 ---
+:: 1. 将此脚本保存为 generate_sprites.bat
+:: 2. 直接将视频文件拖拽到此 .bat 文件图标上，或者通过命令行运行:
+::    generate_sprites.bat "C:\path\to\your_video.mp4"
+:: -----------------
+
+:: 检查是否提供了视频文件参数
+if "%~1"=="" (
+    echo 错误: 请提供一个视频文件路径作为参数。
+    echo 用法: 将视频文件拖到此脚本上，或在命令行中指定路径。
+    pause
+    exit /b
+)
+
+set "VIDEO_FILE=%~1"
+
+:: 检查文件是否存在
+if not exist "%VIDEO_FILE%" (
+    echo 错误: 文件 "%VIDEO_FILE%" 不存在。
+    pause
+    exit /b
+)
+
+:: --- 参数配置 ---
+set INTERVAL_SECONDS=10
+set TILE_LAYOUT=5x4
+set THUMB_WIDTH=160
+set JPG_QUALITY=3
+:: 在 Windows 中手动设置一个大概的帧率，或保持25
+set FPS=25
+:: -----------------
+
+:: 从视频文件名创建输出目录名 (例如: "my_video.mp4" -> "my_video")
+set "DIR_NAME=%~n1"
+
+:: 创建目录 (如果目录已存在，则不会执行)
+if not exist "%DIR_NAME%" (
+    mkdir "%DIR_NAME%"
+    echo 输出目录 "%DIR_NAME%" 已创建。
+) else (
+    echo 输出目录 "%DIR_NAME%" 已存在。
+)
+
+set /a FRAME_INTERVAL=%FPS% * %INTERVAL_SECONDS%
+
+echo 视频帧率估算: %FPS% fps, 帧间隔设置为: %FRAME_INTERVAL%
+echo 开始生成雪碧图...
+
+:: 执行 FFmpeg 命令
+:: 注意：在 batch 脚本中, % 需要用 %% 来转义
+ffmpeg -i "%VIDEO_FILE%" -vf "select='not(mod(n\,%FRAME_INTERVAL%))',scale=%THUMB_WIDTH%:-1,tile=%TILE_LAYOUT%" -an -q:v %JPG_QUALITY% "%DIR_NAME%\sprite_%%03d.jpg"
+
+echo.
+echo 处理完成！雪碧图已保存至 "%DIR_NAME%" 文件夹。
+pause
+```
+
+**如何使用:**
+
+1. 将以上代码复制并保存为 `generate_sprites.bat` 文件。
+2. **最简单的方法：** 直接从文件资源管理器中，将你的视频文件拖拽到 `generate_sprites.bat` 文件的图标上。
+3. 脚本会自动在当前目录下创建一个与视频同名的文件夹，并将所有雪碧图输出到里面。
+
+#### **7. 常见问题排查 (FAQ)**
 
 1. **问：命令执行后提示 `ffmpeg: command not found`？** **答：** 这是因为 FFmpeg 没有被正确安装，或者其安装路径没有被添加到系统环境变量 `Path` 中。请返回第 2 节检查。
     
