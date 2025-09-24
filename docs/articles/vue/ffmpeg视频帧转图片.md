@@ -254,12 +254,11 @@ setlocal enabledelayedexpansion
 chcp 65001 > NUL
 
 :: ============================================================================
-:: FFmpeg Batch Video Sprite Generator (V5.5 - English UI)
+:: FFmpeg Batch Video Sprite Generator (V1.0 - Nested, Final Robust Version)
 ::
-:: USAGE:
-::   1. Save this script as process_folder.bat
-::   2. Drag and drop a folder containing videos onto this .bat file icon.
-::   3. Or, run from the command line: process_folder.bat "C:\path\to\videos_folder"
+:: DESCRIPTION:
+::   Uses the most standard and reliable methods to prevent syntax errors on
+::   any file path, including root directories.
 :: ============================================================================
 
 if "%~1"=="" (
@@ -287,18 +286,16 @@ set JPG_QUALITY=3
 set FPS=25
 :: ---------------------------
 
-:: --- Path Setup ---
-for %%F in ("%INPUT_FOLDER%") do set "FOLDER_NAME=%%~nF"
-for %%F in ("%INPUT_FOLDER%\..") do set "PARENT_DIR=%%~fF"
+:: --- Path Setup (Nested Structure) ---
 set "OUTPUT_ROOT_DIR=%INPUT_FOLDER%\thumbnails"
 
 echo.
 echo ============================================================================
-echo                      FFmpeg Batch Sprite Generation (Windows)
+echo         FFmpeg Batch Sprite Generation (Windows - Nested Structure)
 echo ============================================================================
 echo.
 echo  - Source Folder: %INPUT_FOLDER%
-echo  - Output Root:   %OUTPUT_ROOT_DIR%
+echo  - Output Root:   %OUTPUT_ROOT_DIR% (Nested inside source)
 echo.
 echo ============================================================================
 
@@ -315,6 +312,13 @@ echo.
 
 set /a TOTAL_VIDEOS=0
 for /r "%INPUT_FOLDER%" %%V in (%VIDEO_EXTENSIONS%) do (
+
+:: Standard Method to get Parent Directory Name (Robust)
+set "PARENT_PATH=%%~dpV"
+for %%F in ("!PARENT_PATH:~0,-1!") do set "PARENT_DIR_NAME=%%~nxF"
+
+:: Final Check: Process the file only if its parent directory is NOT named "thumbnails"
+if /i "!PARENT_DIR_NAME!" NEQ "thumbnails" (
 set /a TOTAL_VIDEOS+=1
 set "VIDEO_BASENAME=%%~nV"
 
@@ -346,12 +350,13 @@ echo   ^> Finished processing "!VIDEO_BASENAME!".
 )
 echo.
 )
+)
 
 echo ============================================================================
 if %TOTAL_VIDEOS% equ 0 (
-echo No supported video files found in "%INPUT_FOLDER%".
+echo No supported video files found in the source directory.
 ) else (
-echo All tasks completed. Processed %TOTAL_VIDEOS% video file(s).
+echo All tasks completed. Processed %TOTAL_VIDEOS% video file(s^).
 )
 echo Results are saved in: "%OUTPUT_ROOT_DIR%"
 echo ============================================================================
