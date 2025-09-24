@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/articles/git/git工作常备.md",
+                "file": "docs/articles/vue/ffmpeg视频帧转图片.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "git工作常备"
+              "title": "ffmpeg视频帧转图片"
             }
           }
         ]
@@ -136,9 +136,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "f5bd54ab18bfbe61",
+  "active": "c10c1d236ade8bd9",
   "lastOpenFiles": [
     "docs/_sidebar.md",
+    "docs/articles/vue/ffmpeg视频帧转图片.md",
+    "articles/vue",
     "docs/articles/git/git工作常备.md",
     "articles/git",
     "docs/articles/git/git常用命令总结.md",
@@ -171,8 +173,6 @@
     "articles/react/JSX的使用.md",
     "articles/vue/搭建vue3集成项目.md",
     "articles/vue/Vue3CustomRenderer：动机、使用与原理.md",
-    "articles/vue",
-    "articles/react/在 React 中使用 CSS 样式.md",
     "articles/react"
   ]
 }
