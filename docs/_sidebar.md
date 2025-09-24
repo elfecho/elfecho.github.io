@@ -8,7 +8,7 @@
 	- [axios实现导出导入Excel](/articles/vue/axios实现导出导入Excel)
 	- [实现vue-cli4改造为ssr项目](/articles/vue/实现vue-cli4改造为ssr项目)
 	- [Vue3 Custom Renderer：动机、使用与原理](/articles/vue/Vue3CustomRenderer：动机、使用与原理)
-	- [ffmpeg视频帧转图片](ffmpeg视频帧转图片.md)
+	- [FFmpeg视频文件转缩略图](FFmpeg视频文件转缩略图.md)
 - React笔记 <!-- 对应 articles/react -->
 	- [React入门](/articles/react/React入门)
 	- [使用 Create React App](/articles/react/使用%20Create%20React%20App)
