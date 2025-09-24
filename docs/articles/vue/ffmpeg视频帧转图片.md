@@ -16,7 +16,14 @@ ffmpeg -version
 
 - **安装方法**：
 - **Linux (Ubuntu/Debian)**: `sudo apt update && sudo apt install ffmpeg`
-- **Linux (CentOS/RHEL)**: `sudo yum install ffmpeg ffmpeg-devel` (需配置好源)
+- **Linux (CentOS/RHEL)**: 需要先启用 EPEL 和 RPM Fusion 源，然后执行安装。
+
+```bash
+sudo yum install -y epel-release
+sudo yum localinstall --nogpgcheck https://download1.rpmfusion.org/free/el/rpmfusion-free-release-$(rpm -E %rhel).noarch.rpm
+sudo yum install -y ffmpeg ffmpeg-devel
+```
+
 - **macOS (使用 Homebrew)**: `brew install ffmpeg`
 - **Windows**: 前往 [FFmpeg 官网下载页面](https://ffmpeg.org/download.html)，下载编译好的版本，解压后将其 `bin` 目录添加到系统环境变量 `Path` 中。
 
