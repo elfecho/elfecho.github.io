@@ -156,7 +156,7 @@ ffmpeg -framerate 1 -i temp_folder/thumb_%04d.jpg -vf "tile=5x4" -an -q:v 3 spri
 
 #### **6.1 Linux / macOS 用户 (使用 Bash 脚本)**
 
-此脚本会遍历指定输入文件夹内的所有视频，在输入文件夹的**同级**创建一个带 `-vvt` 后缀的输出总目录，并为每个视频在其中生成一个子目录存放结果。
+此脚本会遍历指定输入文件夹内的所有视频，在输入文件夹的**里面**创建一个带 `thumbnails` 的输出总目录，并为每个视频在其中生成一个子目录存放结果。
 
 **脚本 (`process_folder.sh`):**
 
@@ -164,9 +164,9 @@ ffmpeg -framerate 1 -i temp_folder/thumb_%04d.jpg -vf "tile=5x4" -an -q:v 3 spri
 #!/bin/bash
 
 # --- USAGE ---
-# 1. Save this script as process_folder.sh
-# 2. Grant execution permission: chmod +x process_folder.sh
-# 3. Run the script with a video folder path: ./process_folder.sh /path/to/videos_folder
+# 1. Save this script as process_folder_nested.sh
+# 2. Grant execution permission: chmod +x process_folder_nested.sh
+# 3. Run with a video folder path: ./process_folder_nested.sh /path/to/your/videos
 # -------------
 
 # Check for folder argument
@@ -175,7 +175,7 @@ echo "ERROR: Please provide a folder path containing videos as an argument."
 exit 1
 fi
 
-INPUT_FOLDER="\$1"
+INPUT_FOLDER=$(realpath "\$1") # Resolve to absolute path
 if [ ! -d "$INPUT_FOLDER" ]; then
 echo "ERROR: Folder '$INPUT_FOLDER' not found."
 exit 1
@@ -190,23 +190,29 @@ JPG_QUALITY=3
 FPS=25
 # ---------------------
 
-# --- Path Setup ---
-PARENT_DIR=$(dirname "$INPUT_FOLDER")
-FOLDER_NAME=$(basename "$INPUT_FOLDER")
-OUTPUT_ROOT_DIR="$PARENT_DIR/${FOLDER_NAME}-vvt"
-mkdir -p "$OUTPUT_ROOT_DIR"
+# --- Path Setup (Nested Structure) ---
+OUTPUT_ROOT_DIR="$INPUT_FOLDER/thumbnails"
 
 echo "================================================="
-echo "    FFmpeg Batch Sprite Generation (Bash)"
+echo " FFmpeg Batch Sprite Generation (Bash - Nested)"
 echo "================================================="
 echo " - Source Folder: $INPUT_FOLDER"
-echo " - Output Root:   $OUTPUT_ROOT_DIR"
+echo " - Output Root:   $OUTPUT_ROOT_DIR (Nested)"
 echo "================================================="
+
+mkdir -p "$OUTPUT_ROOT_DIR"
 
 FRAME_INTERVAL=$((FPS * INTERVAL_SECONDS))
 
-# Find and process all video files
-find "$INPUT_FOLDER" -type f \( -iname "*.${VIDEO_EXTENSIONS[0]}" $(for ext in "${VIDEO_EXTENSIONS[@]:1}"; do echo -n " -o -iname \"*.$ext\""; done) \) | while read VIDEO_FILE; do
+# Construct find command to exclude the output directory itself from being processed
+FIND_CMD="find \"$INPUT_FOLDER\" -type f \( -iname \"*.${VIDEO_EXTENSIONS[0]}\""
+for ext in "${VIDEO_EXTENSIONS[@]:1}"; do
+FIND_CMD+=" -o -iname \"*.$ext\""
+done
+FIND_CMD+=' \) -not -path "$OUTPUT_ROOT_DIR/*"'
+
+# Execute the find command and process files
+eval $FIND_CMD | while read VIDEO_FILE; do
 
 VIDEO_BASENAME=$(basename "$VIDEO_FILE")
 VIDEO_NAME="${VIDEO_BASENAME%.*}"
@@ -233,6 +239,7 @@ echo ""
 done
 
 echo "All tasks completed!"
+
 ```
 
 #### **6.2 Windows 用户 (使用 Batch 脚本)**
@@ -283,7 +290,7 @@ set FPS=25
 :: --- Path Setup ---
 for %%F in ("%INPUT_FOLDER%") do set "FOLDER_NAME=%%~nF"
 for %%F in ("%INPUT_FOLDER%\..") do set "PARENT_DIR=%%~fF"
-set "OUTPUT_ROOT_DIR=%PARENT_DIR%\%FOLDER_NAME%-vvt"
+set "OUTPUT_ROOT_DIR=%INPUT_FOLDER%\thumbnails"
 
 echo.
 echo ============================================================================
