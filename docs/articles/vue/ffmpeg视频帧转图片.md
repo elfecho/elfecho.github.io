@@ -163,56 +163,56 @@ ffmpeg -framerate 1 -i temp_folder/thumb_%04d.jpg -vf "tile=5x4" -an -q:v 3 spri
 ```bash
 #!/bin/bash
 
-# --- 使用说明 ---
-# 1. 将此脚本保存为 process_folder.sh
-# 2. 赋予执行权限: chmod +x process_folder.sh
-# 3. 运行脚本并传入视频文件夹路径: ./process_folder.sh /path/to/videos_folder
-# -----------------
+# --- USAGE ---
+# 1. Save this script as process_folder.sh
+# 2. Grant execution permission: chmod +x process_folder.sh
+# 3. Run the script with a video folder path: ./process_folder.sh /path/to/videos_folder
+# -------------
 
-# 检查是否提供了文件夹参数
+# Check for folder argument
 if [ -z "\$1" ]; then
-echo "错误: 请提供一个包含视频的文件夹路径作为参数。"
+echo "ERROR: Please provide a folder path containing videos as an argument."
 exit 1
 fi
 
 INPUT_FOLDER="\$1"
 if [ ! -d "$INPUT_FOLDER" ]; then
-echo "错误: 文件夹 '$INPUT_FOLDER' 不存在。"
+echo "ERROR: Folder '$INPUT_FOLDER' not found."
 exit 1
 fi
 
-# --- 参数配置 ---
+# --- Configuration ---
 VIDEO_EXTENSIONS=("mp4" "mkv" "avi" "mov" "flv" "webm")
 INTERVAL_SECONDS=10
 TILE_LAYOUT="5x4"
 THUMB_WIDTH=160
 JPG_QUALITY=3
 FPS=25
-# -----------------
+# ---------------------
 
-# --- 路径设置 ---
+# --- Path Setup ---
 PARENT_DIR=$(dirname "$INPUT_FOLDER")
 FOLDER_NAME=$(basename "$INPUT_FOLDER")
 OUTPUT_ROOT_DIR="$PARENT_DIR/${FOLDER_NAME}-vvt"
 mkdir -p "$OUTPUT_ROOT_DIR"
 
 echo "================================================="
-echo " FFmpeg 批量雪碧图生成 (Bash)"
+echo "    FFmpeg Batch Sprite Generation (Bash)"
 echo "================================================="
-echo " - 源文件夹: $INPUT_FOLDER"
-echo " - 输出目录: $OUTPUT_ROOT_DIR"
+echo " - Source Folder: $INPUT_FOLDER"
+echo " - Output Root:   $OUTPUT_ROOT_DIR"
 echo "================================================="
 
 FRAME_INTERVAL=$((FPS * INTERVAL_SECONDS))
 
-# 查找并处理所有视频文件
+# Find and process all video files
 find "$INPUT_FOLDER" -type f \( -iname "*.${VIDEO_EXTENSIONS[0]}" $(for ext in "${VIDEO_EXTENSIONS[@]:1}"; do echo -n " -o -iname \"*.$ext\""; done) \) | while read VIDEO_FILE; do
 
 VIDEO_BASENAME=$(basename "$VIDEO_FILE")
 VIDEO_NAME="${VIDEO_BASENAME%.*}"
 
 echo "-------------------------------------------------"
-echo "正在处理: $VIDEO_BASENAME"
+echo "Processing: $VIDEO_BASENAME"
 
 VIDEO_OUTPUT_DIR="$OUTPUT_ROOT_DIR/$VIDEO_NAME"
 VIDEO_TEMP_DIR="${VIDEO_OUTPUT_DIR}_temp"
@@ -220,19 +220,19 @@ VIDEO_TEMP_DIR="${VIDEO_OUTPUT_DIR}_temp"
 mkdir -p "$VIDEO_OUTPUT_DIR"
 mkdir -p "$VIDEO_TEMP_DIR"
 
-echo "  > 步骤 1/3: 提取帧..."
+echo "  > Step 1/3: Extracting frames..."
 ffmpeg -i "$VIDEO_FILE" -vf "select='not(mod(n\,$FRAME_INTERVAL))',scale=$THUMB_WIDTH:-1" -an -q:v $JPG_QUALITY -vsync vfr "$VIDEO_TEMP_DIR/thumb_%04d.jpg" >/dev/null 2>&1
 
-echo "  > 步骤 2/3: 拼接雪碧图..."
+echo "  > Step 2/3: Tiling sprites..."
 ffmpeg -framerate 1 -i "$VIDEO_TEMP_DIR/thumb_%04d.jpg" -vf "tile=$TILE_LAYOUT" -an -q:v $JPG_QUALITY "$VIDEO_OUTPUT_DIR/sprite_%03d.jpg" >/dev/null 2>&1
 
-echo "  > 步骤 3/3: 清理临时文件..."
+echo "  > Step 3/3: Cleaning up temporary files..."
 rm -rf "$VIDEO_TEMP_DIR"
-echo "  > 完成: $VIDEO_BASENAME"
+echo "  > Finished: $VIDEO_BASENAME"
 echo ""
 done
 
-echo "所有任务完成！"
+echo "All tasks completed!"
 ```
 
 #### **6.2 Windows 用户 (使用 Batch 脚本)**
@@ -247,17 +247,17 @@ setlocal enabledelayedexpansion
 chcp 65001 > NUL
 
 :: ============================================================================
-:: FFmpeg 批量视频雪碧图生成 (V5.4 - 最终修正版)
+:: FFmpeg Batch Video Sprite Generator (V5.5 - English UI)
 ::
-:: 用法:
-::   1. 将此脚本保存为 process_folder.bat
-::   2. 将一个包含视频的文件夹拖拽到此 .bat 文件图标上。
-::   3. 或通过命令行运行: process_folder.bat "C:\path\to\videos_folder"
+:: USAGE:
+::   1. Save this script as process_folder.bat
+::   2. Drag and drop a folder containing videos onto this .bat file icon.
+::   3. Or, run from the command line: process_folder.bat "C:\path\to\videos_folder"
 :: ============================================================================
 
 if "%~1"=="" (
 echo.
-echo  错误: 请提供一个文件夹路径作为参数。
+echo  ERROR: Please provide a folder path as an argument.
 echo.
 pause
 exit /b
@@ -266,12 +266,12 @@ exit /b
 set "INPUT_FOLDER=%~1"
 if not exist "%INPUT_FOLDER%\" (
 echo.
-echo  错误: 路径 "%INPUT_FOLDER%" 不是一个有效的文件夹。
+echo  ERROR: The path "%INPUT_FOLDER%" is not a valid folder.
 pause
 exit /b
 )
 
-:: --- 参数配置 ---
+:: --- Script Configuration ---
 set VIDEO_EXTENSIONS=*.mp4 *.mkv *.avi *.mov *.flv *.webm
 set INTERVAL_SECONDS=10
 set TILE_LAYOUT=5x4
@@ -280,30 +280,30 @@ set JPG_QUALITY=3
 set FPS=25
 :: ---------------------------
 
-:: --- 路径设置 ---
+:: --- Path Setup ---
 for %%F in ("%INPUT_FOLDER%") do set "FOLDER_NAME=%%~nF"
 for %%F in ("%INPUT_FOLDER%\..") do set "PARENT_DIR=%%~fF"
 set "OUTPUT_ROOT_DIR=%PARENT_DIR%\%FOLDER_NAME%-vvt"
 
 echo.
 echo ============================================================================
-echo                      FFmpeg 批量雪碧图生成 (Windows)
+echo                      FFmpeg Batch Sprite Generation (Windows)
 echo ============================================================================
 echo.
-echo  - 源文件夹: %INPUT_FOLDER%
-echo  - 输出目录:   %OUTPUT_ROOT_DIR%
+echo  - Source Folder: %INPUT_FOLDER%
+echo  - Output Root:   %OUTPUT_ROOT_DIR%
 echo.
 echo ============================================================================
 
 mkdir "%OUTPUT_ROOT_DIR%" > NUL 2> NUL
 if not exist "%OUTPUT_ROOT_DIR%\" (
-echo 错误: 无法创建输出目录 "%OUTPUT_ROOT_DIR%"。请检查权限。
+echo ERROR: Failed to create output directory "%OUTPUT_ROOT_DIR%". Please check permissions.
 pause
 exit /b
 )
 
 echo.
-echo 开始处理视频...
+echo Starting to process videos...
 echo.
 
 set /a TOTAL_VIDEOS=0
@@ -312,7 +312,7 @@ set /a TOTAL_VIDEOS+=1
 set "VIDEO_BASENAME=%%~nV"
 
 echo ----------------------------------------------------------------------------
-echo 正在处理: [%%~nxV]
+echo Processing: [%%~nxV]
 echo ----------------------------------------------------------------------------
 
 set "VIDEO_OUTPUT_DIR=!OUTPUT_ROOT_DIR!\!VIDEO_BASENAME!"
@@ -322,34 +322,35 @@ mkdir "!VIDEO_OUTPUT_DIR!" > NUL 2> NUL
 mkdir "!VIDEO_TEMP_DIR!" > NUL 2> NUL
 
 if not exist "!VIDEO_TEMP_DIR!\" (
-echo   ^> 错误: 无法为 "!VIDEO_BASENAME!" 创建临时目录。正在跳过...
+echo   ^> ERROR: Failed to create temp directory for "!VIDEO_BASENAME!". Skipping...
 ) else (
 set /a FRAME_INTERVAL=!FPS! * !INTERVAL_SECONDS!
 
-echo   ^> 步骤 1/3: 提取帧...
+echo   ^> Step 1/3: Extracting frames...
 ffmpeg -i "%%~fV" -vf "select='not(mod(n\,!FRAME_INTERVAL!))',scale=%THUMB_WIDTH%:-1" -an -q:v %JPG_QUALITY% -vsync vfr "!VIDEO_TEMP_DIR!\thumb_%%04d.jpg" > NUL 2>&1
 
-echo   ^> 步骤 2/3: 拼接雪碧图...
+echo   ^> Step 2/3: Tiling sprites...
 ffmpeg -framerate 1 -i "!VIDEO_TEMP_DIR!\thumb_%%04d.jpg" -vf "tile=%TILE_LAYOUT%" -an -q:v %JPG_QUALITY% "!VIDEO_OUTPUT_DIR!\sprite_%%03d.jpg" > NUL 2>&1
 
-echo   ^> 步骤 3/3: 清理临时文件...
+echo   ^> Step 3/3: Cleaning up temporary files...
 rmdir /s /q "!VIDEO_TEMP_DIR!"
 
-echo   ^> 完成处理 "!VIDEO_BASENAME!".
+echo   ^> Finished processing "!VIDEO_BASENAME!".
 )
 echo.
 )
 
 echo ============================================================================
 if %TOTAL_VIDEOS% equ 0 (
-echo 在 "%INPUT_FOLDER%" 中未找到任何支持的视频文件。
+echo No supported video files found in "%INPUT_FOLDER%".
 ) else (
-echo 所有任务完成。共处理了 %TOTAL_VIDEOS% 个视频文件。
+echo All tasks completed. Processed %TOTAL_VIDEOS% video file(s).
 )
-echo 结果已保存在: "%OUTPUT_ROOT_DIR%"
+echo Results are saved in: "%OUTPUT_ROOT_DIR%"
 echo ============================================================================
 echo.
 pause
+
 ```
 
 #### **7. 常见问题排查 (FAQ)**
